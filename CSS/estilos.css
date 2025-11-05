@@ -178,6 +178,86 @@ h3{ font-size:1.05rem; margin-bottom:8px; color:var(--deep-blue) }
     margin-top:18px;
 }
 
+.quienes-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+}
+
+.quienes-foto {
+    max-width: 300px;
+}
+
+.foto-pareja {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.curriculum-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 320px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: var(--color-acento, #004AAD);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-acento, #004AAD);
+}
+
+.mision-vision {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.mision-vision .card {
+    max-width: 450px;
+    text-align: center;
+}
+
+
 /* Actividades (grid) */
 .grid-actividades{
     display:grid;
@@ -216,8 +296,8 @@ h3{ font-size:1.05rem; margin-bottom:8px; color:var(--deep-blue) }
 .contacto {
     text-align: center;
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, #aeb4e6 0%, #cfcae6 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #b6c7d6 0%, #dbe2ea 100%);
+    color: #333;
 }
 
 .contacto .container {
