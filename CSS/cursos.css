@@ -1,0 +1,208 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+/* ===== HERO SECTION ===== */
+.curso-hero {
+    background: linear-gradient(135deg, #b84b6f 0%, #d58c52 100%);
+    color: #fff;
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    position: relative;
+}
+
+.curso-hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.15;
+    background: url("../img/Mat.jpg") no-repeat center center/cover;
+}
+
+.curso-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.curso-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.curso-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* ===== SECCIONES ===== */
+.section {
+    padding: 5rem 2rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.section h2 {
+    text-align: center;
+    color: #b84b6f;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* ===== OBSTÁCULOS ===== */
+.grid-obstaculos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.obstaculo-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.obstaculo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.obstaculo-card .icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.obstaculo-card:hover .icon {
+    transform: scale(1.1);
+}
+
+.obstaculo-card h3 {
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.obstaculo-card p {
+    color: var(--text-muted);
+}
+
+/* ===== BENEFICIOS ===== */
+.lista-beneficios {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.lista-beneficios li {
+    background: linear-gradient(90deg, #ffe0e0 0%, #fff5e1 100%);
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    transition: background 0.3s ease;
+}
+
+.lista-beneficios li:hover {
+    background: linear-gradient(90deg, #ffd4d4 0%, #ffe8c7 100%);
+}
+
+/* ===== RESULTADOS ===== */
+.grid-resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.resultado {
+    background: #fff;
+    border-left: 5px solid #b84b6f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.resultado:hover {
+    transform: translateY(-6px);
+    border-left-color: #d58c52;
+}
+
+/* ===== INSTRUCTORES ===== */
+.grid-instructores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.instructor-card {
+    background: linear-gradient(135deg, #fff6f6 0%, #fff9f3 100%);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* ===== TABLA DE INVERSIÓN ===== */
+.tabla-inversion {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.tabla-inversion th {
+    background: #b84b6f;
+    color: #fff;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.tabla-inversion td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-inversion tr:nth-child(even) {
+    background: #fff6f7;
+}
+
+/* ===== PROMOCIÓN FINAL ===== */
+.promocion {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.promocion strong {
+    color: #b84b6f;
+}
+
+
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
