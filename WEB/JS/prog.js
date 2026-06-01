@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ===== ENROLLMENT FORM (course pages only) =====
     // Update BACKEND_URL after deploying the backend to Railway/Render
-    var BACKEND_URL = 'https://YOUR-BACKEND.railway.app';
+    var BACKEND_URL = 'https://institutopersonayfamilia.railway.app';
 
     (function initInscripcionForm() {
         var btnAbrir  = document.getElementById('btn-abrir-form');
