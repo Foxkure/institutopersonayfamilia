@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago pendiente | Instituto Persona y Familia</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .pago-resultado {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 32px;
+            text-align: center;
+        }
+        .pago-resultado-inner { max-width: 520px; }
+        .pago-icono {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-size: 2rem;
+        }
+        .pago-icono.pendiente { background: #fef9c3; color: #ca8a04; }
+        .pago-resultado h1 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .pago-resultado p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="logo">
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#cursos">Cursos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- RESULT -->
+    <section class="pago-resultado">
+        <div class="pago-resultado-inner">
+            <div class="pago-icono pendiente">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h1>Pago pendiente</h1>
+            <p>Tu pago está siendo procesado. Esto puede tardar unas horas. Te notificaremos por correo en cuanto se confirme tu inscripción.</p>
+            <a href="index.html" class="btn">Volver al inicio</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <img src="img/logo.png" alt="Logo" class="footer-logo">
+            <p>&copy; 2025 Instituto Persona y Familia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="JS/prog.js"></script>
+</body>
+</html>

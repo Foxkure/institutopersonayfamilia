@@ -1,0 +1,8 @@
+# Netlify configuration
+# Blocks direct HTTP access to the /backend/ folder —
+# those files are only meant to run on Railway, not be served statically.
+[[redirects]]
+  from = "/backend/*"
+  to = "/404"
+  status = 404
+  force = true

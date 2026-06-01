@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El pago no se completó | Instituto Persona y Familia</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .pago-resultado {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 32px;
+            text-align: center;
+        }
+        .pago-resultado-inner { max-width: 520px; }
+        .pago-icono {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            font-size: 2rem;
+        }
+        .pago-icono.error { background: #fee2e2; color: #dc2626; }
+        .pago-resultado h1 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .pago-resultado p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .pago-acciones { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            padding: 13px 28px;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: var(--radius-sm);
+            font-size: 0.975rem;
+            font-weight: 600;
+            transition: background var(--transition), color var(--transition);
+        }
+        .btn-outline:hover { background: var(--accent); color: #fff; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="logo">
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#cursos">Cursos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- RESULT -->
+    <section class="pago-resultado">
+        <div class="pago-resultado-inner">
+            <div class="pago-icono error">
+                <i class="fas fa-times"></i>
+            </div>
+            <h1>El pago no se completó</h1>
+            <p>Hubo un problema al procesar tu pago. Puedes intentarlo de nuevo o contactarnos directamente por WhatsApp y te ayudamos a completar tu inscripción.</p>
+            <div class="pago-acciones">
+                <a href="javascript:history.back()" class="btn">Intentar de nuevo</a>
+                <a href="https://wa.me/5218442911338?text=Hola%2C%20tuve%20un%20problema%20con%20mi%20pago%20y%20necesito%20ayuda"
+                   target="_blank" class="btn-outline">
+                   <i class="fab fa-whatsapp" style="margin-right:6px;"></i> Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <img src="img/logo.png" alt="Logo" class="footer-logo">
+            <p>&copy; 2025 Instituto Persona y Familia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="JS/prog.js"></script>
+</body>
+</html>

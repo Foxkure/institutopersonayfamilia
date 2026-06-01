@@ -1,0 +1,7 @@
+/* cursos2.css — Diplomado en Desarrollo Humano
+   All course styles come from cursos.css (loaded before this file).
+   This file only overrides the hero background image for this page. */
+
+.curso-hero::after {
+  background: url("../img/DH.jpg") no-repeat center / cover;
+}
