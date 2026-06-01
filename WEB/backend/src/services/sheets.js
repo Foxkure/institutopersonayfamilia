@@ -16,12 +16,19 @@ const { randomUUID } = require('crypto');
 const SHEET_NAME = 'Inscripciones';
 const SPREADSHEET_ID = () => process.env.GOOGLE_SPREADSHEET_ID;
 
+function parsePrivateKey(raw) {
+  // Strip surrounding quotes that Railway sometimes adds (e.g. "\"-----BEGIN...")
+  let key = raw.trim().replace(/^"+|"+$/g, '');
+  // Convert literal \n sequences to real newlines
+  key = key.replace(/\\n/g, '\n');
+  return key;
+}
+
 function getAuth() {
   return new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      // Railway stores the key with literal \n — convert them back to real newlines
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      private_key: parsePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
