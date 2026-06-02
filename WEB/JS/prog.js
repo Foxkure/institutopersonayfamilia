@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ===== ENROLLMENT FORM (course pages only) =====
     // Update BACKEND_URL after deploying the backend to Railway/Render
-    var BACKEND_URL = ''; // Netlify proxies /api/* to Railway — no CORS needed
+    var BACKEND_URL = '/.netlify/functions'; // Netlify Function proxies to Railway
 
     (function initInscripcionForm() {
         var btnAbrir  = document.getElementById('btn-abrir-form');
