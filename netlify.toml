@@ -2,6 +2,9 @@
   publish = "WEB"
   functions = "WEB/netlify/functions"
 
+[build.environment]
+  NODE_VERSION = "18"
+
 [[redirects]]
   from = "/backend/*"
   to = "/404"

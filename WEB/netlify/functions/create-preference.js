@@ -14,14 +14,28 @@ exports.handler = async (event) => {
       body: event.body,
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    console.log('[proxy] Railway status:', response.status, '| body:', text.slice(0, 300));
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      console.error('[proxy] Railway returned non-JSON:', text.slice(0, 300));
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Error interno. Por favor intenta de nuevo.' }),
+      };
+    }
+
     return {
       statusCode: response.status,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     };
   } catch (err) {
-    console.error('[create-preference proxy]', err);
+    console.error('[proxy] fetch failed:', err.message);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
