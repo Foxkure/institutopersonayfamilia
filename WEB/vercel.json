@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/backend/:path*",
+      "destination": "/404",
+      "permanent": false
+    }
+  ]
+}
