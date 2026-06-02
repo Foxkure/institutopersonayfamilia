@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ===== ENROLLMENT FORM (course pages only) =====
     // Update BACKEND_URL after deploying the backend to Railway/Render
-    var BACKEND_URL = 'https://institutopersonayfamilia.railway.app';
+    var BACKEND_URL = ''; // Netlify proxies /api/* to Railway — no CORS needed
 
     (function initInscripcionForm() {
         var btnAbrir  = document.getElementById('btn-abrir-form');
