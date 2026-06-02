@@ -29,10 +29,13 @@ const app = express();
 // Strip surrounding quotes/whitespace in case Railway stored the value with them
 const ALLOWED_ORIGIN = (process.env.FRONTEND_ORIGIN || '').trim().replace(/^["']|["']$/g, '');
 console.log(`[cors] Allowed origin: "${ALLOWED_ORIGIN}"`);
-app.use(cors({
+const corsOptions = {
   origin: ALLOWED_ORIGIN,
   methods: ['GET', 'POST'],
-}));
+  allowedHeaders: ['Content-Type'],
+};
+app.options('*', cors(corsOptions)); // handle preflight for all routes
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
