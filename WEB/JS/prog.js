@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btnSubmit.textContent = 'Procesando…';
 
             try {
-                var res = await fetch(BACKEND_URL + '/api/create-preference', {
+                var res = await fetch(BACKEND_URL + '/create-preference', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ nombre: nombre, email: email, telefono: telefono, curso: curso }),
