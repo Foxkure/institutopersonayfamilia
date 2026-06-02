@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const response = await fetch('https://institutopersonayfamilia.railway.app/api/create-preference', {
+    const response = await fetch('https://institutopersonayfamilia.up.railway.app/api/create-preference', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(req.body),
