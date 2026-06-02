@@ -42,7 +42,6 @@ async function createPreference({ nombre, email, telefono, curso, monto, externa
   return {
     id: response.id,
     init_point: response.init_point,
-    sandbox_init_point: response.sandbox_init_point,
   };
 }
 

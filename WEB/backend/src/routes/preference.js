@@ -57,12 +57,7 @@ router.post('/create-preference', async (req, res) => {
     // 3. Write the preference ID back to the sheet row
     await sheets.updateEnrollmentPreferenceId(externalReference, preference.id);
 
-    // 4. Return checkout URL (sandbox in development, live in production)
-    const checkoutUrl = process.env.NODE_ENV === 'production'
-      ? preference.init_point
-      : preference.sandbox_init_point;
-
-    return res.json({ init_point: checkoutUrl });
+    return res.json({ init_point: preference.init_point });
 
   } catch (err) {
     console.error('[create-preference] Error:', err);
