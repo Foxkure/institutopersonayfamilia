@@ -1,0 +1,9 @@
+[build]
+  publish = "WEB"
+  functions = "WEB/netlify/functions"
+
+[[redirects]]
+  from = "/backend/*"
+  to = "/404"
+  status = 404
+  force = true
