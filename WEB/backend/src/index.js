@@ -26,8 +26,11 @@ const webhookRouter = require('./routes/webhook');
 const app = express();
 
 // ---- CORS: only allow the Netlify frontend ----
+// Strip surrounding quotes/whitespace in case Railway stored the value with them
+const ALLOWED_ORIGIN = (process.env.FRONTEND_ORIGIN || '').trim().replace(/^["']|["']$/g, '');
+console.log(`[cors] Allowed origin: "${ALLOWED_ORIGIN}"`);
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN,
+  origin: ALLOWED_ORIGIN,
   methods: ['GET', 'POST'],
 }));
 
