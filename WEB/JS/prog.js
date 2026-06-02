@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         sr.reveal('.form-contacto, .btn-whatsapp', Object.assign({}, baseConfig, { origin: 'bottom', distance: '50px' }));
 
         console.log('ScrollReveal: animaciones activadas.');
-        return;
         }
 
         // ===== FALLBACK using IntersectionObserver (if ScrollReveal is missing) =====
