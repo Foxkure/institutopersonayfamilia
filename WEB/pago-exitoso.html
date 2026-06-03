@@ -7,44 +7,74 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .pago-resultado {
-            min-height: 60vh;
+            min-height: 68vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 80px 32px;
             text-align: center;
         }
-        .pago-resultado-inner { max-width: 520px; }
+        .pago-resultado-inner {
+            max-width: 520px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 56px 44px;
+            box-shadow: var(--shadow);
+        }
+        .pago-overline {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
         .pago-icono {
-            width: 80px;
-            height: 80px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 28px;
-            font-size: 2rem;
+            margin: 0 auto 26px;
+            font-size: 1.9rem;
+            color: #fff;
         }
-        .pago-icono.exito  { background: #dcfce7; color: #16a34a; }
-        .pago-icono.pendiente { background: #fef9c3; color: #ca8a04; }
-        .pago-icono.error  { background: #fee2e2; color: #dc2626; }
+        .pago-icono.exito     { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 8px 24px rgba(34,197,94,0.28); }
+        .pago-icono.pendiente { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 8px 24px rgba(245,158,11,0.28); }
+        .pago-icono.error     { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 24px rgba(239,68,68,0.28); }
         .pago-resultado h1 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 800;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            margin-bottom: 14px;
         }
+        .pago-divisor { width: 40px; height: 2px; background: var(--accent); border-radius: 2px; margin: 0 auto 18px; }
         .pago-resultado p {
             font-size: 1.05rem;
             color: var(--text-mid);
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
+        .pago-estado {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 26px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+        .pago-estado .dot { width: 9px; height: 9px; border-radius: 50%; }
+        .pago-estado.exito     { color: #16a34a; } .pago-estado.exito .dot     { background: #16a34a; }
+        .pago-estado.pendiente { color: #d97706; } .pago-estado.pendiente .dot { background: #d97706; }
+        .pago-estado.error     { color: #dc2626; } .pago-estado.error .dot     { background: #dc2626; }
+        .pago-acciones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -72,9 +102,12 @@
             <div class="pago-icono exito">
                 <i class="fas fa-check"></i>
             </div>
+            <span class="pago-overline">Confirmación</span>
             <h1>¡Inscripción confirmada!</h1>
+            <div class="pago-divisor"></div>
             <p>Tu pago fue procesado con éxito. En breve recibirás un correo con los detalles de tu inscripción y los próximos pasos para comenzar tu diplomado.</p>
             <a href="index.html" class="btn">Volver al inicio</a>
+            <div class="pago-estado exito"><span class="dot"></span> Pago exitoso</div>
         </div>
     </section>
 

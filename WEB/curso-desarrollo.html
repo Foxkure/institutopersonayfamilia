@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/cursos2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -40,15 +40,23 @@
     <!-- ======= HERO ======= -->
     <section class="curso-hero">
         <div class="curso-hero-content">
+            <span class="curso-badge"><i class="fas fa-seedling"></i> Diplomado en Desarrollo Personal</span>
             <h1>Diplomado en Desarrollo Humano</h1>
             <p>Descubre tu potencial, sana tus heridas y vive desde la autenticidad, el propósito y la esperanza.</p>
             <p class="lema">"Conocerte a ti mismo es el primer paso para transformar tu vida."</p>
+            <div class="curso-stats">
+                <div class="curso-stat"><span class="num">4</span><span class="lbl">Semestres</span></div>
+                <div class="curso-stat"><span class="num">8</span><span class="lbl">Temas</span></div>
+                <div class="curso-stat"><span class="num">$700</span><span class="lbl">MXN / mes</span></div>
+            </div>
+            <a href="#inscripcion" class="btn">Inscríbete ahora</a>
         </div>
     </section>
 
     <!-- ======= INTRODUCCIÓN ======= -->
     <section class="section curso-intro">
         <div class="container">
+            <span class="overline">El diplomado</span>
             <h2>Sobre este diplomado</h2>
             <p>¿Sientes que hay limitaciones que no te permiten desarrollarte plenamente?
             Muchos de nosotros cargamos con heridas, miedos o hábitos que impiden florecer. Este diplomado te invita a un camino profundo de autoconocimiento y crecimiento personal.</p>
@@ -58,6 +66,7 @@
     <!-- ======= OBSTÁCULOS ======= -->
     <section class="section curso-obstaculos bg-light">
         <div class="container">
+            <span class="overline">¿Te identificas?</span>
             <h2>Obstáculos que nos impiden crecer</h2>
             <p class="intro-text">
                 Todos enfrentamos momentos en los que nuestras propias creencias, emociones o hábitos
@@ -96,37 +105,62 @@
     <!-- ======= CONTENIDO DEL DIPLOMADO ======= -->
     <section class="section contenido-diplomado">
         <div class="container">
+            <span class="overline">Plan de estudios</span>
             <h2>Lo que aprenderás</h2>
-            <p>Este diplomado ofrece un recorrido formativo de 4 módulos:</p>
+            <p>Este diplomado ofrece un recorrido formativo de 4 semestres:</p>
 
-            <div class="grid-modulos">
-                <div class="modulo-card">
-                    <h3>Primer semestre</h3>
-                    <ul>
-                        <li>Introducción al Desarrollo Humano</li>
-                        <li>Persona: dignidad y misterio</li>
-                    </ul>
+            <div class="acordeon-modulos">
+                <div class="acordeon-item abierto">
+                    <button class="acordeon-trigger" aria-expanded="true">
+                        <span class="acordeon-num">1</span>
+                        <span class="acordeon-titulo">Primer semestre</span>
+                        <span class="acordeon-mas" aria-hidden="true">+</span>
+                    </button>
+                    <div class="acordeon-panel">
+                        <ul>
+                            <li>Introducción al Desarrollo Humano</li>
+                            <li>Persona: dignidad y misterio</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="modulo-card">
-                    <h3>Segundo semestre</h3>
-                    <ul>
-                        <li>La persona: un ser llamado a la relación</li>
-                        <li>Reconocimiento y manejo de los sentimientos</li>
-                    </ul>
+                <div class="acordeon-item">
+                    <button class="acordeon-trigger" aria-expanded="false">
+                        <span class="acordeon-num">2</span>
+                        <span class="acordeon-titulo">Segundo semestre</span>
+                        <span class="acordeon-mas" aria-hidden="true">+</span>
+                    </button>
+                    <div class="acordeon-panel">
+                        <ul>
+                            <li>La persona: un ser llamado a la relación</li>
+                            <li>Reconocimiento y manejo de los sentimientos</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="modulo-card">
-                    <h3>Tercer semestre</h3>
-                    <ul>
-                        <li>La persona y su sentido de vida</li>
-                        <li>Trabajo y familia</li>
-                    </ul>
+                <div class="acordeon-item">
+                    <button class="acordeon-trigger" aria-expanded="false">
+                        <span class="acordeon-num">3</span>
+                        <span class="acordeon-titulo">Tercer semestre</span>
+                        <span class="acordeon-mas" aria-hidden="true">+</span>
+                    </button>
+                    <div class="acordeon-panel">
+                        <ul>
+                            <li>La persona y su sentido de vida</li>
+                            <li>Trabajo y familia</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="modulo-card">
-                    <h3>Cuarto semestre</h3>
-                    <ul>
-                        <li>Proyecto social</li>
-                        <li>Proyecto de vida</li>
-                    </ul>
+                <div class="acordeon-item">
+                    <button class="acordeon-trigger" aria-expanded="false">
+                        <span class="acordeon-num">4</span>
+                        <span class="acordeon-titulo">Cuarto semestre</span>
+                        <span class="acordeon-mas" aria-hidden="true">+</span>
+                    </button>
+                    <div class="acordeon-panel">
+                        <ul>
+                            <li>Proyecto social</li>
+                            <li>Proyecto de vida</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,6 +169,7 @@
     <!-- ======= BENEFICIOS ======= -->
     <section class="section beneficios bg-light" data-sr>
         <div class="container">
+            <span class="overline">Qué lograrás</span>
             <h2>Beneficios</h2>
             <ul class="lista-beneficios">
                 <li><i data-lucide="heart"></i> Conocerte, valorarte y amarte como persona única.</li>
@@ -148,13 +183,16 @@
 
     <section class="section quienes-acompanan" data-sr>
         <div class="container">
+            <span class="overline">Acompañamiento</span>
             <h2>Quiénes te acompañarán</h2>
             <div class="grid-instructores">
                 <div class="instructor-card">
+                    <div class="instructor-avatar">J</div>
                     <h3>Jorge</h3>
                     <p>Diácono, filósofo personalista especializado en antropología y doctorando en filosofía. Amplia experiencia en acompañamiento pastoral.</p>
                 </div>
                 <div class="instructor-card">
+                    <div class="instructor-avatar">T</div>
                     <h3>Teresa</h3>
                     <p>Maestra en desarrollo humano con diplomados en espiritualidad, inteligencia emocional y comunicación. Esposa, madre y acompañante en procesos familiares.</p>
                 </div>
@@ -165,19 +203,25 @@
     <!-- ======= INVERSIÓN ======= -->
     <section id="inscripcion" class="curso-inversion section bg-light" data-sr>
         <div class="container">
+            <span class="overline">Inscripción</span>
             <h2>Inversión y promoción especial</h2>
-            <table class="tabla-inversion">
-                <tr><th>Concepto</th><th>Valor estimado</th></tr>
-                <tr><td>4 módulos formativos con herramientas prácticas</td><td>$15,000</td></tr>
-                <tr><td>Acceso a comunidad exclusiva de desarrollo</td><td>$2,500</td></tr>
-                <tr><td>Guía completa para construir tu proyecto vital</td><td>$2,500</td></tr>
-                <tr><td>Dirección espiritual y acompañamiento personal</td><td>Invaluable</td></tr>
-            </table>
+
+            <div class="precio-card">
+                <span class="overline">Promoción de lanzamiento</span>
+                <ul class="precio-incluye">
+                    <li><i class="fas fa-check"></i> 4 semestres formativos con herramientas prácticas</li>
+                    <li><i class="fas fa-check"></i> Acceso a una comunidad exclusiva de desarrollo</li>
+                    <li><i class="fas fa-check"></i> Guía completa para construir tu proyecto vital</li>
+                    <li><i class="fas fa-check"></i> Dirección espiritual y acompañamiento personal</li>
+                </ul>
+                <div class="precio-divider"></div>
+                <p class="precio-tachado">Valor estimado: más de $20,000</p>
+                <p class="precio-monto">$700</p>
+                <p class="precio-periodo">MXN mensuales</p>
+                <a href="#form-inscripcion" class="btn">Inscríbete ahora</a>
+            </div>
+
             <div class="promocion">
-                <p><strong>Promoción especial de lanzamiento:</strong> $700 mensuales!</p>
-
-                <button class="btn" id="btn-abrir-form">Inscríbete ahora</button>
-
                 <form id="form-inscripcion" class="form-inscripcion" data-curso="desarrollo" novalidate>
                     <h3>Completa tu inscripción</h3>
 

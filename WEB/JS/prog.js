@@ -24,105 +24,84 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
+    // ===== SCROLL REVEAL (with IntersectionObserver fallback) =====
     try {
-        // Helper: safe check
-        function hasScrollReveal() {
-        return (typeof ScrollReveal !== 'undefined' && typeof ScrollReveal === 'function');
-        }
+        const hasScrollReveal = (typeof ScrollReveal !== 'undefined' && typeof ScrollReveal === 'function');
 
-        // Common reveal config
         const baseConfig = {
-        distance: '40px',
-        duration: 1000,
-        easing: 'ease-in-out',
-        reset: true
+            distance: '40px',
+            duration: 1000,
+            easing: 'ease-in-out',
+            reset: true
         };
 
-        if (hasScrollReveal()) {
-        const sr = ScrollReveal();
+        if (hasScrollReveal) {
+            const sr = ScrollReveal();
 
-        // Hero and headers
-        sr.reveal('.curso-hero-content, .hero-content, .foto-pareja', Object.assign({}, baseConfig, { origin: 'bottom', distance: '50px', duration: 1400 }));
+            // Hero and headers
+            sr.reveal('.curso-hero-content, .hero-content, .foto-pareja', Object.assign({}, baseConfig, { origin: 'bottom', distance: '50px', duration: 1400 }));
 
-        // h2
-        sr.reveal('h2', Object.assign({}, baseConfig, { origin: 'bottom', distance: '30px', interval: 120 }));
+            // Section titles
+            sr.reveal('h2', Object.assign({}, baseConfig, { origin: 'bottom', distance: '30px', interval: 120 }));
 
-        // Obstaculos grid items
-        sr.reveal('.obstaculo-item, .obstaculo-card', Object.assign({}, baseConfig, { origin: 'right', interval: 120 }));
+            // Obstáculos
+            sr.reveal('.obstaculo-item, .obstaculo-card', Object.assign({}, baseConfig, { origin: 'right', interval: 120 }));
 
-        // Modules / cards / instructors / tables etc.
-        sr.reveal('.curriculum-card, .card, .mision-vision .card, .modulo-card, .resultado, .instructor-card, .tabla-inversion, .promocion', Object.assign({}, baseConfig, { origin: 'bottom', interval: 140 }));
+            // Cards, modules, instructors, price card, etc.
+            sr.reveal('.curriculum-card, .card, .mision-vision .card, .actividad, .curso-card, .modulo-card, .acordeon-item, .resultado, .instructor-card, .precio-card', Object.assign({}, baseConfig, { origin: 'bottom', interval: 120 }));
 
-        // Contact form
-        sr.reveal('.form-contacto, .btn-whatsapp', Object.assign({}, baseConfig, { origin: 'bottom', distance: '50px' }));
+            // Contact / WhatsApp
+            sr.reveal('.form-contacto, .btn-whatsapp', Object.assign({}, baseConfig, { origin: 'bottom', distance: '50px' }));
 
-        console.log('ScrollReveal: animaciones activadas.');
+            console.log('ScrollReveal: animaciones activadas.');
+        } else {
+            // Fallback: reveal on intersection (no-op visually if no matching CSS)
+            console.warn('ScrollReveal no está disponible — usando fallback con IntersectionObserver.');
+
+            const VISIBLE_CLASS = 'is-visible';
+            const io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    entry.target.classList.toggle(VISIBLE_CLASS, entry.isIntersecting);
+                });
+            }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+
+            const selectors = [
+                '.curso-hero-content', '.hero-content',
+                'h2',
+                '.obstaculo-item', '.obstaculo-card',
+                '.modulo-card', '.acordeon-item', '.resultado', '.instructor-card',
+                '.precio-card', '.btn-whatsapp'
+            ];
+            selectors.forEach(function (sel) {
+                document.querySelectorAll(sel).forEach(function (el) {
+                    el.classList.add('will-animate');
+                    io.observe(el);
+                });
+            });
         }
-
-        // ===== FALLBACK using IntersectionObserver (if ScrollReveal is missing) =====
-        console.warn('ScrollReveal no está disponible — usando fallback con IntersectionObserver.');
-
-        // CSS class added when element becomes visible
-        const VISIBLE_CLASS = 'is-visible';
-
-        const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.05
-        };
-
-        const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            entry.target.classList.add(VISIBLE_CLASS);
-            } else {
-            entry.target.classList.remove(VISIBLE_CLASS);
-            }
-        });
-        }, observerOptions);
-
-        // Selectors we want animated (match those in ScrollReveal config)
-        const selectors = [
-        '.curso-hero-content', '.hero-content',
-        'h2',
-        '.obstaculo-item', '.obstaculo-card',
-        '.modulo-card', '.resultado', '.instructor-card',
-        '.tabla-inversion', '.promocion',
-        '.form-contacto', '.btn-whatsapp'
-        ];
-
-        selectors.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => {
-            if (!el.classList.contains('will-animate')) el.classList.add('will-animate');
-            io.observe(el);
-        });
-        });
-
     } catch (err) {
-        console.error('Error en prog.js:', err);
+        console.error('Error en animaciones (prog.js):', err);
     }
 
+    // ===== MÓDULOS ACCORDION (curso-desarrollo) =====
+    document.querySelectorAll('.acordeon-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+            const item = trigger.closest('.acordeon-item');
+            if (!item) return;
+            const isOpen = item.classList.toggle('abierto');
+            trigger.setAttribute('aria-expanded', isOpen);
+        });
+    });
+
     // ===== ENROLLMENT FORM (course pages only) =====
-    // Update BACKEND_URL after deploying the backend to Railway/Render
     var BACKEND_URL = '/api'; // Vercel Serverless Function proxies to Railway
 
     (function initInscripcionForm() {
-        var btnAbrir  = document.getElementById('btn-abrir-form');
-        if (!btnAbrir) return; // not on a course page
+        var form = document.getElementById('form-inscripcion');
+        if (!form) return; // not on a course page
 
-        var form      = document.getElementById('form-inscripcion');
         var errorDiv  = document.getElementById('form-error');
         var btnSubmit = document.getElementById('btn-submit-inscripcion');
-
-        // Toggle form visibility
-        btnAbrir.addEventListener('click', function () {
-            var isOpen = form.classList.toggle('form-abierto');
-            btnAbrir.textContent = isOpen ? 'Cancelar' : 'Inscríbete ahora';
-            if (isOpen) {
-                form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();

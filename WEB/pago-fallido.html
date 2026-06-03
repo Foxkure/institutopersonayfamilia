@@ -7,56 +7,70 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .pago-resultado {
-            min-height: 60vh;
+            min-height: 68vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 80px 32px;
             text-align: center;
         }
-        .pago-resultado-inner { max-width: 520px; }
+        .pago-resultado-inner {
+            max-width: 520px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 56px 44px;
+            box-shadow: var(--shadow);
+        }
+        .pago-overline {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
         .pago-icono {
-            width: 80px;
-            height: 80px;
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 28px;
-            font-size: 2rem;
+            margin: 0 auto 26px;
+            font-size: 1.9rem;
+            color: #fff;
         }
-        .pago-icono.error { background: #fee2e2; color: #dc2626; }
+        .pago-icono.error { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 24px rgba(239,68,68,0.28); }
         .pago-resultado h1 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 800;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            margin-bottom: 14px;
         }
+        .pago-divisor { width: 40px; height: 2px; background: var(--accent); border-radius: 2px; margin: 0 auto 18px; }
         .pago-resultado p {
             font-size: 1.05rem;
             color: var(--text-mid);
             line-height: 1.7;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
-        .pago-acciones { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn-outline {
+        .pago-acciones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .pago-estado {
             display: inline-flex;
             align-items: center;
-            padding: 13px 28px;
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            border-radius: var(--radius-sm);
-            font-size: 0.975rem;
+            gap: 8px;
+            margin-top: 26px;
+            font-size: 0.82rem;
             font-weight: 600;
-            transition: background var(--transition), color var(--transition);
         }
-        .btn-outline:hover { background: var(--accent); color: #fff; }
+        .pago-estado .dot { width: 9px; height: 9px; border-radius: 50%; }
+        .pago-estado.error { color: #dc2626; } .pago-estado.error .dot { background: #dc2626; }
     </style>
 </head>
 <body>
@@ -84,7 +98,9 @@
             <div class="pago-icono error">
                 <i class="fas fa-times"></i>
             </div>
+            <span class="pago-overline">Lo sentimos</span>
             <h1>El pago no se completó</h1>
+            <div class="pago-divisor"></div>
             <p>Hubo un problema al procesar tu pago. Puedes intentarlo de nuevo o contactarnos directamente por WhatsApp y te ayudamos a completar tu inscripción.</p>
             <div class="pago-acciones">
                 <a href="javascript:history.back()" class="btn">Intentar de nuevo</a>
@@ -93,6 +109,7 @@
                    <i class="fab fa-whatsapp" style="margin-right:6px;"></i> Contactar por WhatsApp
                 </a>
             </div>
+            <div class="pago-estado error"><span class="dot"></span> Pago no completado</div>
         </div>
     </section>
 
