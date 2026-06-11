@@ -571,3 +571,426 @@
   .precio-card { padding: 32px 24px; }
   .acordeon-panel ul { padding-left: 48px; }
 }
+
+/* ============================================================
+   DIPLOMADO 2026 — content update sections
+   ============================================================ */
+
+/* ---- CALENDARIO BANNER (schedule strip) ---- */
+.calendario-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.calendario-banner .cal-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  background: var(--surface);
+}
+.calendario-banner .cal-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-blush);
+  border: 2px solid var(--accent-end);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+.calendario-banner .cal-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.calendario-banner .cal-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* ---- TESTIMONIOS (placeholder video cards) ---- */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 8px;
+}
+.testimonio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.testimonio-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+.testimonio-video {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(232,168,124,0.22) 0%, transparent 55%),
+    linear-gradient(135deg, var(--color-espresso) 0%, #6b3c20 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonio-video .play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  border: 2px solid rgba(232,168,124,0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.testimonio-video .badge-proximamente {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-end);
+  background: rgba(0,0,0,0.35);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.testimonio-cuerpo { padding: 18px 20px; }
+.testimonio-cuerpo p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; font-style: italic; }
+.testimonio-autor { margin-top: 10px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+
+/* ---- DIRIGIDO A (chips) ---- */
+.dirigido-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 800px;
+  margin: 8px auto 0;
+}
+.dirigido-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 11px 20px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.dirigido-chip:hover { border-color: var(--accent); transform: translateY(-2px); }
+.dirigido-chip i { color: var(--accent); font-size: 0.85rem; }
+
+/* ---- TEMARIO (numbered módulo cards) ---- */
+.temario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  max-width: 920px;
+  margin: 8px auto 0;
+}
+.temario-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.temario-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(184,92,44,0.3); }
+.temario-num {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-blush);
+  border: 2px solid var(--accent-end);
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.temario-card .temario-sub {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.temario-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+
+/* ---- MODALIDAD / CALENDARIO detalle ---- */
+.calendario-detalle {
+  list-style: none;
+  max-width: 680px;
+  margin: 8px auto 36px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+.calendario-detalle li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.calendario-detalle li i { color: var(--accent); }
+
+/* ---- CERTIFICACIÓN ---- */
+.certificacion-card {
+  max-width: 620px;
+  margin: 8px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.certificacion-card .cert-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--color-blush);
+  border: 2px solid var(--accent-end);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.certificacion-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.certificacion-card li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.certificacion-card li i { color: var(--accent); }
+
+/* ---- GARANTÍA ---- */
+.garantia-callout {
+  max-width: 700px;
+  margin: 8px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: var(--color-blush);
+  border: 1px solid var(--accent-end);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+}
+.garantia-callout .garantia-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.garantia-callout h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.garantia-callout p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.6; }
+
+/* ---- FAQ (reuses acordeon handler) ---- */
+.faq-lista {
+  max-width: 760px;
+  margin: 8px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-blush);
+  border: 2px solid var(--accent-end);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+}
+.faq-lista .acordeon-titulo { font-size: 1rem; }
+.faq-lista .acordeon-item.abierto .acordeon-panel { max-height: 420px; }
+.faq-respuesta {
+  padding: 0 22px 20px 68px;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ---- CIERRE / CTA band ---- */
+.cierre {
+  background:
+    radial-gradient(circle at 80% 28%, rgba(232,168,124,0.16) 0%, transparent 55%),
+    linear-gradient(150deg, #1e1008 0%, #5c3015 50%, #8a4820 100%);
+  color: #fff;
+  text-align: center;
+}
+.cierre .overline { color: var(--accent-end); }
+.cierre h2 { color: #fff; }
+.cierre h2::after { background: var(--accent-end); }
+.cierre p { color: rgba(255,255,255,0.82) !important; max-width: 640px; }
+.cierre .btn { margin-top: 12px; }
+
+/* ============================================================
+   DIPLOMADOS — decision / bifurcation page
+   ============================================================ */
+.bifurcacion-hero {
+  background:
+    radial-gradient(circle at 80% 28%, rgba(232,168,124,0.16) 0%, transparent 55%),
+    linear-gradient(150deg, #1e1008 0%, #5c3015 50%, #8a4820 100%);
+  color: #fff;
+  text-align: center;
+  padding: 124px 32px 84px;
+}
+.bifurcacion-hero .overline { color: var(--accent-end); }
+.bifurcacion-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 14px auto;
+  max-width: 720px;
+  line-height: 1.2;
+}
+.bifurcacion-hero p {
+  color: rgba(255,255,255,0.8);
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.bifurcacion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.bifurcacion-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 42px 34px 36px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+.bifurcacion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-end));
+}
+.bifurcacion-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); border-color: rgba(184,92,44,0.3); }
+.bifurcacion-icon {
+  width: 76px;
+  height: 76px;
+  margin: 6px auto 20px;
+  border-radius: 50%;
+  background: var(--color-blush);
+  border: 2px solid var(--accent-end);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+}
+.bifurcacion-card .b-situacion {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.bifurcacion-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 14px;
+  padding-bottom: 0;
+}
+.bifurcacion-card h2::after { display: none; }
+.bifurcacion-card > p {
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.bifurcacion-card .btn { align-self: center; }
+
+@media (max-width: 768px) {
+  .garantia-callout { flex-direction: column; text-align: center; gap: 16px; }
+  .faq-respuesta { padding-left: 22px; }
+  .bifurcacion-hero { padding: 100px 20px 64px; }
+}
