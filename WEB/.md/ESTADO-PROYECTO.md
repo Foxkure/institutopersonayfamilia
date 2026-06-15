@@ -1,8 +1,46 @@
 # Estado del proyecto — IPF Web
 
-_Última actualización: 2026-06-10_
+_Última actualización: 2026-06-14_
 
 Resumen del estado actual para poder retomar el trabajo en una sesión futura.
+
+---
+
+## 0. Sesión 2026-06-14 — Correos, páginas legales y limpieza de Sheets
+
+Tres funciones nuevas (rama `feature/post-payment-emails-legal-sheets`, aún sin merge
+ni deploy). Plan y diseño en `docs/superpowers/`. Backend con tests (`npm test` en
+`backend/`, 12 pasando, usa el runner integrado `node --test`).
+
+### A. Correo de confirmación automático (Resend)
+- Al aprobarse el pago, el webhook envía UN correo en español: confirmación de inscripción
+  + recibo (monto/fecha/referencia) + enlace al grupo de WhatsApp del diplomado + cómo unirse
+  + fecha de inicio. Nuevos: `backend/src/services/email.js`; integrado en
+  `backend/src/routes/webhook.js`.
+- **Idempotente**: nueva columna L `EmailEnviado` en la hoja evita reenvíos (MP reintenta
+  webhooks). El webhook responde 200 a MP antes de enviar el correo (no demora el 2xx).
+- Si Resend no está configurado, el envío se omite con un warning (el pago NO falla).
+
+### B. Páginas legales (borrador, revisar con abogado)
+- `aviso-privacidad.html` (LFPDPPP) y `terminos.html` (incluye política de pago y
+  devolución). Enlazadas desde el footer de las 9 páginas.
+- **Regla de devolución**: reembolso permitido hasta antes del inicio de la TERCERA sesión;
+  una vez iniciada la tercera sesión, no hay devoluciones.
+
+### C. Limpieza de Google Sheets
+- Nueva columna L `EmailEnviado` (control de envío de correo).
+- Barrido por `node-cron` cada hora marca como `abandonado` las filas `pendiente` con más
+  de 24h (checkout iniciado sin pagar). Nuevo `backend/src/services/cleanup.js`, agendado en
+  `backend/src/index.js`. Dependencias nuevas: `resend`, `node-cron`.
+
+### Pendientes / pasos manuales antes de que funcione en producción
+- [ ] **Hoja `Inscripciones`: agregar el encabezado `EmailEnviado` en la columna L.**
+- [ ] **Resend**: crear cuenta/API key y verificar el dominio de envío (registros DNS).
+- [ ] **Railway env vars**: `RESEND_API_KEY`, `EMAIL_FROM`,
+      `WHATSAPP_PAREJA`, `WHATSAPP_DESARROLLO` (y los aún pendientes
+      `PRICE_PAREJA=4500` / `PRICE_DESARROLLO=4500`).
+- [ ] **Revisión legal** de las dos páginas; luego quitar el aviso "Borrador".
+- [ ] **Merge + deploy** de la rama `feature/post-payment-emails-legal-sheets`.
 
 ---
 

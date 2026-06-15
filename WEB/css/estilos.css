@@ -685,3 +685,26 @@ h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 10
    UTILITIES
    ============================================================ */
 .text-center { text-align: center; }
+
+/* ---- Footer legal links (Aviso de Privacidad / Términos) ---- */
+.footer-legal {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 14px;
+}
+.footer-legal a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+.footer-legal a:hover {
+  color: #fff;
+}
+.footer-legal span {
+  margin: 0 8px;
+  opacity: 0.4;
+  color: rgba(255,255,255,0.6);
+}

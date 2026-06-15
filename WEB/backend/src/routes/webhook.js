@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { MercadoPagoConfig, Payment } = require('mercadopago');
 const sheets = require('../services/sheets');
+const email = require('../services/email');
 
 const MP_STATUS_MAP = {
   approved:   'pagado',
@@ -38,7 +39,40 @@ router.post('/webhook', async (req, res) => {
     });
 
     console.log(`[webhook] Payment ${payment.id} → ${estado} (ref: ${externalReference})`);
-    return res.sendStatus(200);
+
+    // Respond to MercadoPago immediately; the email chain below makes several
+    // external calls and must not delay the 2xx (MP retries on timeout).
+    res.sendStatus(200);
+
+    // Send the confirmation email once, only on approved payments. Runs after the
+    // response is already sent, so it can never change the HTTP status.
+    if (estado === 'pagado') {
+      try {
+        const enrollment = await sheets.getEnrollmentByReference(externalReference);
+        if (enrollment && !enrollment.emailEnviado) {
+          await email.sendEnrollmentEmail({
+            nombre: enrollment.nombre,
+            email: enrollment.email,
+            curso: enrollment.curso,
+            monto: enrollment.monto,
+            externalReference,
+            fechaPago: enrollment.fechaPago,
+          });
+          await sheets.markEmailSent(externalReference);
+          console.log(`[webhook] Confirmation email sent (ref: ${externalReference})`);
+        } else if (enrollment && enrollment.emailEnviado) {
+          // Idempotency: MP may deliver the same payment event more than once.
+          // Worst case if two deliveries race before column L is stamped is one
+          // duplicate email — acceptable at cohort volume (no Sheets atomic test-and-set).
+          console.log(`[webhook] Email already sent, skipping (ref: ${externalReference})`);
+        }
+      } catch (emailErr) {
+        // Never fail the webhook over email; leave emailEnviado (column L) blank so a retry can resend.
+        console.error('[webhook] Email send failed:', emailErr);
+      }
+    }
+
+    return;
 
   } catch (err) {
     console.error('[webhook] Error:', err);
