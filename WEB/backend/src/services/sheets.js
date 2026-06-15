@@ -13,6 +13,7 @@ const { randomUUID } = require('crypto');
 // I=9  MercadoPagoPaymentId
 // J=10 FechaInscripcion
 // K=11 FechaPago
+// L=12 EmailEnviado
 const SHEET_NAME = 'Inscripciones';
 const SPREADSHEET_ID = () => process.env.GOOGLE_SPREADSHEET_ID;
 
@@ -65,7 +66,7 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!A:K`,
+    range: `${SHEET_NAME}!A:L`,
     valueInputOption: 'RAW',
     requestBody: {
       values: [[
@@ -76,10 +77,11 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
         curso,             // E
         monto,             // F
         'pendiente',       // G  Estado
-        '',                // H  MercadoPagoPreferenceId (filled next)
-        '',                // I  MercadoPagoPaymentId (filled by webhook)
+        '',                // H  MercadoPagoPreferenceId
+        '',                // I  MercadoPagoPaymentId
         now,               // J  FechaInscripcion
-        '',                // K  FechaPago (filled by webhook)
+        '',                // K  FechaPago
+        '',                // L  EmailEnviado
       ]],
     },
   });
@@ -129,4 +131,82 @@ async function updatePaymentStatus(externalReference, { estado, paymentId }) {
   });
 }
 
-module.exports = { createEnrollment, updateEnrollmentPreferenceId, updatePaymentStatus };
+/**
+ * Pure: maps a raw sheet row (array) + its 1-indexed row number to an enrollment object.
+ */
+function mapRowToEnrollment(row, rowNumber) {
+  return {
+    rowNumber,
+    externalReference: row[0],
+    nombre: row[1],
+    email: row[2],
+    telefono: row[3],
+    curso: row[4],
+    monto: row[5],
+    estado: row[6],
+    preferenceId: row[7],
+    paymentId: row[8],
+    fechaInscripcion: row[9],
+    fechaPago: row[10] || '',
+    emailEnviado: !!(row[11] && String(row[11]).trim()),
+  };
+}
+
+/** Reads all rows (A:L) from the Inscripciones sheet. Returns array of arrays. */
+async function getEnrollmentRows() {
+  const sheets = await getSheetsClient();
+  const res = await sheets.spreadsheets.values.get({
+    spreadsheetId: SPREADSHEET_ID(),
+    range: `${SHEET_NAME}!A:L`,
+  });
+  return res.data.values || [];
+}
+
+/** Returns the enrollment for an externalReference, or null. */
+async function getEnrollmentByReference(externalReference) {
+  const rows = await getEnrollmentRows();
+  const idx = rows.findIndex((row) => row[0] === externalReference);
+  return idx === -1 ? null : mapRowToEnrollment(rows[idx], idx + 1);
+}
+
+/** Sets Estado (G) to 'abandonado' for the given 1-indexed row numbers. */
+async function markAbandoned(rowNumbers) {
+  if (!rowNumbers || rowNumbers.length === 0) return;
+  const sheets = await getSheetsClient();
+  await sheets.spreadsheets.values.batchUpdate({
+    spreadsheetId: SPREADSHEET_ID(),
+    requestBody: {
+      valueInputOption: 'RAW',
+      data: rowNumbers.map((n) => ({
+        range: `${SHEET_NAME}!G${n}`, values: [['abandonado']],
+      })),
+    },
+  });
+}
+
+/** Stamps EmailEnviado (L) with the current timestamp for the given reference. */
+async function markEmailSent(externalReference) {
+  const sheets = await getSheetsClient();
+  const rowNumber = await findRowNumber(sheets, externalReference);
+  if (!rowNumber) {
+    console.warn('[sheets] markEmailSent: row not found:', externalReference);
+    return;
+  }
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: SPREADSHEET_ID(),
+    range: `${SHEET_NAME}!L${rowNumber}`,
+    valueInputOption: 'RAW',
+    requestBody: { values: [[new Date().toISOString()]] },
+  });
+}
+
+module.exports = {
+  createEnrollment,
+  updateEnrollmentPreferenceId,
+  updatePaymentStatus,
+  getEnrollmentRows,
+  getEnrollmentByReference,
+  markAbandoned,
+  markEmailSent,
+  mapRowToEnrollment,
+};
