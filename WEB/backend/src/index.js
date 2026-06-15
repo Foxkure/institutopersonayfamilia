@@ -22,6 +22,8 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const preferenceRouter = require('./routes/preference');
 const webhookRouter = require('./routes/webhook');
+const cron = require('node-cron');
+const { sweepAbandonedEnrollments } = require('./services/cleanup');
 
 const app = express();
 
@@ -54,6 +56,18 @@ app.use('/api', webhookRouter);
 
 // ---- Health check ----
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+
+// ---- Hourly cleanup: mark abandoned 'pendiente' enrollments ----
+if (process.env.NODE_ENV !== 'test') {
+  cron.schedule('0 * * * *', async () => {
+    try {
+      await sweepAbandonedEnrollments();
+    } catch (err) {
+      console.error('[cron] Cleanup sweep failed:', err);
+    }
+  });
+  console.log('[cron] Hourly abandoned-enrollment sweep scheduled');
+}
 
 // ---- Start ----
 const PORT = process.env.PORT || 3000;
