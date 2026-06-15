@@ -1,4 +1,4 @@
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 
 const COURSE_INFO = {
   pareja: {
@@ -74,24 +74,39 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
 }
 
 /**
- * Sends the enrollment email via Resend. Degrades gracefully:
- * if RESEND_API_KEY/EMAIL_FROM are missing (and no client injected), it logs and skips.
- * `client` can be injected for testing. Throws on a Resend API error so the caller
- * can leave EmailEnviado blank for a later retry.
+ * Builds an SMTP transport from env vars. Port 465 uses implicit TLS (secure),
+ * any other port (e.g. 587) negotiates STARTTLS.
  */
-async function sendEnrollmentEmail(data, { client } = {}) {
+function createTransport() {
+  const port = Number(process.env.SMTP_PORT) || 465;
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port,
+    secure: port === 465,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+}
+
+/**
+ * Sends the enrollment email over SMTP (nodemailer). Degrades gracefully:
+ * if SMTP_HOST/SMTP_USER/SMTP_PASS/EMAIL_FROM are missing (and no transport
+ * injected), it logs and skips. `transport` can be injected for testing.
+ * nodemailer throws on a send failure, so the caller can leave EmailEnviado
+ * blank for a later retry.
+ */
+async function sendEnrollmentEmail(data, { transport } = {}) {
   const from = process.env.EMAIL_FROM;
-  if (!client && (!process.env.RESEND_API_KEY || !from)) {
-    console.warn('[email] RESEND_API_KEY/EMAIL_FROM not set — skipping enrollment email');
+  const configured = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && from;
+  if (!transport && !configured) {
+    console.warn('[email] SMTP not configured (SMTP_HOST/SMTP_USER/SMTP_PASS/EMAIL_FROM) — skipping enrollment email');
     return { skipped: true };
   }
-  const resend = client || new Resend(process.env.RESEND_API_KEY);
+  const tx = transport || createTransport();
   const { subject, html } = buildEnrollmentEmail(data);
-  const { data: sent, error } = await resend.emails.send({
-    from, to: data.email, subject, html,
-  });
-  if (error) throw new Error(`Resend error: ${JSON.stringify(error)}`);
-  return sent;
+  return tx.sendMail({ from, to: data.email, subject, html });
 }
 
 module.exports = { buildEnrollmentEmail, sendEnrollmentEmail, COURSE_INFO };

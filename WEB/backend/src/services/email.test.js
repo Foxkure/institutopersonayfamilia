@@ -30,33 +30,35 @@ test('throws on unknown course', () => {
   assert.throws(() => buildEnrollmentEmail({ nombre: 'X', curso: 'nope', monto: '1' }));
 });
 
-test('skips when RESEND_API_KEY/EMAIL_FROM missing and no client injected', async () => {
-  delete process.env.RESEND_API_KEY;
+test('skips when SMTP env missing and no transport injected', async () => {
+  delete process.env.SMTP_HOST;
+  delete process.env.SMTP_USER;
+  delete process.env.SMTP_PASS;
   delete process.env.EMAIL_FROM;
   const res = await sendEnrollmentEmail({ nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' });
   assert.deepStrictEqual(res, { skipped: true });
 });
 
-test('sends via injected client with correct recipient and subject', async () => {
-  process.env.EMAIL_FROM = 'IPF <hola@ipf.test>';
+test('sends via injected transport with correct recipient and subject', async () => {
+  process.env.EMAIL_FROM = 'IPF <contacto@ipf.test>';
   process.env.WHATSAPP_PAREJA = 'https://chat.whatsapp.com/PAREJA';
   let captured = null;
-  const client = { emails: { send: async (payload) => { captured = payload; return { data: { id: 'abc' }, error: null }; } } };
+  const transport = { sendMail: async (payload) => { captured = payload; return { messageId: 'abc' }; } };
   const res = await sendEnrollmentEmail(
     { nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500', externalReference: 'ref-1' },
-    { client }
+    { transport }
   );
   assert.strictEqual(captured.to, 'a@e.com');
-  assert.strictEqual(captured.from, 'IPF <hola@ipf.test>');
+  assert.strictEqual(captured.from, 'IPF <contacto@ipf.test>');
   assert.match(captured.subject, /Pareja/);
-  assert.deepStrictEqual(res, { id: 'abc' });
+  assert.deepStrictEqual(res, { messageId: 'abc' });
 });
 
-test('throws when Resend returns an error', async () => {
-  process.env.EMAIL_FROM = 'IPF <hola@ipf.test>';
-  const client = { emails: { send: async () => ({ data: null, error: { message: 'bad' } }) } };
+test('throws when the SMTP transport fails', async () => {
+  process.env.EMAIL_FROM = 'IPF <contacto@ipf.test>';
+  const transport = { sendMail: async () => { throw new Error('SMTP connection refused'); } };
   await assert.rejects(() => sendEnrollmentEmail(
     { nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' },
-    { client }
+    { transport }
   ));
 });
