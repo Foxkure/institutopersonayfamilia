@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
 const COURSE_INFO = {
   pareja: {
@@ -74,44 +74,42 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
 }
 
 /**
- * Builds an SMTP transport from env vars. Port 465 uses implicit TLS (secure),
- * any other port (e.g. 587) negotiates STARTTLS.
+ * Builds a transport adapter backed by the Resend HTTP API (all traffic over
+ * HTTPS/443, so it works from hosts that block outbound SMTP (e.g. Railway).
+ * Exposes sendMail({ from, to, subject, html }) to keep the same seam the
+ * webhook and tests already rely on. `client` is injectable for testing and
+ * defaults to a real Resend client built from RESEND_API_KEY.
+ *
+ * Resend's emails.send resolves with { data, error } instead of throwing on
+ * API errors, so we re-throw on `error` to keep the caller's contract: a
+ * failed send rejects, letting the webhook leave column L (EmailEnviado) blank
+ * for a later retry.
  */
-function createTransport() {
-  const port = Number(process.env.SMTP_PORT) || 465;
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure: port === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+function createTransport(client = new Resend(process.env.RESEND_API_KEY)) {
+  return {
+    async sendMail({ from, to, subject, html }) {
+      const { data, error } = await client.emails.send({ from, to, subject, html });
+      if (error) {
+        const err = new Error(error.message || 'Resend send failed');
+        err.name = error.name || 'ResendError';
+        throw err;
+      }
+      return { messageId: data?.id };
     },
-    connectionTimeout: 15000,
-    greetingTimeout: 10000,
-  });
+  };
 }
 
 /**
- * Verifies the SMTP connection (connect + auth) without sending mail.
- * Resolves true on success; rejects with the nodemailer error otherwise.
- */
-async function verifyTransport() {
-  return createTransport().verify();
-}
-
-/**
- * Sends the enrollment email over SMTP (nodemailer). Degrades gracefully:
- * if SMTP_HOST/SMTP_USER/SMTP_PASS/EMAIL_FROM are missing (and no transport
- * injected), it logs and skips. `transport` can be injected for testing.
- * nodemailer throws on a send failure, so the caller can leave EmailEnviado
- * blank for a later retry.
+ * Sends the enrollment email via Resend. Degrades gracefully: if RESEND_API_KEY
+ * or EMAIL_FROM is missing (and no transport injected), it logs and skips.
+ * `transport` can be injected for testing. The send rejects on failure so the
+ * caller can leave EmailEnviado blank for a later retry.
  */
 async function sendEnrollmentEmail(data, { transport } = {}) {
   const from = process.env.EMAIL_FROM;
-  const configured = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && from;
+  const configured = process.env.RESEND_API_KEY && from;
   if (!transport && !configured) {
-    console.warn('[email] SMTP not configured (SMTP_HOST/SMTP_USER/SMTP_PASS/EMAIL_FROM) — skipping enrollment email');
+    console.warn('[email] Resend not configured (RESEND_API_KEY/EMAIL_FROM) — skipping enrollment email');
     return { skipped: true };
   }
   const tx = transport || createTransport();
@@ -119,4 +117,4 @@ async function sendEnrollmentEmail(data, { transport } = {}) {
   return tx.sendMail({ from, to: data.email, subject, html });
 }
 
-module.exports = { buildEnrollmentEmail, sendEnrollmentEmail, createTransport, verifyTransport, COURSE_INFO };
+module.exports = { buildEnrollmentEmail, sendEnrollmentEmail, createTransport, COURSE_INFO };

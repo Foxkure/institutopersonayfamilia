@@ -57,20 +57,6 @@ app.use('/api', webhookRouter);
 // ---- Health check ----
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
-// ---- TEMP diagnostic: test SMTP connectivity from this host. REMOVE after debugging. ----
-// Returns connection/auth result (never the password) so we can tell apart a blocked
-// port (ETIMEDOUT/ECONNREFUSED) from an auth failure (EAUTH).
-const email = require('./services/email');
-app.get('/api/smtp-test', async (_req, res) => {
-  const port = Number(process.env.SMTP_PORT) || 465;
-  try {
-    await email.verifyTransport();
-    res.json({ ok: true, host: process.env.SMTP_HOST, port });
-  } catch (err) {
-    res.json({ ok: false, host: process.env.SMTP_HOST, port, code: err.code, command: err.command, message: err.message });
-  }
-});
-
 // ---- Hourly cleanup: mark abandoned 'pendiente' enrollments ----
 if (process.env.NODE_ENV !== 'test') {
   cron.schedule('0 * * * *', async () => {

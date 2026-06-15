@@ -12,17 +12,22 @@ Tres funciones nuevas. Mergeadas a `main` local. Plan y diseño en `docs/superpo
 Backend con tests (`npm test` en `backend/`, 12 pasando, usa el runner integrado
 `node --test`).
 
-### A. Correo de confirmación automático (SMTP / nodemailer)
+### A. Correo de confirmación automático (Resend, API HTTP)
 - Al aprobarse el pago, el webhook envía UN correo en español: confirmación de inscripción
   + recibo (monto/fecha/referencia) + enlace al grupo de WhatsApp del diplomado + cómo unirse
   + fecha de inicio. Nuevos: `backend/src/services/email.js`; integrado en
   `backend/src/routes/webhook.js`.
-- **Envío vía SMTP** del correo existente (Neubox Correo Empresarial / AppSuite:
-  host `smtp.us.appsuite.cloud`, puerto 465 SSL, usuario = `contacto@personayfamilia.org`).
-  Se eligió SMTP en vez de Resend para reutilizar el correo del dominio sin tocar DNS.
+- **Envío vía Resend (API HTTP sobre HTTPS/443)**. Se cambió de SMTP a Resend el 2026-06-15
+  porque Railway bloquea el SMTP saliente (puertos 465 y 587 con timeout; es bloqueo de la IP
+  de la nube, no de auth). El contenido del correo (`buildEnrollmentEmail`) no cambió; solo
+  el transporte. `createTransport()` devuelve un adaptador con `sendMail()` respaldado por
+  `resend.emails.send()`; Resend resuelve con `{ data, error }` en vez de lanzar, así que el
+  adaptador relanza en `error` para mantener el contrato (un envío fallido deja la columna L
+  en blanco para reintento).
 - **Idempotente**: nueva columna L `EmailEnviado` en la hoja evita reenvíos (MP reintenta
   webhooks). El webhook responde 200 a MP antes de enviar el correo (no demora el 2xx).
-- Si el SMTP no está configurado, el envío se omite con un warning (el pago NO falla).
+- Si Resend no está configurado (`RESEND_API_KEY`/`EMAIL_FROM`), el envío se omite con un
+  warning (el pago NO falla).
 
 ### B. Páginas legales (borrador, revisar con abogado)
 - `aviso-privacidad.html` (LFPDPPP) y `terminos.html` (incluye política de pago y
@@ -38,15 +43,19 @@ Backend con tests (`npm test` en `backend/`, 12 pasando, usa el runner integrado
 
 ### Pendientes / pasos manuales antes de que funcione en producción
 - [ ] **Hoja `Inscripciones`: agregar el encabezado `EmailEnviado` en la columna L.**
-- [ ] **Railway env vars (correo SMTP)**: `SMTP_HOST=smtp.us.appsuite.cloud`,
-      `SMTP_PORT=465`, `SMTP_USER=contacto@personayfamilia.org`, `SMTP_PASS=<contraseña>`,
+- [ ] **Crear cuenta Resend + API key** (resend.com/api-keys) y **verificar el dominio
+      `personayfamilia.org`** en Resend (agregar los registros DNS SPF/DKIM que indique;
+      no afecta el correo existente de Neubox). Mientras no esté verificado el dominio,
+      Resend solo permite enviar desde `onboarding@resend.dev` hacia tu propio correo
+      verificado (sirve para pruebas).
+- [ ] **Railway env vars (correo Resend)**: `RESEND_API_KEY=re_...`,
       `EMAIL_FROM=Instituto Persona y Familia <contacto@personayfamilia.org>`.
 - [ ] **Railway env vars (WhatsApp + precios)**: `WHATSAPP_PAREJA`, `WHATSAPP_DESARROLLO`
       (y los aún pendientes `PRICE_PAREJA=4500` / `PRICE_DESARROLLO=4500`).
-- [ ] **Probar el SMTP** desde Railway (Neubox/AppSuite suele permitir envío externo
-      autenticado; si bloquea, alternativa = Resend en subdominio).
+- [ ] **Probar un pago de prueba** y confirmar que llega el correo; re-disparar la
+      confirmación del pago de prueba `11be8d67…` (quedó `pagado` con la columna L vacía).
 - [ ] **Revisión legal** de las dos páginas; luego quitar el aviso "Borrador".
-- [ ] **Deploy** (push de `main` ya hecho).
+- [ ] **Commit + deploy** del cambio de transporte (SMTP→Resend).
 
 ---
 

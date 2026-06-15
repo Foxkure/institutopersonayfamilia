@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { buildEnrollmentEmail, sendEnrollmentEmail } = require('./email');
+const { buildEnrollmentEmail, sendEnrollmentEmail, createTransport } = require('./email');
 
 test('pareja email uses the pareja title, link, and start date', () => {
   process.env.WHATSAPP_PAREJA = 'https://chat.whatsapp.com/PAREJA';
@@ -30,10 +30,8 @@ test('throws on unknown course', () => {
   assert.throws(() => buildEnrollmentEmail({ nombre: 'X', curso: 'nope', monto: '1' }));
 });
 
-test('skips when SMTP env missing and no transport injected', async () => {
-  delete process.env.SMTP_HOST;
-  delete process.env.SMTP_USER;
-  delete process.env.SMTP_PASS;
+test('skips when Resend env missing and no transport injected', async () => {
+  delete process.env.RESEND_API_KEY;
   delete process.env.EMAIL_FROM;
   const res = await sendEnrollmentEmail({ nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' });
   assert.deepStrictEqual(res, { skipped: true });
@@ -54,11 +52,36 @@ test('sends via injected transport with correct recipient and subject', async ()
   assert.deepStrictEqual(res, { messageId: 'abc' });
 });
 
-test('throws when the SMTP transport fails', async () => {
+test('throws when the injected transport fails', async () => {
   process.env.EMAIL_FROM = 'IPF <contacto@ipf.test>';
-  const transport = { sendMail: async () => { throw new Error('SMTP connection refused'); } };
+  const transport = { sendMail: async () => { throw new Error('send failed'); } };
   await assert.rejects(() => sendEnrollmentEmail(
     { nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' },
     { transport }
   ));
+});
+
+test('createTransport adapter maps sendMail payload to resend emails.send and returns messageId', async () => {
+  let sent = null;
+  const fakeClient = {
+    emails: { send: async (p) => { sent = p; return { data: { id: 'resend-123' }, error: null }; } },
+  };
+  const tx = createTransport(fakeClient);
+  const res = await tx.sendMail({ from: 'IPF <a@b.com>', to: 'x@y.com', subject: 'Hola', html: '<p>hi</p>' });
+  assert.strictEqual(sent.from, 'IPF <a@b.com>');
+  assert.strictEqual(sent.to, 'x@y.com');
+  assert.strictEqual(sent.subject, 'Hola');
+  assert.strictEqual(sent.html, '<p>hi</p>');
+  assert.strictEqual(res.messageId, 'resend-123');
+});
+
+test('createTransport adapter throws when resend returns an error (does not throw on its own)', async () => {
+  const fakeClient = {
+    emails: { send: async () => ({ data: null, error: { name: 'validation_error', message: 'Invalid from address' } }) },
+  };
+  const tx = createTransport(fakeClient);
+  await assert.rejects(
+    () => tx.sendMail({ from: 'bad', to: 'b@c.com', subject: 's', html: 'h' }),
+    /Invalid from address/
+  );
 });
