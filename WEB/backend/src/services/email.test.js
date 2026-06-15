@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { buildEnrollmentEmail } = require('./email');
+const { buildEnrollmentEmail, sendEnrollmentEmail } = require('./email');
 
 test('pareja email uses the pareja title, link, and start date', () => {
   process.env.WHATSAPP_PAREJA = 'https://chat.whatsapp.com/PAREJA';
@@ -28,4 +28,35 @@ test('desarrollo email uses the desarrollo link and start date', () => {
 
 test('throws on unknown course', () => {
   assert.throws(() => buildEnrollmentEmail({ nombre: 'X', curso: 'nope', monto: '1' }));
+});
+
+test('skips when RESEND_API_KEY/EMAIL_FROM missing and no client injected', async () => {
+  delete process.env.RESEND_API_KEY;
+  delete process.env.EMAIL_FROM;
+  const res = await sendEnrollmentEmail({ nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' });
+  assert.deepStrictEqual(res, { skipped: true });
+});
+
+test('sends via injected client with correct recipient and subject', async () => {
+  process.env.EMAIL_FROM = 'IPF <hola@ipf.test>';
+  process.env.WHATSAPP_PAREJA = 'https://chat.whatsapp.com/PAREJA';
+  let captured = null;
+  const client = { emails: { send: async (payload) => { captured = payload; return { data: { id: 'abc' }, error: null }; } } };
+  const res = await sendEnrollmentEmail(
+    { nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500', externalReference: 'ref-1' },
+    { client }
+  );
+  assert.strictEqual(captured.to, 'a@e.com');
+  assert.strictEqual(captured.from, 'IPF <hola@ipf.test>');
+  assert.match(captured.subject, /Pareja/);
+  assert.deepStrictEqual(res, { id: 'abc' });
+});
+
+test('throws when Resend returns an error', async () => {
+  process.env.EMAIL_FROM = 'IPF <hola@ipf.test>';
+  const client = { emails: { send: async () => ({ data: null, error: { message: 'bad' } }) } };
+  await assert.rejects(() => sendEnrollmentEmail(
+    { nombre: 'Ana', email: 'a@e.com', curso: 'pareja', monto: '4500' },
+    { client }
+  ));
 });
