@@ -87,7 +87,17 @@ function createTransport() {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    connectionTimeout: 15000,
+    greetingTimeout: 10000,
   });
+}
+
+/**
+ * Verifies the SMTP connection (connect + auth) without sending mail.
+ * Resolves true on success; rejects with the nodemailer error otherwise.
+ */
+async function verifyTransport() {
+  return createTransport().verify();
 }
 
 /**
@@ -109,4 +119,4 @@ async function sendEnrollmentEmail(data, { transport } = {}) {
   return tx.sendMail({ from, to: data.email, subject, html });
 }
 
-module.exports = { buildEnrollmentEmail, sendEnrollmentEmail, COURSE_INFO };
+module.exports = { buildEnrollmentEmail, sendEnrollmentEmail, createTransport, verifyTransport, COURSE_INFO };
