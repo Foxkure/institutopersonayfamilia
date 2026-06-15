@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { MercadoPagoConfig, Payment } = require('mercadopago');
 const sheets = require('../services/sheets');
+const email = require('../services/email');
 
 const MP_STATUS_MAP = {
   approved:   'pagado',
@@ -38,6 +39,29 @@ router.post('/webhook', async (req, res) => {
     });
 
     console.log(`[webhook] Payment ${payment.id} → ${estado} (ref: ${externalReference})`);
+
+    // Send the confirmation email once, only on approved payments.
+    if (estado === 'pagado') {
+      try {
+        const enrollment = await sheets.getEnrollmentByReference(externalReference);
+        if (enrollment && !enrollment.emailEnviado) {
+          await email.sendEnrollmentEmail({
+            nombre: enrollment.nombre,
+            email: enrollment.email,
+            curso: enrollment.curso,
+            monto: enrollment.monto,
+            externalReference,
+            fechaPago: enrollment.fechaPago,
+          });
+          await sheets.markEmailSent(externalReference);
+          console.log(`[webhook] Confirmation email sent (ref: ${externalReference})`);
+        }
+      } catch (emailErr) {
+        // Never fail the webhook over email; leave EmailEnviado blank so a retry can resend.
+        console.error('[webhook] Email send failed:', emailErr);
+      }
+    }
+
     return res.sendStatus(200);
 
   } catch (err) {
