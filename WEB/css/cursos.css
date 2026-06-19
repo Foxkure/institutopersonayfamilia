@@ -1007,3 +1007,116 @@
   .faq-respuesta { padding-left: 22px; }
   .bifurcacion-hero { padding: 100px 20px 64px; }
 }
+
+/* ============================================================
+   COUNTDOWN — promoción por tiempo limitado (dentro de .precio-card)
+   ============================================================ */
+.cuenta-regresiva {
+  margin: 14px auto 22px;
+  padding: 16px 18px;
+  max-width: 360px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(232,168,124,0.35);
+  border-radius: var(--radius);
+}
+.cuenta-label {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-end);
+  margin-bottom: 12px;
+}
+.cuenta-label i { margin-right: 6px; }
+.cuenta-timer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.cuenta-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  padding: 8px 6px;
+  background: rgba(0,0,0,0.22);
+  border-radius: var(--radius-sm);
+}
+.cuenta-num {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.cuenta-unidad {
+  margin-top: 5px;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.cuenta-regresiva.cuenta-terminada .cuenta-label { color: rgba(255,255,255,0.8); margin-bottom: 0; }
+
+@media (max-width: 480px) {
+  .cuenta-bloque { min-width: 48px; }
+  .cuenta-num { font-size: 1.4rem; }
+}
+
+/* ============================================================
+   BLOQUEO DE LANZAMIENTO — overlay temporal (se retira por JS al llegar la hora)
+   ============================================================ */
+.lanzamiento-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--crema, #faf6f1);
+  overflow-y: auto;
+}
+.lanzamiento-lock-card { max-width: 640px; }
+.lanzamiento-lock .bloqueo-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--terracota, #b85c2c), var(--arena, #e8a87c));
+}
+.lanzamiento-lock h1 { margin: .5rem 0 1rem; }
+.lanzamiento-lock p {
+  color: var(--barro, #7a5c4a);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 1rem;
+}
+.lanzamiento-lock .bloqueo-fecha {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--blush, #f0e6d9);
+  color: var(--espresso, #3d2b1f);
+  font-weight: 600;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  margin-top: .5rem;
+}
+.lanzamiento-lock .bloqueo-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+body.lock-activo { overflow: hidden; }
