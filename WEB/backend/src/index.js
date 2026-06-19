@@ -27,7 +27,7 @@ const { sweepAbandonedEnrollments } = require('./services/cleanup');
 
 const app = express();
 
-// ---- CORS: only allow the Netlify frontend ----
+// ---- CORS: only allow the Vercel frontend ----
 // Strip surrounding quotes/whitespace in case Railway stored the value with them
 const ALLOWED_ORIGIN = (process.env.FRONTEND_ORIGIN || '').trim().replace(/^["']|["']$/g, '');
 console.log(`[cors] Allowed origin: "${ALLOWED_ORIGIN}"`);

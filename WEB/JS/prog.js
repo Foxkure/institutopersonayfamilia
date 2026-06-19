@@ -173,4 +173,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })();
 
+    // ===== TESTIMONIOS: click-to-play YouTube (lite embed) =====
+    // Each .testimonio-video has data-youtube="". Paste an unlisted video's
+    // ID there (the part after v= or youtu.be/) and the card turns live:
+    // real thumbnail as poster, "Próximamente" hidden, plays on click.
+    // Empty data-youtube stays in the placeholder state. No JS edits needed.
+    document.querySelectorAll('.testimonio-video[data-youtube]').forEach(function (el) {
+        var id = (el.getAttribute('data-youtube') || '').trim();
+        if (!id) return; // placeholder: leave "Próximamente" state untouched
+
+        el.classList.add('has-video');
+        el.style.backgroundImage =
+            "linear-gradient(180deg, rgba(61,43,31,0.10) 0%, rgba(61,43,31,0.55) 100%)," +
+            " url('https://i.ytimg.com/vi/" + id + "/hqdefault.jpg')";
+        el.setAttribute('role', 'button');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('aria-label', 'Reproducir testimonio en video');
+
+        function play() {
+            var iframe = document.createElement('iframe');
+            iframe.className = 'testimonio-iframe';
+            iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.title = 'Testimonio en video';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.setAttribute('allowfullscreen', '');
+            el.innerHTML = '';
+            el.appendChild(iframe);
+        }
+
+        el.addEventListener('click', play);
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+        });
+    });
+
 });

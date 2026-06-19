@@ -7,7 +7,13 @@ const COURSE_TITLES = {
 
 /**
  * Creates a Mercado Pago Checkout Pro preference.
- * Returns { id, init_point, sandbox_init_point }.
+ * Returns { id, init_point }.
+ *
+ * NOTE: If the checkout's "Pagar" button stays disabled for CARD payments while
+ * MercadoPago-balance payments work, that is an ACCOUNT-LEVEL issue (card
+ * acquiring / "cobros con tarjeta" not enabled on the collector account), NOT a
+ * bug here. This code excludes no payment types. Fix it in the MP account
+ * (verify identity / activate card collections), not in this file.
  */
 async function createPreference({ nombre, email, telefono, curso, monto, externalReference, backUrls }) {
   const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN });
