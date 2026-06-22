@@ -42,6 +42,16 @@ async function createPreference({ nombre, email, telefono, curso, monto, externa
       external_reference: externalReference,
       notification_url: `${process.env.BACKEND_URL}/api/webhook`,
       statement_descriptor: 'IPF DIPLOMADO',
+      // Only offer cards + MercadoPago's own methods (saldo/wallet).
+      // Exclude cash (ticket), bank transfers (CLABE) and ATM so buyers
+      // can't pick the high-risk-rejection-prone transfer flow.
+      payment_methods: {
+        excluded_payment_types: [
+          { id: 'ticket' },        // cash (OXXO y similares)
+          { id: 'atm' },           // pago en cajero
+          { id: 'bank_transfer' }, // transferencia / CLABE
+        ],
+      },
     },
   });
 
