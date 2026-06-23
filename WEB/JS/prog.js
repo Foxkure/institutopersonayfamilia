@@ -212,43 +212,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ===== COUNTDOWN PROMOCIÓN =====
-    // Each .cuenta-regresiva has data-deadline as a UTC ISO instant (…Z).
-    // 2026-06-23T05:59:00Z = lunes 22 de junio de 2026, 23:59 (hora del centro de México).
-    document.querySelectorAll('.cuenta-regresiva[data-deadline]').forEach(function (el) {
-        var deadline = new Date(el.getAttribute('data-deadline')).getTime();
-        if (isNaN(deadline)) return;
-
-        var dEl = el.querySelector('[data-d]');
-        var hEl = el.querySelector('[data-h]');
-        var mEl = el.querySelector('[data-m]');
-        var sEl = el.querySelector('[data-s]');
-        var timerEl = el.querySelector('.cuenta-timer');
-        var labelEl = el.querySelector('.cuenta-label');
-
-        function pad(n) { return (n < 10 ? '0' : '') + n; }
-
-        function tick() {
-            var diff = deadline - Date.now();
-            if (diff <= 0) {
-                el.classList.add('cuenta-terminada');
-                if (timerEl) timerEl.style.display = 'none';
-                if (labelEl) labelEl.innerHTML = '<i class="fas fa-clock"></i> La promoción ha terminado';
-                clearInterval(iv);
-                return;
-            }
-            var s = Math.floor(diff / 1000);
-            var d = Math.floor(s / 86400); s -= d * 86400;
-            var h = Math.floor(s / 3600);  s -= h * 3600;
-            var m = Math.floor(s / 60);    s -= m * 60;
-            if (dEl) dEl.textContent = pad(d);
-            if (hEl) hEl.textContent = pad(h);
-            if (mEl) mEl.textContent = pad(m);
-            if (sEl) sEl.textContent = pad(s);
-        }
-
-        var iv = setInterval(tick, 1000);
-        tick();
-    });
-
 });
