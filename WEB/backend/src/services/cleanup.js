@@ -2,7 +2,7 @@ const sheets = require('./sheets');
 
 const STALE_MS = 24 * 60 * 60 * 1000;
 
-// Column indices (0-based) within a row from the Inscripciones sheet
+// Column indices (0-based) within a row from any enrollment sheet tab
 const COL_ESTADO = 6; // G
 const COL_FECHA_INSCRIPCION = 9; // J
 
@@ -23,15 +23,19 @@ function selectStaleRows(rows, nowMs, thresholdMs) {
 }
 
 /**
- * Reads all enrollment rows, finds stale 'pendiente' ones, and marks them 'abandonado'.
- * Returns the number of rows swept.
+ * Reads all enrollment rows from every tab, finds stale 'pendiente' ones,
+ * and marks them 'abandonado'. Returns the total number of rows swept.
  */
 async function sweepAbandonedEnrollments(now = Date.now()) {
-  const rows = await sheets.getEnrollmentRows();
-  const stale = selectStaleRows(rows, now, STALE_MS);
-  await sheets.markAbandoned(stale);
-  console.log(`[cleanup] Swept ${stale.length} abandoned enrollment(s)`);
-  return stale.length;
+  let total = 0;
+  for (const tab of sheets.ENROLLMENT_TABS) {
+    const rows = await sheets.getEnrollmentRows(tab);
+    const stale = selectStaleRows(rows, now, STALE_MS);
+    await sheets.markAbandoned(tab, stale);
+    total += stale.length;
+  }
+  console.log(`[cleanup] Swept ${total} abandoned enrollment(s)`);
+  return total;
 }
 
 module.exports = { selectStaleRows, sweepAbandonedEnrollments, STALE_MS };
