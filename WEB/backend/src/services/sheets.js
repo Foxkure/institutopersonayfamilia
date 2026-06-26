@@ -81,8 +81,18 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
     valueInputOption: 'RAW',
     requestBody: {
       values: [[
-        externalReference, nombre, email, telefono, curso, monto,
-        'pendiente', '', '', now, '', '',
+        externalReference, // A
+        nombre,            // B
+        email,             // C
+        telefono,          // D
+        curso,             // E
+        monto,             // F
+        'pendiente',       // G
+        '',                // H
+        '',                // I
+        now,               // J
+        '',                // K
+        '',                // L
       ]],
     },
   });
@@ -95,7 +105,7 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
 async function updateEnrollmentPreferenceId(externalReference, preferenceId) {
   const sheets = await getSheetsClient();
   const found = await findRow(sheets, externalReference);
-  if (!found) { console.warn('[sheets] Row not found:', externalReference); return; }
+  if (!found) { console.warn('[sheets] Row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID(),
     range: `${found.tab}!H${found.rowNumber}`,
@@ -111,7 +121,7 @@ async function updateEnrollmentPreferenceId(externalReference, preferenceId) {
 async function updatePaymentStatus(externalReference, { estado, paymentId }) {
   const sheets = await getSheetsClient();
   const found = await findRow(sheets, externalReference);
-  if (!found) { console.warn('[sheets] Row not found:', externalReference); return; }
+  if (!found) { console.warn('[sheets] Row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: SPREADSHEET_ID(),
     requestBody: {
@@ -185,7 +195,7 @@ async function markAbandoned(tab, rowNumbers) {
 async function markEmailSent(externalReference) {
   const sheets = await getSheetsClient();
   const found = await findRow(sheets, externalReference);
-  if (!found) { console.warn('[sheets] markEmailSent: row not found:', externalReference); return; }
+  if (!found) { console.warn('[sheets] markEmailSent: row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID(),
     range: `${found.tab}!L${found.rowNumber}`,

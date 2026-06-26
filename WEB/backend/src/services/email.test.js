@@ -98,4 +98,8 @@ test('seminario email describes a single session and uses its WhatsApp link', ()
   assert.match(html, /6 de agosto de 2026/);
   assert.match(html, /sesi[oó]n [uú]nica/i);
   assert.doesNotMatch(html, /mi[eé]rcoles/); // not the weekly-diplomado copy
+  assert.match(html, /jueves/);
+  assert.match(html, /20:00 a 22:00/);
+  assert.match(html, /tiempo del centro de M[eé]xico/i);
+  assert.match(html, /enlace de Zoom de la sesi[oó]n/); // single-session wording, not "cada sesión"
 });

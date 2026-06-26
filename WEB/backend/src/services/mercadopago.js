@@ -21,6 +21,7 @@ function buildPreferenceBody({ nombre, email, telefono, curso, monto, externalRe
     notification_url: `${process.env.BACKEND_URL}/api/webhook`,
     statement_descriptor: descriptor,
     payment_methods: {
+      // Exclude cash (ticket), ATM, and bank transfer (CLABE) — the transfer flow is prone to high rejection rates.
       excluded_payment_types: [{ id: 'ticket' }, { id: 'atm' }, { id: 'bank_transfer' }],
     },
   };

@@ -48,6 +48,10 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
        <p style="font-size:15px;line-height:1.6;">El diplomado inicia el <strong>${info.inicio}</strong>. Las sesiones son los miércoles de 8:00 a 10:00 pm (CDMX) por Zoom. El enlace de cada sesión se publica en el grupo de WhatsApp.</p>`;
   const subject = `¡Bienvenido/a al ${info.titulo}! Tu lugar está confirmado`;
 
+  const enlacesFrase = esSeminario
+    ? 'incluido el enlace de Zoom de la sesión'
+    : 'incluidos los enlaces de Zoom de cada sesión';
+
   const html = `<!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8"></head>
 <body style="margin:0;background:#faf6f1;font-family:Arial,Helvetica,sans-serif;color:#3d2b1f;">
@@ -67,7 +71,7 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
       </div>
 
       <h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">Únete al grupo de WhatsApp</h2>
-      <p style="font-size:15px;line-height:1.6;">Toda la comunicación del ${tipoPalabra} (incluidos los enlaces de Zoom de cada sesión) se comparte en el grupo de WhatsApp. Únete aquí:</p>
+      <p style="font-size:15px;line-height:1.6;">Toda la comunicación del ${tipoPalabra} (${enlacesFrase}) se comparte en el grupo de WhatsApp. Únete aquí:</p>
       <p style="text-align:center;margin:20px 0;">
         <a href="${whatsappLink}" style="background:#b85c2c;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:16px;display:inline-block;">Entrar al grupo de WhatsApp</a>
       </p>
