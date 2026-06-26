@@ -3,7 +3,17 @@ const router = express.Router();
 const sheets = require('../services/sheets');
 const mp = require('../services/mercadopago');
 
-const VALID_COURSES = ['pareja', 'desarrollo'];
+const VALID_COURSES = ['pareja', 'desarrollo', 'seminario'];
+
+const PRICE_ENV = {
+  pareja: 'PRICE_PAREJA',
+  desarrollo: 'PRICE_DESARROLLO',
+  seminario: 'PRICE_SEMINARIO',
+};
+
+function montoForCurso(curso) {
+  return Number(process.env[PRICE_ENV[curso]]);
+}
 
 router.post('/create-preference', async (req, res) => {
   const { nombre, email, telefono, curso } = req.body;
@@ -22,9 +32,7 @@ router.post('/create-preference', async (req, res) => {
     return res.status(400).json({ message: 'Curso no reconocido.' });
   }
 
-  const monto = curso === 'pareja'
-    ? Number(process.env.PRICE_PAREJA)
-    : Number(process.env.PRICE_DESARROLLO);
+  const monto = montoForCurso(curso);
 
   const origin = process.env.FRONTEND_ORIGIN;
   const backUrls = {
@@ -66,3 +74,6 @@ router.post('/create-preference', async (req, res) => {
 });
 
 module.exports = router;
+module.exports.router = router;
+module.exports.VALID_COURSES = VALID_COURSES;
+module.exports.montoForCurso = montoForCurso;
