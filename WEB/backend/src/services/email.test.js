@@ -85,3 +85,17 @@ test('createTransport adapter throws when resend returns an error (does not thro
     /Invalid from address/
   );
 });
+
+test('seminario email describes a single session and uses its WhatsApp link', () => {
+  process.env.WHATSAPP_SEMINARIO = 'https://chat.whatsapp.com/SEMINARIO';
+  const { subject, html } = buildEnrollmentEmail({
+    nombre: 'Sofía', curso: 'seminario', monto: '200',
+    externalReference: 'ref-s', fechaPago: '2026-08-06T02:00:00.000Z',
+  });
+  assert.match(subject, /Seminario/);
+  assert.match(html, /Sof[ií]a/);
+  assert.match(html, /https:\/\/chat\.whatsapp\.com\/SEMINARIO/);
+  assert.match(html, /6 de agosto de 2026/);
+  assert.match(html, /sesi[oó]n [uú]nica/i);
+  assert.doesNotMatch(html, /mi[eé]rcoles/); // not the weekly-diplomado copy
+});
