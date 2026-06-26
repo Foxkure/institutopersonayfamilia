@@ -26,15 +26,15 @@ function selectStaleRows(rows, nowMs, thresholdMs) {
  * Reads all enrollment rows from every tab, finds stale 'pendiente' ones,
  * and marks them 'abandonado'. Returns the total number of rows swept.
  */
-async function sweepAbandonedEnrollments(now = Date.now()) {
+async function sweepAbandonedEnrollments(now = Date.now(), { sheetsDep = sheets } = {}) {
   let total = 0;
-  for (const tab of sheets.ENROLLMENT_TABS) {
-    const rows = await sheets.getEnrollmentRows(tab);
+  for (const tab of sheetsDep.ENROLLMENT_TABS) {
+    const rows = await sheetsDep.getEnrollmentRows(tab);
     const stale = selectStaleRows(rows, now, STALE_MS);
-    await sheets.markAbandoned(tab, stale);
+    await sheetsDep.markAbandoned(tab, stale);
     total += stale.length;
   }
-  console.log(`[cleanup] Swept ${total} abandoned enrollment(s)`);
+  console.log(`[cleanup] Swept ${total} abandoned enrollment(s) across ${sheetsDep.ENROLLMENT_TABS.length} tab(s)`);
   return total;
 }
 
