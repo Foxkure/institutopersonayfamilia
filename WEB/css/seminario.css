@@ -330,10 +330,10 @@
     margin: 4px auto 22px;
 }
 
-/* ---- Closing italic paragraph after grids: extra gap so it isn't glued to the cards ---- */
+/* ---- Closing italic paragraph after grids: clear gap so it isn't glued to the cards ---- */
 .seminario-cierre-parr {
     max-width: 680px;
-    margin: 48px auto 0;
+    margin: 60px auto 0;
     text-align: center;
     font-size: 1.02rem;
     color: var(--text-mid);
