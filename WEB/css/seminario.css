@@ -5,6 +5,16 @@
    Keep this file small; lean on estilos.css + cursos.css.
    ============================================================ */
 
+/* ---- HERO: emblem as background watermark (overrides Mat.jpg from cursos.css,
+   which belongs to the diplomado de pareja) ---- */
+#inicio.curso-hero::after {
+    background-image: url("../img/seminario-logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.18;
+}
+
 /* ---- HERO: overline + span accent ---- */
 .curso-hero .overline {
     color: var(--accent-end);
@@ -53,6 +63,11 @@
     margin-top: 0;
 }
 
+/* ---- HERO: breathing room before the closing "una sola sesión" line ---- */
+.curso-hero .lema {
+    margin-top: 28px;
+}
+
 /* ---- HERO: secondary (ghost) button ---- */
 .btn-secundario {
     background: transparent;
@@ -92,6 +107,21 @@
     box-shadow: var(--shadow-lg);
 }
 
+/* ---- SECTION 4: El dilema de Alicia image ---- */
+.seminario-dilema-img {
+    max-width: 520px;
+    margin: 8px auto 36px;
+}
+
+.seminario-dilema-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1122 / 1402;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
 /* ---- SECTION 4: El dilema de Alicia narrative ---- */
 .seminario-narrativa {
     max-width: 680px;
@@ -104,6 +134,16 @@
     color: var(--text-mid);
     line-height: 1.75;
     margin-bottom: 18px;
+}
+
+/* ---- SECTION 5: Emphasis line ---- */
+.seminario-enfasis {
+    max-width: 720px;
+    margin: 0 auto 48px !important;
+    font-weight: 600;
+    font-size: 1.2rem !important;
+    color: var(--accent) !important;
+    line-height: 1.6;
 }
 
 /* ---- SECTION 5: Antes → Durante two-column ---- */
@@ -285,10 +325,15 @@
     flex-shrink: 0;
 }
 
-/* ---- Closing italic paragraph after grids ---- */
+/* ---- SECTION 9: date/logistics chips inside the pricing card (mirrors the hero) ---- */
+.precio-card .precio-chips {
+    margin: 4px auto 22px;
+}
+
+/* ---- Closing italic paragraph after grids: extra gap so it isn't glued to the cards ---- */
 .seminario-cierre-parr {
     max-width: 680px;
-    margin: 32px auto 0;
+    margin: 48px auto 0;
     text-align: center;
     font-size: 1.02rem;
     color: var(--text-mid);

@@ -899,7 +899,7 @@
   text-align: center;
 }
 .cierre .overline { color: var(--accent-end); }
-.cierre h2 { color: #fff; }
+.cierre h2 { color: #fff !important; }
 .cierre h2::after { background: var(--accent-end); }
 .cierre p { color: rgba(255,255,255,0.82) !important; max-width: 640px; }
 .cierre .btn { margin-top: 12px; }
