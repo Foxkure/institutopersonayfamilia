@@ -330,8 +330,10 @@
     margin: 4px auto 22px;
 }
 
-/* ---- Closing italic paragraph after grids: clear gap so it isn't glued to the cards ---- */
-.seminario-cierre-parr {
+/* ---- Closing italic paragraph after grids: clear gap so it isn't glued to the
+   cards. Selector must be specific enough to beat `.section .container > p`
+   (margin: 0 auto 44px), which otherwise zeroes the top margin. ---- */
+.section .container > p.seminario-cierre-parr {
     max-width: 680px;
     margin: 60px auto 0;
     text-align: center;
