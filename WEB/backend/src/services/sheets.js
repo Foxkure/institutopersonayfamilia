@@ -14,8 +14,14 @@ const { randomUUID } = require('crypto');
 // J=10 FechaInscripcion
 // K=11 FechaPago
 // L=12 EmailEnviado
-const SHEET_NAME = 'Inscripciones';
+const DIPLOMADO_TAB = 'Inscripciones';
+const SEMINARIO_TAB = 'Seminario';
+const ENROLLMENT_TABS = [DIPLOMADO_TAB, SEMINARIO_TAB];
 const SPREADSHEET_ID = () => process.env.GOOGLE_SPREADSHEET_ID;
+
+function tabForCurso(curso) {
+  return curso === 'seminario' ? SEMINARIO_TAB : DIPLOMADO_TAB;
+}
 
 function parsePrivateKey(raw) {
   // Strip surrounding quotes that Railway sometimes adds (e.g. "\"-----BEGIN...")
@@ -42,17 +48,21 @@ async function getSheetsClient() {
 }
 
 /**
- * Finds the 1-indexed row number of the row whose column A equals externalReference.
- * Returns null if not found.
+ * Searches every enrollment tab for the row whose column A equals externalReference.
+ * Returns { tab, rowNumber } (1-indexed) or null. The webhook only knows the
+ * reference (not the course), so the row may live in either tab.
  */
-async function findRowNumber(sheets, externalReference) {
-  const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!A:A`,
-  });
-  const rows = res.data.values || [];
-  const idx = rows.findIndex((row) => row[0] === externalReference);
-  return idx === -1 ? null : idx + 1;
+async function findRow(sheets, externalReference) {
+  for (const tab of ENROLLMENT_TABS) {
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID(),
+      range: `${tab}!A:A`,
+    });
+    const rows = res.data.values || [];
+    const idx = rows.findIndex((row) => row[0] === externalReference);
+    if (idx !== -1) return { tab, rowNumber: idx + 1 };
+  }
+  return null;
 }
 
 /**
@@ -63,10 +73,11 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
   const externalReference = randomUUID();
   const now = new Date().toISOString();
   const sheets = await getSheetsClient();
+  const tab = tabForCurso(curso);
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!A:L`,
+    range: `${tab}!A:L`,
     valueInputOption: 'RAW',
     requestBody: {
       values: [[
@@ -76,16 +87,15 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
         telefono,          // D
         curso,             // E
         monto,             // F
-        'pendiente',       // G  Estado
-        '',                // H  MercadoPagoPreferenceId
-        '',                // I  MercadoPagoPaymentId
-        now,               // J  FechaInscripcion
-        '',                // K  FechaPago
-        '',                // L  EmailEnviado
+        'pendiente',       // G
+        '',                // H
+        '',                // I
+        now,               // J
+        '',                // K
+        '',                // L
       ]],
     },
   });
-
   return externalReference;
 }
 
@@ -94,14 +104,11 @@ async function createEnrollment({ nombre, email, telefono, curso, monto }) {
  */
 async function updateEnrollmentPreferenceId(externalReference, preferenceId) {
   const sheets = await getSheetsClient();
-  const rowNumber = await findRowNumber(sheets, externalReference);
-  if (!rowNumber) {
-    console.warn('[sheets] Row not found for externalReference:', externalReference);
-    return;
-  }
+  const found = await findRow(sheets, externalReference);
+  if (!found) { console.warn('[sheets] Row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!H${rowNumber}`,
+    range: `${found.tab}!H${found.rowNumber}`,
     valueInputOption: 'RAW',
     requestBody: { values: [[preferenceId]] },
   });
@@ -113,19 +120,16 @@ async function updateEnrollmentPreferenceId(externalReference, preferenceId) {
  */
 async function updatePaymentStatus(externalReference, { estado, paymentId }) {
   const sheets = await getSheetsClient();
-  const rowNumber = await findRowNumber(sheets, externalReference);
-  if (!rowNumber) {
-    console.warn('[sheets] Row not found for externalReference:', externalReference);
-    return;
-  }
+  const found = await findRow(sheets, externalReference);
+  if (!found) { console.warn('[sheets] Row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: SPREADSHEET_ID(),
     requestBody: {
       valueInputOption: 'RAW',
       data: [
-        { range: `${SHEET_NAME}!G${rowNumber}`, values: [[estado]] },
-        { range: `${SHEET_NAME}!I${rowNumber}`, values: [[String(paymentId)]] },
-        { range: `${SHEET_NAME}!K${rowNumber}`, values: [[new Date().toISOString()]] },
+        { range: `${found.tab}!G${found.rowNumber}`, values: [[estado]] },
+        { range: `${found.tab}!I${found.rowNumber}`, values: [[String(paymentId)]] },
+        { range: `${found.tab}!K${found.rowNumber}`, values: [[new Date().toISOString()]] },
       ],
     },
   });
@@ -152,25 +156,28 @@ function mapRowToEnrollment(row, rowNumber) {
   };
 }
 
-/** Reads all rows (A:L) from the Inscripciones sheet. Returns array of arrays. */
-async function getEnrollmentRows() {
+/** Reads all rows (A:L) from the given tab. Returns array of arrays. */
+async function getEnrollmentRows(tab = DIPLOMADO_TAB) {
   const sheets = await getSheetsClient();
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!A:L`,
+    range: `${tab}!A:L`,
   });
   return res.data.values || [];
 }
 
-/** Returns the enrollment for an externalReference, or null. */
+/** Returns the enrollment for an externalReference, scanning both tabs, or null. */
 async function getEnrollmentByReference(externalReference) {
-  const rows = await getEnrollmentRows();
-  const idx = rows.findIndex((row) => row[0] === externalReference);
-  return idx === -1 ? null : mapRowToEnrollment(rows[idx], idx + 1);
+  for (const tab of ENROLLMENT_TABS) {
+    const rows = await getEnrollmentRows(tab);
+    const idx = rows.findIndex((row) => row[0] === externalReference);
+    if (idx !== -1) return mapRowToEnrollment(rows[idx], idx + 1);
+  }
+  return null;
 }
 
-/** Sets Estado (G) to 'abandonado' for the given 1-indexed row numbers. */
-async function markAbandoned(rowNumbers) {
+/** Sets Estado (G) to 'abandonado' for the given 1-indexed row numbers in the given tab. */
+async function markAbandoned(tab, rowNumbers) {
   if (!rowNumbers || rowNumbers.length === 0) return;
   const sheets = await getSheetsClient();
   await sheets.spreadsheets.values.batchUpdate({
@@ -178,7 +185,7 @@ async function markAbandoned(rowNumbers) {
     requestBody: {
       valueInputOption: 'RAW',
       data: rowNumbers.map((n) => ({
-        range: `${SHEET_NAME}!G${n}`, values: [['abandonado']],
+        range: `${tab}!G${n}`, values: [['abandonado']],
       })),
     },
   });
@@ -187,20 +194,19 @@ async function markAbandoned(rowNumbers) {
 /** Stamps EmailEnviado (L) with the current timestamp for the given reference. */
 async function markEmailSent(externalReference) {
   const sheets = await getSheetsClient();
-  const rowNumber = await findRowNumber(sheets, externalReference);
-  if (!rowNumber) {
-    console.warn('[sheets] markEmailSent: row not found:', externalReference);
-    return;
-  }
+  const found = await findRow(sheets, externalReference);
+  if (!found) { console.warn('[sheets] markEmailSent: row not found for externalReference:', externalReference); return; }
   await sheets.spreadsheets.values.update({
     spreadsheetId: SPREADSHEET_ID(),
-    range: `${SHEET_NAME}!L${rowNumber}`,
+    range: `${found.tab}!L${found.rowNumber}`,
     valueInputOption: 'RAW',
     requestBody: { values: [[new Date().toISOString()]] },
   });
 }
 
 module.exports = {
+  tabForCurso,
+  ENROLLMENT_TABS,
   createEnrollment,
   updateEnrollmentPreferenceId,
   updatePaymentStatus,

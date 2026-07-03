@@ -3,13 +3,20 @@ const { Resend } = require('resend');
 const COURSE_INFO = {
   pareja: {
     titulo: 'Diplomado en Desarrollo de Habilidades en Pareja',
+    tipo: 'diplomado',
     inicio: '12 de agosto de 2026',
     whatsappEnv: 'WHATSAPP_PAREJA',
   },
   desarrollo: {
     titulo: 'Diplomado en Desarrollo Humano',
+    tipo: 'diplomado',
     inicio: '11 de agosto de 2026',
     whatsappEnv: 'WHATSAPP_DESARROLLO',
+  },
+  seminario: {
+    titulo: 'Seminario-taller: ¿Estás viviendo o solo estás sobreviviendo?',
+    tipo: 'seminario',
+    whatsappEnv: 'WHATSAPP_SEMINARIO',
   },
 };
 
@@ -32,7 +39,18 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
   const info = COURSE_INFO[curso];
   if (!info) throw new Error(`Curso no reconocido: ${curso}`);
   const whatsappLink = process.env[info.whatsappEnv] || '';
+  const esSeminario = info.tipo === 'seminario';
+  const tipoPalabra = esSeminario ? 'seminario' : 'diplomado';
+  const scheduleHtml = esSeminario
+    ? `<h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">¿Cuándo es?</h2>
+       <p style="font-size:15px;line-height:1.6;">Es una <strong>sesión única</strong>: jueves <strong>6 de agosto de 2026</strong>, de 20:00 a 22:00 hrs (tiempo del centro de México) por Zoom. El enlace de acceso, el material de trabajo y la grabación (disponible 24 horas) se comparten en el grupo de WhatsApp.</p>`
+    : `<h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">¿Cuándo empezamos?</h2>
+       <p style="font-size:15px;line-height:1.6;">El diplomado inicia el <strong>${info.inicio}</strong>. Las sesiones son los miércoles de 8:00 a 10:00 pm (CDMX) por Zoom. El enlace de cada sesión se publica en el grupo de WhatsApp.</p>`;
   const subject = `¡Bienvenido/a al ${info.titulo}! Tu lugar está confirmado`;
+
+  const enlacesFrase = esSeminario
+    ? 'incluido el enlace de Zoom de la sesión'
+    : 'incluidos los enlaces de Zoom de cada sesión';
 
   const html = `<!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8"></head>
@@ -53,14 +71,13 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
       </div>
 
       <h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">Únete al grupo de WhatsApp</h2>
-      <p style="font-size:15px;line-height:1.6;">Toda la comunicación del diplomado (incluidos los enlaces de Zoom de cada sesión) se comparte en el grupo de WhatsApp. Únete aquí:</p>
+      <p style="font-size:15px;line-height:1.6;">Toda la comunicación del ${tipoPalabra} (${enlacesFrase}) se comparte en el grupo de WhatsApp. Únete aquí:</p>
       <p style="text-align:center;margin:20px 0;">
         <a href="${whatsappLink}" style="background:#b85c2c;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:16px;display:inline-block;">Entrar al grupo de WhatsApp</a>
       </p>
       <p style="font-size:13px;color:#7a5c4a;">Si el botón no funciona, copia y pega este enlace: ${whatsappLink}</p>
 
-      <h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">¿Cuándo empezamos?</h2>
-      <p style="font-size:15px;line-height:1.6;">El diplomado inicia el <strong>${info.inicio}</strong>. Las sesiones son los miércoles de 8:00 a 10:00 pm (CDMX) por Zoom. El enlace de cada sesión se publica en el grupo de WhatsApp.</p>
+      ${scheduleHtml}
     </div>
 
     <p style="text-align:center;font-size:13px;color:#7a5c4a;margin-top:24px;line-height:1.6;">

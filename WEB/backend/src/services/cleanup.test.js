@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { selectStaleRows, STALE_MS } = require('./cleanup');
+const { selectStaleRows, sweepAbandonedEnrollments, STALE_MS } = require('./cleanup');
 
 const HOUR = 60 * 60 * 1000;
 const now = Date.parse('2026-06-14T12:00:00.000Z');
@@ -34,4 +34,19 @@ test('ignores non-pendiente rows even if old', () => {
 test('ignores rows with unparseable dates', () => {
   const rows = [row({ ref: 'a', fecha: 'not-a-date' })];
   assert.deepStrictEqual(selectStaleRows(rows, now, STALE_MS), []);
+});
+
+test('sweep marks stale pendiente rows in every enrollment tab', async () => {
+  const old = '2026-01-01T00:00:00.000Z';
+  const now = Date.parse('2026-01-03T00:00:00.000Z'); // 2 days later
+  const staleRow = (ref) => [ref, 'n', 'e', 't', 'c', '1', 'pendiente', '', '', old, '', ''];
+  const calls = [];
+  const sheetsDep = {
+    ENROLLMENT_TABS: ['Inscripciones', 'Seminario'],
+    getEnrollmentRows: async (tab) => (tab === 'Inscripciones' ? [staleRow('a')] : [staleRow('b'), staleRow('c')]),
+    markAbandoned: async (tab, rowNumbers) => { calls.push([tab, rowNumbers]); },
+  };
+  const total = await sweepAbandonedEnrollments(now, { sheetsDep });
+  assert.strictEqual(total, 3);
+  assert.deepStrictEqual(calls, [['Inscripciones', [1]], ['Seminario', [1, 2]]]);
 });

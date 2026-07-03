@@ -544,6 +544,58 @@ h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 10
 .curso-card > .btn { margin: 20px 28px 28px; align-self: flex-start; }
 
 /* ============================================================
+   SEMINARIO PROMO BAND (homepage)
+   ============================================================ */
+.seminario-promo {
+  padding: 72px 0;
+  background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-crema) 100%);
+  border-top: 3px solid var(--accent);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.seminario-promo-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.seminario-promo-inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 18px;
+}
+.seminario-promo-inner h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.seminario-promo-inner p {
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+}
+.seminario-promo .overline {
+  color: var(--accent);
+}
+@media (max-width: 768px) {
+  .seminario-promo { padding: 56px 0; }
+  .seminario-promo-inner { padding: 0 20px; }
+}
+
+/* ============================================================
    CONTACTO
    ============================================================ */
 .contacto {

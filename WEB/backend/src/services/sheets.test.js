@@ -1,6 +1,17 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { mapRowToEnrollment } = require('./sheets');
+const { mapRowToEnrollment, tabForCurso, ENROLLMENT_TABS } = require('./sheets');
+
+test('tabForCurso routes seminario to its own tab, others to Inscripciones', () => {
+  assert.strictEqual(tabForCurso('seminario'), 'Seminario');
+  assert.strictEqual(tabForCurso('pareja'), 'Inscripciones');
+  assert.strictEqual(tabForCurso('desarrollo'), 'Inscripciones');
+  assert.strictEqual(tabForCurso('whatever'), 'Inscripciones');
+});
+
+test('ENROLLMENT_TABS lists both tabs', () => {
+  assert.deepStrictEqual(ENROLLMENT_TABS, ['Inscripciones', 'Seminario']);
+});
 
 test('maps a full row including emailEnviado true', () => {
   const row = ['ref', 'Ana', 'a@e.com', '5500000000', 'pareja', '4500',
