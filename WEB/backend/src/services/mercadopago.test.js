@@ -10,7 +10,7 @@ const base = {
 
 test('seminario preference uses the seminar title and IPF SEMINARIO descriptor', () => {
   const body = buildPreferenceBody({ ...base, curso: 'seminario', monto: 200 });
-  assert.match(body.items[0].title, /Seminario-taller/);
+  assert.match(body.items[0].title, /Seminario:/);
   assert.strictEqual(body.items[0].unit_price, 200);
   assert.strictEqual(body.statement_descriptor, 'IPF SEMINARIO');
 });

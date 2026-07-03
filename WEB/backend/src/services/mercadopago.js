@@ -3,7 +3,7 @@ const { MercadoPagoConfig, Preference } = require('mercadopago');
 const COURSE_TITLES = {
   pareja:    'Diplomado en Desarrollo de Habilidades en Pareja',
   desarrollo: 'Diplomado en Desarrollo Humano',
-  seminario: 'Seminario-taller: ¿Estás viviendo o solo estás sobreviviendo?',
+  seminario: 'Seminario: ¿Estás viviendo o solo estás sobreviviendo?',
 };
 
 /**
