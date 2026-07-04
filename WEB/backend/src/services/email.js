@@ -1,4 +1,5 @@
 const { Resend } = require('resend');
+const { parseSheetDate, MX_TZ } = require('./datetime');
 
 const COURSE_INFO = {
   pareja: {
@@ -26,9 +27,10 @@ function formatMonto(monto) {
   }).format(Number(monto));
 }
 
-function formatFecha(iso) {
-  const d = iso ? new Date(iso) : new Date();
-  return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+function formatFecha(value) {
+  const ms = value ? parseSheetDate(value) : Date.now();
+  const d = Number.isNaN(ms) ? new Date() : new Date(ms);
+  return d.toLocaleDateString('es-MX', { timeZone: MX_TZ, day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 /**

@@ -1,4 +1,5 @@
 const sheets = require('./sheets');
+const { parseSheetDate } = require('./datetime');
 
 const STALE_MS = 24 * 60 * 60 * 1000;
 
@@ -15,7 +16,7 @@ function selectStaleRows(rows, nowMs, thresholdMs) {
   const stale = [];
   rows.forEach((row, i) => {
     if (row[COL_ESTADO] !== 'pendiente') return;
-    const t = Date.parse(row[COL_FECHA_INSCRIPCION]);
+    const t = parseSheetDate(row[COL_FECHA_INSCRIPCION]);
     if (Number.isNaN(t)) return;
     if (nowMs - t > thresholdMs) stale.push(i + 1);
   });
