@@ -1,5 +1,6 @@
 const { google } = require('googleapis');
 const { randomUUID } = require('crypto');
+const { nowMexico } = require('./datetime');
 
 // Column layout in the "Inscripciones" sheet (1-indexed)
 // A=1  ExternalReference
@@ -71,7 +72,7 @@ async function findRow(sheets, externalReference) {
  */
 async function createEnrollment({ nombre, email, telefono, curso, monto }) {
   const externalReference = randomUUID();
-  const now = new Date().toISOString();
+  const now = nowMexico();
   const sheets = await getSheetsClient();
   const tab = tabForCurso(curso);
 
@@ -129,7 +130,7 @@ async function updatePaymentStatus(externalReference, { estado, paymentId }) {
       data: [
         { range: `${found.tab}!G${found.rowNumber}`, values: [[estado]] },
         { range: `${found.tab}!I${found.rowNumber}`, values: [[String(paymentId)]] },
-        { range: `${found.tab}!K${found.rowNumber}`, values: [[new Date().toISOString()]] },
+        { range: `${found.tab}!K${found.rowNumber}`, values: [[nowMexico()]] },
       ],
     },
   });
@@ -200,7 +201,7 @@ async function markEmailSent(externalReference) {
     spreadsheetId: SPREADSHEET_ID(),
     range: `${found.tab}!L${found.rowNumber}`,
     valueInputOption: 'RAW',
-    requestBody: { values: [[new Date().toISOString()]] },
+    requestBody: { values: [[nowMexico()]] },
   });
 }
 
