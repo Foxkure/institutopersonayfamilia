@@ -14,7 +14,7 @@ const COURSE_INFO = {
     whatsappEnv: 'WHATSAPP_DESARROLLO',
   },
   seminario: {
-    titulo: 'Seminario-taller: ¿Estás viviendo o solo estás sobreviviendo?',
+    titulo: 'Seminario: ¿Estás viviendo o solo estás sobreviviendo?',
     tipo: 'seminario',
     whatsappEnv: 'WHATSAPP_SEMINARIO',
   },
