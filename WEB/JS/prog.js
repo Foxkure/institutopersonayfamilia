@@ -151,6 +151,25 @@ document.addEventListener('DOMContentLoaded', function () {
                     throw new Error(data.message || 'Error del servidor.');
                 }
 
+                // ── Meta Pixel ──
+                // Values are display/pixel approximations of the server-side price.
+                var PIXEL_INFO = {
+                    seminario:  { value: 200,  name: 'Seminario: ¿Estás viviendo o solo estás sobreviviendo?' },
+                    pareja:     { value: 6000, name: 'Diplomado en Desarrollo de Habilidades en Pareja' },
+                    desarrollo: { value: 6000, name: 'Diplomado en Desarrollo Humano' },
+                };
+                var pinfo = PIXEL_INFO[curso];
+                if (pinfo) {
+                    // Stash for the thank-you page so Purchase carries the right course + value.
+                    try {
+                        localStorage.setItem('ipf_checkout', JSON.stringify({ curso: curso, value: pinfo.value, name: pinfo.name }));
+                    } catch (e) {}
+                    // Strong purchase intent (no-op on pages without the pixel).
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'InitiateCheckout', { value: pinfo.value, currency: 'MXN', content_name: pinfo.name });
+                    }
+                }
+
                 // Redirect to Mercado Pago checkout
                 window.location.href = data.init_point;
 
