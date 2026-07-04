@@ -3,6 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1656378778788188');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1656378778788188&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <script>
+    // Purchase fires ONLY when MercadoPago confirms an APPROVED payment (never on a
+    // direct visit or refresh). Value/course come from the checkout the buyer started.
+    (function () {
+        try {
+            var q = new URLSearchParams(window.location.search);
+            var status = q.get('status') || q.get('collection_status');
+            var paymentId = q.get('payment_id') || q.get('collection_id') || '';
+            if (status !== 'approved') return;
+            var info = JSON.parse(localStorage.getItem('ipf_checkout') || 'null');
+            if (window.fbq && info) {
+                fbq('track', 'Purchase',
+                    { value: info.value, currency: 'MXN', content_name: info.name },
+                    paymentId ? { eventID: paymentId } : undefined);
+            }
+            localStorage.removeItem('ipf_checkout'); // a refresh must not double-count
+        } catch (e) {}
+    })();
+    </script>
     <title>¡Inscripción confirmada! | Instituto Persona y Familia</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/estilos.css">
