@@ -45,7 +45,7 @@ function buildEnrollmentEmail({ nombre, curso, monto, externalReference, fechaPa
   const tipoPalabra = esSeminario ? 'seminario' : 'diplomado';
   const scheduleHtml = esSeminario
     ? `<h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">¿Cuándo es?</h2>
-       <p style="font-size:15px;line-height:1.6;">Es una <strong>sesión única</strong>: jueves <strong>6 de agosto de 2026</strong>, de 20:00 a 22:00 hrs (tiempo del centro de México) por Zoom. El enlace de acceso, el material de trabajo y la grabación (disponible 24 horas) se comparten en el grupo de WhatsApp.</p>`
+       <p style="font-size:15px;line-height:1.6;">Es una <strong>sesión única</strong>: jueves <strong>6 de agosto de 2026</strong>, de 20:00 a 22:00 hrs (tiempo del centro de México) por Zoom. El enlace de acceso, el material de trabajo y la grabación (disponible 48 horas) se comparten en el grupo de WhatsApp.</p>`
     : `<h2 style="font-size:17px;color:#b85c2c;margin:24px 0 8px;">¿Cuándo empezamos?</h2>
        <p style="font-size:15px;line-height:1.6;">El diplomado inicia el <strong>${info.inicio}</strong>. Las sesiones son los miércoles de 8:00 a 10:00 pm (CDMX) por Zoom. El enlace de cada sesión se publica en el grupo de WhatsApp.</p>`;
   const subject = `¡Bienvenido/a al ${info.titulo}! Tu lugar está confirmado`;
