@@ -17,7 +17,16 @@ const { nowMexico } = require('./datetime');
 // L=12 EmailEnviado
 const DIPLOMADO_TAB = 'Inscripciones';
 const SEMINARIO_TAB = 'Seminario';
+const LEADS_TAB = 'Leads';
+// Tabs the hourly sweep reads to abandon stale signups.
 const ENROLLMENT_TABS = [DIPLOMADO_TAB, SEMINARIO_TAB];
+// Tabs scanned when reconciling a payment by externalReference. Includes Leads
+// so someone who abandoned (and was moved out) can still be found if they pay late.
+const LOOKUP_TABS = [...ENROLLMENT_TABS, LEADS_TAB];
+const HEADER_ROW = [
+  'ExternalReference', 'Nombre', 'Email', 'Telefono', 'Curso', 'Monto', 'Estado',
+  'MercadoPagoPreferenceId', 'MercadoPagoPaymentId', 'FechaInscripcion', 'FechaPago', 'EmailEnviado',
+];
 const SPREADSHEET_ID = () => process.env.GOOGLE_SPREADSHEET_ID;
 
 function tabForCurso(curso) {
@@ -54,7 +63,7 @@ async function getSheetsClient() {
  * reference (not the course), so the row may live in either tab.
  */
 async function findRow(sheets, externalReference) {
-  for (const tab of ENROLLMENT_TABS) {
+  for (const tab of LOOKUP_TABS) {
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID(),
       range: `${tab}!A:A`,
@@ -169,7 +178,7 @@ async function getEnrollmentRows(tab = DIPLOMADO_TAB) {
 
 /** Returns the enrollment for an externalReference, scanning both tabs, or null. */
 async function getEnrollmentByReference(externalReference) {
-  for (const tab of ENROLLMENT_TABS) {
+  for (const tab of LOOKUP_TABS) {
     const rows = await getEnrollmentRows(tab);
     const idx = rows.findIndex((row) => row[0] === externalReference);
     if (idx !== -1) return mapRowToEnrollment(rows[idx], idx + 1);
@@ -177,18 +186,71 @@ async function getEnrollmentByReference(externalReference) {
   return null;
 }
 
-/** Sets Estado (G) to 'abandonado' for the given 1-indexed row numbers in the given tab. */
-async function markAbandoned(tab, rowNumbers) {
-  if (!rowNumbers || rowNumbers.length === 0) return;
+/**
+ * Pure: maps stale { rowNumber, values } rows to Leads value-arrays, forcing
+ * Estado (column G) to 'abandonado' and padding each to the full 12 columns.
+ */
+function buildAbandonedLeadRows(rows) {
+  return rows.map(({ values }) => {
+    const v = (values || []).slice(0, 12);
+    while (v.length < 12) v.push('');
+    v[6] = 'abandonado'; // column G
+    return v;
+  });
+}
+
+/** Pure: source row numbers sorted high-to-low, so deleting them won't shift later indices. */
+function descendingRowNumbers(rows) {
+  return rows.map((r) => r.rowNumber).sort((a, b) => b - a);
+}
+
+/** Returns the numeric gridId of a tab (needed to delete rows), or null if absent. */
+async function getSheetId(sheets, tab) {
+  const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID() });
+  const sheet = (meta.data.sheets || []).find((s) => s.properties.title === tab);
+  return sheet ? sheet.properties.sheetId : null;
+}
+
+/** Creates `tab` with the standard A–L header row if it does not already exist. */
+async function ensureTab(tab, header = HEADER_ROW) {
   const sheets = await getSheetsClient();
-  await sheets.spreadsheets.values.batchUpdate({
+  if ((await getSheetId(sheets, tab)) !== null) return;
+  await sheets.spreadsheets.batchUpdate({
     spreadsheetId: SPREADSHEET_ID(),
-    requestBody: {
-      valueInputOption: 'RAW',
-      data: rowNumbers.map((n) => ({
-        range: `${tab}!G${n}`, values: [['abandonado']],
-      })),
+    requestBody: { requests: [{ addSheet: { properties: { title: tab } } }] },
+  });
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: SPREADSHEET_ID(),
+    range: `${tab}!A1:L1`,
+    valueInputOption: 'RAW',
+    requestBody: { values: [header] },
+  });
+}
+
+/**
+ * Moves stale enrollments out of `tab` into the Leads tab: appends each row to
+ * Leads (Estado forced to 'abandonado'), then deletes the originals from `tab`
+ * bottom-up so row numbers stay valid. `rows` = [{ rowNumber, values }].
+ */
+async function moveRowsToLeads(tab, rows) {
+  if (!rows || rows.length === 0) return;
+  const sheets = await getSheetsClient();
+  await ensureTab(LEADS_TAB);
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: SPREADSHEET_ID(),
+    range: `${LEADS_TAB}!A:L`,
+    valueInputOption: 'RAW',
+    requestBody: { values: buildAbandonedLeadRows(rows) },
+  });
+  const sheetId = await getSheetId(sheets, tab);
+  const requests = descendingRowNumbers(rows).map((n) => ({
+    deleteDimension: {
+      range: { sheetId, dimension: 'ROWS', startIndex: n - 1, endIndex: n },
     },
+  }));
+  await sheets.spreadsheets.batchUpdate({
+    spreadsheetId: SPREADSHEET_ID(),
+    requestBody: { requests },
   });
 }
 
@@ -208,12 +270,17 @@ async function markEmailSent(externalReference) {
 module.exports = {
   tabForCurso,
   ENROLLMENT_TABS,
+  LEADS_TAB,
+  LOOKUP_TABS,
   createEnrollment,
   updateEnrollmentPreferenceId,
   updatePaymentStatus,
   getEnrollmentRows,
   getEnrollmentByReference,
-  markAbandoned,
+  moveRowsToLeads,
+  ensureTab,
+  buildAbandonedLeadRows,
+  descendingRowNumbers,
   markEmailSent,
   mapRowToEnrollment,
 };

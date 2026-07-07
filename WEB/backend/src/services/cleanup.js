@@ -24,18 +24,19 @@ function selectStaleRows(rows, nowMs, thresholdMs) {
 }
 
 /**
- * Reads all enrollment rows from every tab, finds stale 'pendiente' ones,
- * and marks them 'abandonado'. Returns the total number of rows swept.
+ * Reads all enrollment rows from every tab, finds stale 'pendiente' ones, and
+ * moves them (with their values) into the Leads tab. Returns the total moved.
  */
 async function sweepAbandonedEnrollments(now = Date.now(), { sheetsDep = sheets } = {}) {
   let total = 0;
   for (const tab of sheetsDep.ENROLLMENT_TABS) {
     const rows = await sheetsDep.getEnrollmentRows(tab);
     const stale = selectStaleRows(rows, now, STALE_MS);
-    await sheetsDep.markAbandoned(tab, stale);
-    total += stale.length;
+    const toMove = stale.map((rowNumber) => ({ rowNumber, values: rows[rowNumber - 1] }));
+    await sheetsDep.moveRowsToLeads(tab, toMove);
+    total += toMove.length;
   }
-  console.log(`[cleanup] Swept ${total} abandoned enrollment(s) across ${sheetsDep.ENROLLMENT_TABS.length} tab(s)`);
+  console.log(`[cleanup] Moved ${total} abandoned enrollment(s) to Leads across ${sheetsDep.ENROLLMENT_TABS.length} tab(s)`);
   return total;
 }
 
