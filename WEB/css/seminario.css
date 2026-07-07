@@ -177,7 +177,29 @@
     border-top: 1px solid var(--border);
 }
 
-/* ---- SECTION 2: urgency band ---- */
+/* ---- SECTION 2: scarcity band (cupo limitado) ---- */
+.seminario-cupo {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 26px 24px;
+    text-align: center;
+}
+
+.seminario-cupo p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+}
+
+.seminario-cupo strong {
+    color: var(--accent);
+    font-size: 1.06rem;
+    letter-spacing: 0.01em;
+}
+
+/* ---- SECTION 2b: urgency band ---- */
 .seminario-urgencia {
     background: var(--color-blush);
     border-bottom: 1px solid var(--border);
@@ -268,13 +290,18 @@
     margin-bottom: 10px;
 }
 
-/* ---- SECTION 5: oferta clara two-column ---- */
+/* ---- SECTION 5: oferta clara (three columns: recibes / construir / resultado) ---- */
 .oferta-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     max-width: 880px;
     margin: 8px auto 0;
+}
+
+.oferta-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1040px;
 }
 
 .oferta-col {
@@ -328,14 +355,7 @@
     font-weight: 700;
 }
 
-/* ---- SECTION 6: resultado esperado (3 cards) ---- */
-.resultados-3 {
-    max-width: 920px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ---- SECTION 7: temario card description text ---- */
+/* ---- SECTION 6: temario card description text ---- */
 .temario-card p {
     font-size: 0.875rem;
     color: var(--text-mid);
@@ -394,9 +414,23 @@
     margin-top: 18px;
 }
 
-/* ---- SECTION 9: pricing card tweaks ---- */
+/* ---- SECTION 8: pricing card tweaks ---- */
 .precio-card .precio-monto {
     margin-top: 10px;
+}
+
+.precio-subline + .precio-subline {
+    margin-top: 6px;
+}
+
+/* Intro paragraph under the form heading (urgency reminder) */
+#form-inscripcion .form-intro {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto 22px;
 }
 
 .precio-subline {
@@ -445,7 +479,14 @@
     line-height: 1.65;
 }
 
-/* ---- SECTION 11: cierre WhatsApp line ---- */
+/* ---- SECTION 10: cierre offer line + WhatsApp line ---- */
+.cierre .cierre-oferta {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 1.04rem;
+    margin-top: 6px;
+}
+
 .cierre-whatsapp {
     font-size: 0.85rem !important;
     color: rgba(255, 255, 255, 0.62) !important;
@@ -491,6 +532,11 @@
         margin: 0 auto;
         width: 100%;
     }
+
+    .oferta-cols-3 {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -501,6 +547,7 @@
     }
 
     .oferta-cols,
+    .oferta-cols-3,
     .faq-grid {
         grid-template-columns: 1fr;
         gap: 16px;
