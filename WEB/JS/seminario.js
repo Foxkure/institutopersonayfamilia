@@ -86,6 +86,7 @@
         if (bar && heroCta && 'IntersectionObserver' in window) {
             new IntersectionObserver(function (entries) {
                 bar.classList.toggle('visible', !entries[0].isIntersecting);
+                bar.setAttribute('aria-hidden', entries[0].isIntersecting ? 'true' : 'false');
             }, { threshold: 0 }).observe(heroCta);
         } else if (bar) {
             bar.classList.add('visible');
