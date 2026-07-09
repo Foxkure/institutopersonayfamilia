@@ -564,3 +564,185 @@ body.fase-3 .solo-compra { display: none !important; }
   .whatsapp-burbuja { bottom: 66px; width: 48px; height: 48px; }
   .formador-foto { width: 160px; max-width: 160px; }
 }
+
+/* ============================================================
+   CONTADOR GRANDE (cajas), BADGE MERCADO PAGO, POPUP DE SALIDA
+   Añadido 2026-07-09 (pase de presión + logo de pago)
+   ============================================================ */
+
+/* ---- CONTADOR DE CAJAS ---- */
+.cd-timer {
+  margin: 22px 0 20px;
+}
+.cd-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-arena);
+  margin-bottom: 12px;
+}
+.cd-label i { margin-right: 4px; }
+.cd-boxes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cd-box {
+  min-width: 74px;
+  flex: 0 0 auto;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(232,168,124,0.45);
+  border-radius: var(--radius);
+  padding: 12px 8px 8px;
+  text-align: center;
+  box-shadow: inset 0 -2px 0 rgba(184,92,44,0.5);
+}
+.cd-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.cd-unit {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,246,241,0.7);
+}
+.cd-box-secs { border-color: var(--color-terracota); background: rgba(184,92,44,0.32); }
+.cd-box-secs .cd-num { color: var(--color-arena); }
+
+/* ---- BADGE MERCADO PAGO ---- */
+.mp-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.mp-badge-lead {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+.mp-badge-lead i { color: var(--color-terracota); margin-right: 4px; }
+.mp-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #009EE3;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  padding: 5px 12px 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,158,227,0.35);
+}
+.mp-dot {
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: #FFE600;
+  box-shadow: inset 0 0 0 3px #009EE3, inset 0 0 0 4px #FFE600;
+  flex: 0 0 auto;
+}
+.form-inscripcion .form-seguridad { margin-top: 8px; }
+
+/* ---- POPUP DE SALIDA (exit-intent) ---- */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.exit-popup.visible { display: flex; }
+.exit-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(30,18,8,0.72);
+  backdrop-filter: blur(2px);
+}
+.exit-popup-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(170deg, #2b1d13 0%, var(--color-espresso) 70%);
+  color: var(--color-crema);
+  border: 1px solid rgba(232,168,124,0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  padding: 34px 30px 28px;
+  text-align: center;
+  animation: exitPopIn 260ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+@keyframes exitPopIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exit-popup-card { animation: none; }
+}
+.exit-popup-card .overline { color: var(--color-arena); }
+.exit-popup-card h3 {
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  margin: 6px 0 12px;
+}
+.exit-popup-card > p {
+  font-size: 0.98rem;
+  color: rgba(250,246,241,0.9);
+  margin-bottom: 18px;
+}
+.exit-popup-card > p strong { color: var(--color-arena); }
+.exit-popup .cd-boxes-popup {
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.exit-popup .cd-box { min-width: 64px; background: rgba(0,0,0,0.3); }
+.exit-popup .cd-num { font-size: 2rem; }
+.exit-popup-cta { width: 100%; text-align: center; font-size: 1.05rem; padding: 14px 24px; }
+.exit-popup-no {
+  display: inline-block;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: rgba(250,246,241,0.55);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.exit-popup-no:hover { color: rgba(250,246,241,0.85); }
+.exit-popup-close {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: none;
+  border: none;
+  color: rgba(250,246,241,0.6);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.exit-popup-close:hover { color: #fff; }
+
+@media (max-width: 560px) {
+  .cd-box { min-width: 0; flex: 1 1 0; padding: 10px 4px 7px; }
+  .cd-num { font-size: 2rem; }
+  .cd-unit { font-size: 0.6rem; letter-spacing: 0.1em; }
+  .exit-popup-card { padding: 30px 22px 24px; }
+  .exit-popup-card h3 { font-size: 1.45rem; }
+}

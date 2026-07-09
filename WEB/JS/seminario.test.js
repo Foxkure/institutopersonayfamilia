@@ -4,6 +4,8 @@ const {
     getPhase,
     formatRemaining,
     formatRemainingShort,
+    remainingParts,
+    pad2,
     PRICE_DEADLINE_MS,
     EVENT_START_MS,
 } = require('./seminario.js');
@@ -41,4 +43,17 @@ test('formatRemainingShort shows d+h when days remain, else h+m', () => {
     assert.strictEqual(formatRemainingShort(((2 * 24 + 3) * 3600) * 1000), '2d 3h');
     assert.strictEqual(formatRemainingShort((5 * 3600 + 42 * 60) * 1000), '5h 42m');
     assert.strictEqual(formatRemainingShort(-1), '0h 0m');
+});
+
+test('remainingParts splits into d/h/m/s and clamps negatives to zero', () => {
+    const ms = ((2 * 24 + 3) * 3600 + 4 * 60 + 5) * 1000; // 2d 3h 4m 5s
+    assert.deepStrictEqual(remainingParts(ms), { d: 2, h: 3, m: 4, s: 5 });
+    assert.deepStrictEqual(remainingParts(0), { d: 0, h: 0, m: 0, s: 0 });
+    assert.deepStrictEqual(remainingParts(-500), { d: 0, h: 0, m: 0, s: 0 });
+});
+
+test('pad2 zero-pads single digits and leaves two-digit numbers intact', () => {
+    assert.strictEqual(pad2(0), '00');
+    assert.strictEqual(pad2(7), '07');
+    assert.strictEqual(pad2(42), '42');
 });

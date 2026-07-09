@@ -54,10 +54,20 @@
                         <div class="landing-dato"><i class="fas fa-video"></i><span>En vivo<strong>por Zoom</strong></span></div>
                         <div class="landing-dato landing-dato-precio solo-compra"><i class="fas fa-ticket"></i><span>Hoy<strong><span class="solo-fase-1">$200</span><span class="solo-fase-2">$300</span> MXN</strong></span></div>
                     </div>
+                    <div class="cd-timer solo-compra">
+                        <span class="cd-label">
+                            <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio sube a $300 en:</span>
+                            <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> El seminario comienza en:</span>
+                        </span>
+                        <div class="cd-boxes">
+                            <div class="cd-box"><span class="cd-num" data-cd="days">—</span><span class="cd-unit">días</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="hours">—</span><span class="cd-unit">hrs</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="mins">—</span><span class="cd-unit">min</span></div>
+                            <div class="cd-box cd-box-secs"><span class="cd-num" data-cd="secs">—</span><span class="cd-unit">seg</span></div>
+                        </div>
+                    </div>
                     <div class="landing-hero-cta solo-compra">
                         <a href="#inscripcion" id="hero-cta" class="btn btn-primary btn-grande"><span class="solo-fase-1">Quiero mi lugar por $200</span><span class="solo-fase-2">Quiero mi lugar por $300</span></a>
-                        <p class="landing-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio sube a $300 en <strong data-countdown>—</strong></p>
-                        <p class="landing-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> El seminario comienza en <strong data-countdown>—</strong></p>
                         <p class="landing-microcopy solo-fase-1">Precio de lanzamiento · después del 20 de julio: $300 MXN</p>
                         <p class="landing-microcopy solo-fase-2">Últimos lugares al precio actual.</p>
                     </div>
@@ -264,9 +274,13 @@
                             Continuar al pago seguro →
                         </button>
 
-                        <p class="form-seguridad">
-                            <i class="fas fa-lock"></i> Pago seguro con Mercado Pago · Confirmación inmediata por correo
-                        </p>
+                        <div class="mp-badge">
+                            <span class="mp-badge-lead"><i class="fas fa-lock"></i> Pago 100% seguro con</span>
+                            <span class="mp-wordmark" aria-label="Mercado Pago">
+                                <span class="mp-dot"></span>Mercado&nbsp;Pago
+                            </span>
+                        </div>
+                        <p class="form-seguridad">Aceptamos tarjetas de crédito y débito · Confirmación inmediata por correo</p>
                     </form>
                 </div>
 
@@ -346,6 +360,26 @@
                 </div>
             </div>
         </footer>
+
+        <!-- ======= POPUP DE SALIDA (exit-intent) ======= -->
+        <div id="exit-popup" class="exit-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="exit-popup-title">
+            <div class="exit-popup-backdrop" data-cerrar-popup></div>
+            <div class="exit-popup-card">
+                <button type="button" class="exit-popup-close" data-cerrar-popup aria-label="Cerrar">&times;</button>
+                <span class="overline">Espera…</span>
+                <h3 id="exit-popup-title">Tu lugar sigue disponible</h3>
+                <p class="solo-fase-1">Aún puedes entrar al precio de lanzamiento de <strong>$200 MXN</strong>. El precio sube a $300 en:</p>
+                <p class="solo-fase-2">El seminario está por comenzar. Asegura tu lugar por <strong>$300 MXN</strong>. Comienza en:</p>
+                <div class="cd-boxes cd-boxes-popup">
+                    <div class="cd-box"><span class="cd-num" data-cd="days">—</span><span class="cd-unit">días</span></div>
+                    <div class="cd-box"><span class="cd-num" data-cd="hours">—</span><span class="cd-unit">hrs</span></div>
+                    <div class="cd-box"><span class="cd-num" data-cd="mins">—</span><span class="cd-unit">min</span></div>
+                    <div class="cd-box cd-box-secs"><span class="cd-num" data-cd="secs">—</span><span class="cd-unit">seg</span></div>
+                </div>
+                <a href="#inscripcion" class="btn btn-primary exit-popup-cta" data-cerrar-popup><span class="solo-fase-1">Sí, quiero mi lugar por $200</span><span class="solo-fase-2">Sí, quiero mi lugar por $300</span></a>
+                <button type="button" class="exit-popup-no" data-cerrar-popup>No, gracias</button>
+            </div>
+        </div>
 
         <!-- ======= BARRA FLOTANTE DE COMPRA ======= -->
         <div id="barra-flotante" class="barra-flotante solo-compra" aria-hidden="true">
