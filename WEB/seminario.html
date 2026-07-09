@@ -20,7 +20,7 @@
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1656378778788188&ev=PageView&noscript=1"/></noscript>
         <!-- End Meta Pixel Code -->
         <title>Seminario: ¿Estás viviendo o solo estás sobreviviendo? · Instituto Persona y Familia</title>
-        <meta name="description" content="Deja de vivir en automático. Seminario online en vivo con el Mtro. Jorge Anaya Gómez. Jueves 6 de agosto de 2026, 20:00–22:00 hrs por Zoom. Precio de lanzamiento: $200 MXN. Cupo limitado.">
+        <meta name="description" content="Seminario en vivo por Zoom con el Mtro. Jorge Anaya Gómez. Jueves 6 de agosto de 2026, 8:00 p.m. En 2 horas, haz una pausa para recuperar claridad y dirección. Cupo limitado.">
         <link rel="icon" type="image/png" href="img/logo.png">
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="css/cursos.css">
@@ -31,108 +31,64 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
 
-    <body>
+    <body class="landing-seminario fase-1">
 
-        <!-- ======= HEADER ======= -->
-        <header class="header">
-            <div class="container">
-                <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="logo">
-                <nav class="nav">
-                    <ul>
-                        <li><a href="index.html#inicio">Inicio</a></li>
-                        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
-                        <li><a href="index.html#que-hacemos">Qué hacemos</a></li>
-                        <li><a href="diplomados.html">Diplomados</a></li>
-                        <li><a href="seminario.html">Seminario</a></li>
-                        <li><a href="index.html#contacto">Contacto</a></li>
-                    </ul>
-                    <a href="#inscripcion" class="btn-nav-cta">Inscríbete</a>
-                </nav>
-                <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <!-- ======= 1. BARRA SUPERIOR MÍNIMA (sin navegación) ======= -->
+        <header class="landing-topbar">
+            <div class="container landing-topbar-inner">
+                <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="landing-logo">
+                <span class="landing-topbar-nombre">Instituto Persona y Familia</span>
             </div>
         </header>
 
-        <!-- ======= SECTION 1: HERO / ABOVE THE FOLD (oferta + tarjeta de inscripción) ======= -->
-        <section id="inicio" class="curso-hero seminario-hero">
-            <div class="curso-hero-content seminario-hero-grid">
-                <div class="seminario-hero-copy">
-                    <span class="overline">Seminario en vivo · Abierto a todo público</span>
-                    <h1>Deja de vivir en automático.</h1>
-                    <p class="hero-sub">Recupera dirección en una sola sesión.</p>
-                    <p>Participa en <em>“¿Estás viviendo… o solo estás sobreviviendo?”</em> y dedica una noche a comprenderte mejor, ordenar tus decisiones y comenzar a tomar el control de tu vida ahora.</p>
-                    <div class="seminario-chips">
-                        <span class="seminario-chip"><i class="fas fa-calendar-day"></i> Jueves 6 de agosto</span>
-                        <span class="seminario-chip"><i class="fas fa-clock"></i> 20:00 a 22:00 hrs</span>
-                        <span class="seminario-chip"><i class="fas fa-video"></i> En vivo por Zoom</span>
-                        <span class="seminario-chip"><i class="fas fa-hand-holding-heart"></i> Donativo: $200 MXN</span>
+        <!-- ======= 2. HERO TIPO EVENTO ======= -->
+        <section id="inicio" class="landing-hero">
+            <div class="container landing-hero-grid">
+                <div class="landing-hero-copy">
+                    <span class="landing-eyebrow"><i class="fas fa-video"></i>&nbsp; Seminario en vivo por Zoom · Jueves 6 de agosto · 8:00 p.m.</span>
+                    <h1>¿Estás viviendo…<br><em>o solo estás sobreviviendo?</em></h1>
+                    <p class="landing-hero-sub">En 2 horas, haz una pausa para ordenar tu vida, recuperar claridad y volver a tomar el control de tus decisiones.</p>
+                    <div class="landing-datos">
+                        <div class="landing-dato"><i class="fas fa-calendar-day"></i><span>Jueves<strong>6 de agosto</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-clock"></i><span>20:00–22:00<strong>hrs CDMX</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-video"></i><span>En vivo<strong>por Zoom</strong></span></div>
+                        <div class="landing-dato landing-dato-precio"><i class="fas fa-ticket"></i><span>Hoy<strong><span class="solo-fase-1">$200</span><span class="solo-fase-2">$300</span> MXN</strong></span></div>
                     </div>
-                    <div class="hero-actions">
-                        <a href="#inscripcion" class="btn btn-primary">Inscríbete ahora por $200</a>
+                    <div class="landing-hero-cta solo-compra">
+                        <a href="#inscripcion" id="hero-cta" class="btn btn-primary btn-grande"><span class="solo-fase-1">Quiero mi lugar por $200</span><span class="solo-fase-2">Quiero mi lugar por $300</span></a>
+                        <p class="landing-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio sube a $300 en <strong data-countdown>—</strong></p>
+                        <p class="landing-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> El seminario comienza en <strong data-countdown>—</strong></p>
+                        <p class="landing-microcopy solo-fase-1">Precio de lanzamiento · después del 20 de julio: $300 MXN</p>
+                        <p class="landing-microcopy solo-fase-2">Últimos lugares al precio actual.</p>
                     </div>
-                    <p class="hero-microcopy">Precio de lanzamiento. Tu inscripción queda confirmada al realizar tu pago.</p>
+                    <div class="landing-fase3-aviso solo-fase-3">
+                        <p><strong>El seminario ya comenzó.</strong> ¿Te interesa la próxima edición?</p>
+                        <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20el%20seminario%20%22Estas%20viviendo%20o%20solo%20sobreviviendo%22" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                    </div>
+                    <p class="landing-prueba"><i class="fas fa-star"></i> Más de <strong>700 personas</strong> se han formado con nosotros</p>
                 </div>
-                <aside class="hero-card" aria-label="Tarjeta de inscripción">
-                    <span class="hero-card-label">Precio de lanzamiento</span>
-                    <p class="hero-card-monto">$200</p>
-                    <p class="hero-card-mxn">MXN · aprovecha este precio, subirá pronto</p>
-                    <a href="#inscripcion" class="btn btn-primary hero-card-btn">Inscríbete ahora</a>
+                <aside class="landing-hero-card solo-compra" aria-label="Resumen de inscripción">
+                    <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                    <span class="hero-card-etiqueta solo-fase-2">Precio</span>
+                    <p class="hero-card-precio"><span class="solo-fase-1">$200</span><span class="solo-fase-2">$300</span> <span class="hero-card-mxn">MXN</span></p>
+                    <p class="hero-card-ancla solo-fase-1">Después del 20 de julio: $300</p>
+                    <a href="#inscripcion" class="btn btn-primary hero-card-btn">Asegurar mi lugar</a>
                     <ul class="hero-card-lista">
                         <li><i class="fas fa-check"></i> Sesión en vivo por Zoom</li>
                         <li><i class="fas fa-check"></i> Material de trabajo incluido</li>
                         <li><i class="fas fa-check"></i> Grabación disponible 48 hrs</li>
                         <li><i class="fas fa-check"></i> Grupo de WhatsApp</li>
                     </ul>
-                    <p class="hero-card-nota">Pago único · Acceso confirmado · Sin requisitos previos</p>
+                    <p class="hero-card-nota"><i class="fas fa-lock"></i> Pago seguro con Mercado Pago</p>
                 </aside>
             </div>
         </section>
 
-        <!-- ======= SECTION 2: ESCASEZ (cupo limitado) ======= -->
-        <section class="seminario-cupo">
-            <div class="container">
-                <p><strong>Cupo limitado.</strong><br>
-                No dejes pasar esta oportunidad. Cuando el cupo se complete, cerraremos inscripciones y quedarás fuera.</p>
-            </div>
-        </section>
-
-        <!-- ======= SECTION 2b: URGENCIA REAL ======= -->
-        <section class="seminario-urgencia">
-            <div class="container">
-                <p><strong>No esperes a que llegue una crisis para preguntarte qué estás haciendo con tu vida.</strong><br>
-                Haz una pausa a tiempo, recupera claridad y comienza hoy a tomar el control de tu vida.</p>
-            </div>
-        </section>
-
-        <!-- ======= SECTION 3: VIDEO DE INVITACIÓN ======= -->
-        <section class="section">
-            <div class="container">
-                <div class="video-card">
-                    <div class="video-card-texto">
-                        <span class="overline">Video breve</span>
-                        <h3>¿Por qué debes tomar este seminario?</h3>
-                        <p>Escucha en unos minutos qué vas a trabajar durante la sesión y por qué esta pausa puede cambiar la dirección de tus decisiones.</p>
-                        <a href="#inscripcion" class="btn btn-primary">Inscríbete ahora</a>
-                    </div>
-                    <div class="video-card-media">
-                        <div class="testimonio-video" data-youtube="yH02zwa8VMw" role="button" tabindex="0" aria-label="Video del seminario">
-                            <span class="play"><i class="fas fa-play"></i></span>
-                            <span class="badge-proximamente">Próximamente</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======= SECTION 4: ESTE SEMINARIO ES PARA TI SI… ======= -->
+        <!-- ======= 3. ¿TE RECONOCES? ======= -->
         <section class="section bg-light">
             <div class="container">
-                <span class="overline">Este seminario es para ti si…</span>
+                <span class="overline">¿Te reconoces?</span>
                 <h2>Tu vida avanza, pero tú sientes que perdiste el rumbo.</h2>
-                <p>No vienes solo a escuchar una conferencia: vienes a salir con una primera ruta personal para vivir con más claridad, más orden y más dirección.</p>
                 <div class="porti-grid">
                     <div class="porti-item resultado">
                         <span class="porti-num">01</span>
@@ -151,96 +107,92 @@
                         <p>Quieres elegir tu vida con más conciencia y sentido.</p>
                     </div>
                 </div>
-                <p class="seminario-cierre-parr">Si te reconoces en alguna de estas situaciones, no lo pospongas: este seminario puede ser el primer paso para volver a tomar dirección.</p>
+                <p class="landing-puente">Si te reconociste en alguna, esta noche es tu pausa.</p>
             </div>
         </section>
 
-        <!-- ======= SECTION 5: OFERTA CLARA (incluye resultado esperado) ======= -->
+        <!-- ======= 4. LO QUE VAS A VIVIR ESA NOCHE ======= -->
         <section class="section">
             <div class="container">
-                <span class="overline">Oferta clara</span>
-                <h2>En 2 horas vas a trabajar una ruta sencilla.</h2>
-                <p>Una experiencia formativa breve, directa y práctica para comprenderte mejor y comenzar a construir un proyecto vital con sentido.</p>
-                <div class="oferta-cols oferta-cols-3">
-                    <div class="oferta-col">
-                        <h3>Lo que recibes</h3>
-                        <ul>
-                            <li>Sesión en vivo por Zoom</li>
-                            <li>Material de trabajo</li>
-                            <li>Grabación por 48 horas</li>
-                            <li>Acceso al grupo de WhatsApp</li>
-                        </ul>
+                <span class="overline">Lo que vas a vivir esa noche</span>
+                <h2>Dos horas para dejar de reaccionar y empezar a elegir.</h2>
+                <div class="momentos-grid">
+                    <div class="momento-card modulo-card">
+                        <span class="momento-num">1</span>
+                        <h3>Ponle nombre a lo que sientes</h3>
+                        <p>Vas a identificar por qué, aunque cumples con todo, sientes que la vida pasa de largo.</p>
                     </div>
-                    <div class="oferta-col">
-                        <h3>Lo que empezarás a construir</h3>
-                        <ul>
-                            <li>Preguntas fundamentales</li>
-                            <li>Criterios para decidir</li>
-                            <li>Reconocimiento de tus dinamismos personales</li>
-                            <li>Un primer mapa de tu proyecto vital</li>
-                        </ul>
+                    <div class="momento-card modulo-card">
+                        <span class="momento-num">2</span>
+                        <h3>Descubre qué está decidiendo por ti</h3>
+                        <p>La rutina, el cansancio, las expectativas de otros: vas a ver con claridad qué fuerzas gobiernan tus días.</p>
                     </div>
-                    <div class="oferta-col">
-                        <h3>El resultado esperado</h3>
-                        <p class="oferta-desc">Claridad, criterios y un primer paso concreto para dejar de sobrevivir reaccionando y empezar a vivir eligiendo.</p>
+                    <div class="momento-card modulo-card">
+                        <span class="momento-num">3</span>
+                        <h3>Traza tu primer mapa</h3>
+                        <p>Vas a salir con el primer bosquejo de tu proyecto de vida: un punto de partida concreto para vivir eligiendo.</p>
                     </div>
                 </div>
+                <div class="tellevas">
+                    <h3><i class="fas fa-gift"></i> Te llevas</h3>
+                    <ul class="tellevas-lista">
+                        <li><i class="fas fa-check"></i> Material de trabajo descargable</li>
+                        <li><i class="fas fa-check"></i> Grabación disponible 48 horas</li>
+                        <li><i class="fas fa-check"></i> Acceso al grupo de WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Tu primera ruta personal de dirección</li>
+                    </ul>
+                </div>
+                <details class="temas-detalle">
+                    <summary>Ver los 6 temas que tocaremos</summary>
+                    <ol class="temas-lista">
+                        <li><strong>La crisis actual de la persona</strong> — el dilema de Alicia y las preguntas últimas.</li>
+                        <li><strong>¿Quién es la persona?</strong> — no eres una cosa: estás llamado a construirte.</li>
+                        <li><strong>Espíritu encarnado</strong> — inteligencia, voluntad, libertad, cuerpo y afectividad.</li>
+                        <li><strong>Dueño de sí</strong> — autoposesión, autodeterminación y libertad para.</li>
+                        <li><strong>Carácter y gobierno interior</strong> — la imagen del auriga y el carácter como destino.</li>
+                        <li><strong>Proyecto vital</strong> — primer bosquejo de una vida elegida conscientemente.</li>
+                    </ol>
+                </details>
             </div>
         </section>
 
-        <!-- ======= SECTION 6: CONTENIDO ESENCIAL ======= -->
-        <section id="temario" class="section bg-light">
+        <!-- ======= 5. PRUEBA SOCIAL ======= -->
+        <section class="section bg-light">
             <div class="container">
-                <span class="overline">Contenido esencial</span>
-                <h2>Seis temas. Una sola pregunta: ¿hacia dónde quieres ir?</h2>
-                <div class="temario-grid seminario-temario">
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">01</span>
-                        <div>
-                            <h3>La crisis actual de la persona</h3>
-                            <p>El dilema de Alicia y las preguntas últimas.</p>
-                        </div>
+                <span class="overline">Historias reales</span>
+                <h2>Lo que dicen quienes se han formado con el Mtro. Jorge.</h2>
+                <p class="proof-cifra"><strong>+700</strong> personas se han formado en nuestros talleres y diplomados.</p>
+                <div class="proof-grid">
+                    <blockquote class="proof-quote">
+                        <p>"Este diplomado me ayudó a conocerme de verdad y a sanar heridas que cargaba desde hacía años. Hoy me relaciono conmigo y con los demás desde un lugar mucho más sano."</p>
+                        <cite>Eva Martínez · participante de nuestros programas</cite>
+                    </blockquote>
+                    <blockquote class="proof-quote">
+                        <p>"Aprendí a poner en orden mi historia y a mirarme con compasión. Salí con herramientas concretas para seguir creciendo cada día."</p>
+                        <cite>Norma Irene Macías Escobedo · participante de nuestros programas</cite>
+                    </blockquote>
+                    <blockquote class="proof-quote">
+                        <p>"Encontré un espacio seguro para crecer. Entendí mis emociones y descubrí una versión más libre y plena de mí misma."</p>
+                        <cite>Alba Inés Ollervides Navarro · participante de nuestros programas</cite>
+                    </blockquote>
+                </div>
+                <div class="proof-video">
+                    <div class="proof-video-texto">
+                        <h3>Escúchalo en 2 minutos</h3>
+                        <p>El Mtro. Jorge te cuenta qué vas a trabajar esa noche y por qué esta pausa puede cambiar la dirección de tus decisiones.</p>
+                        <a href="#inscripcion" class="btn btn-primary solo-compra"><span class="solo-fase-1">Quiero mi lugar por $200</span><span class="solo-fase-2">Quiero mi lugar por $300</span></a>
                     </div>
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">02</span>
-                        <div>
-                            <h3>¿Quién es la persona?</h3>
-                            <p>No eres una cosa: estás llamado a construirte.</p>
-                        </div>
-                    </div>
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">03</span>
-                        <div>
-                            <h3>Espíritu encarnado</h3>
-                            <p>Inteligencia, voluntad, libertad, cuerpo y afectividad.</p>
-                        </div>
-                    </div>
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">04</span>
-                        <div>
-                            <h3>Dueño de sí</h3>
-                            <p>Autoposesión, autodeterminación y libertad para.</p>
-                        </div>
-                    </div>
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">05</span>
-                        <div>
-                            <h3>Carácter y gobierno interior</h3>
-                            <p>La imagen del auriga y el carácter como destino.</p>
-                        </div>
-                    </div>
-                    <div class="temario-card modulo-card">
-                        <span class="temario-num">06</span>
-                        <div>
-                            <h3>Proyecto vital</h3>
-                            <p>Primer bosquejo de una vida elegida conscientemente.</p>
+                    <div class="proof-video-media">
+                        <div class="testimonio-video" data-youtube="yH02zwa8VMw" role="button" tabindex="0" aria-label="Video del seminario">
+                            <span class="play"><i class="fas fa-play"></i></span>
+                            <span class="badge-proximamente">Próximamente</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= SECTION 7: TU FORMADOR ======= -->
+        <!-- ======= 6. TU FORMADOR ======= -->
         <section class="section">
             <div class="container">
                 <span class="overline">Tu formador</span>
@@ -248,8 +200,8 @@
                     <img src="img/jorge-anaya.jpg" alt="Mtro. Jorge Anaya Gómez" class="formador-foto">
                     <div class="seminario-formador-bio">
                         <h3>Mtro. Jorge Anaya Gómez</h3>
-                        <p>Licenciado en Filosofía, Maestro en Filosofía Personalista, especialista en Antropología Filosófica Personalista y doctorando en Filosofía. Cuenta con amplia experiencia en pastoral familiar y formación humana.</p>
-                        <p>Su propuesta traduce preguntas filosóficas profundas a un lenguaje cercano y aplicable, para que cada participante pueda comprenderse mejor y comenzar a construir una vida más consciente.</p>
+                        <p>Licenciado en Filosofía, Maestro en Filosofía Personalista y doctorando en Filosofía, con amplia experiencia en formación humana y acompañamiento a familias.</p>
+                        <p>Traduce preguntas profundas a un lenguaje cercano y aplicable, para que salgas comprendiéndote mejor — no con más teoría.</p>
                         <div class="seminario-chips-formador">
                             <span class="dirigido-chip"><i class="fas fa-book-open"></i> Filosofía personalista</span>
                             <span class="dirigido-chip"><i class="fas fa-user"></i> Antropología filosófica</span>
@@ -260,33 +212,31 @@
             </div>
         </section>
 
-        <!-- ======= SECTION 8: CIERRE DE INSCRIPCIÓN (precio + formulario) ======= -->
-        <section id="inscripcion" class="curso-inversion section">
+        <!-- ======= 7. INSCRIPCIÓN (LA COMPRA) ======= -->
+        <section id="inscripcion" class="section bg-light landing-inscripcion">
             <div class="container">
                 <span class="overline">Inscripción abierta</span>
-                <h2>Asegura tu lugar antes de que suba el precio.</h2>
-                <p>Hoy puedes entrar con un donativo de lanzamiento de $200 MXN. El seminario será en vivo y el cupo está limitado.<br>
-                Jueves 6 de agosto · 20:00 a 22:00 hrs · tiempo del centro de México · en vivo vía Zoom.</p>
+                <h2 class="solo-fase-1">Asegura tu lugar antes de que suba el precio.</h2>
+                <h2 class="solo-fase-2">Asegura tu lugar antes de que comience.</h2>
+                <h2 class="solo-fase-3">El seminario ya comenzó.</h2>
 
-                <div class="precio-card">
-                    <span class="overline">Precio de lanzamiento</span>
-                    <p class="precio-monto">$200</p>
-                    <p class="precio-periodo">MXN · por tiempo limitado</p>
-                    <div class="precio-divider"></div>
-                    <ul class="precio-incluye">
-                        <li><i class="fas fa-check"></i> Sesión en vivo vía Zoom</li>
-                        <li><i class="fas fa-check"></i> Material de trabajo</li>
-                        <li><i class="fas fa-check"></i> Grabación disponible durante 48 horas</li>
-                        <li><i class="fas fa-check"></i> Grupo de WhatsApp</li>
-                    </ul>
-                    <p class="precio-subline"><i class="fas fa-users"></i> Cupo limitado</p>
-                    <p class="precio-subline"><i class="fab fa-whatsapp"></i> Informes por WhatsApp: 844 291 1338</p>
-                </div>
+                <div class="compra-card solo-compra">
+                    <div class="compra-precio">
+                        <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                        <span class="hero-card-etiqueta solo-fase-2">Precio</span>
+                        <p class="compra-monto"><span class="solo-fase-1">$200</span><span class="solo-fase-2">$300</span> <span class="hero-card-mxn">MXN · pago único</span></p>
+                        <p class="compra-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> Sube a $300 en <strong data-countdown>—</strong></p>
+                        <p class="compra-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> Comienza en <strong data-countdown>—</strong></p>
+                        <ul class="hero-card-lista">
+                            <li><i class="fas fa-check"></i> Sesión en vivo por Zoom · jueves 6 de agosto, 20:00–22:00 hrs</li>
+                            <li><i class="fas fa-check"></i> Material de trabajo + grabación 48 hrs</li>
+                            <li><i class="fas fa-check"></i> Grupo de WhatsApp</li>
+                            <li><i class="fas fa-users"></i> Cupo limitado</li>
+                        </ul>
+                    </div>
 
-                <div class="form-contacto">
                     <form id="form-inscripcion" class="form-inscripcion" data-curso="seminario" novalidate>
-                        <h3>Completa tu inscripción y asegura tu lugar</h3>
-                        <p class="form-intro">Estás a un paso de reservar tu acceso. Recuerda: el cupo está limitado y el donativo de $200 MXN corresponde al precio de lanzamiento.</p>
+                        <p class="form-intro">Completa tus datos y pasa directo al pago seguro. Tu lugar queda confirmado al pagar.</p>
 
                         <div class="form-grupo">
                             <label for="ins-nombre">Nombre completo *</label>
@@ -301,14 +251,7 @@
                         </div>
 
                         <div class="form-grupo">
-                            <label for="ins-email-confirm">Confirma tu correo electrónico *</label>
-                            <input type="email" id="ins-email-confirm" name="email_confirm"
-                                   placeholder="Repite tu correo" autocomplete="email" required
-                                   onpaste="return false;">
-                        </div>
-
-                        <div class="form-grupo">
-                            <label for="ins-telefono">Teléfono *</label>
+                            <label for="ins-telefono">Teléfono (WhatsApp) *</label>
                             <input type="tel" id="ins-telefono" name="telefono"
                                    placeholder="55 1234 5678" autocomplete="tel" required>
                         </div>
@@ -318,23 +261,47 @@
                         <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
 
                         <button type="submit" class="btn btn-pago" id="btn-submit-inscripcion">
-                            Sí, quiero asegurar mi lugar por $200
+                            Continuar al pago seguro →
                         </button>
 
                         <p class="form-seguridad">
-                            <i class="fas fa-lock"></i> Pago seguro con Mercado Pago
+                            <i class="fas fa-lock"></i> Pago seguro con Mercado Pago · Confirmación inmediata por correo
                         </p>
                     </form>
+                </div>
+
+                <div class="landing-fase3-aviso solo-fase-3">
+                    <p>¿Te interesa la próxima edición o la grabación?</p>
+                    <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20el%20seminario%20%22Estas%20viviendo%20o%20solo%20sobreviviendo%22" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                </div>
+
+                <div class="pago-alterno solo-compra">
+                    <div class="pago-alterno-col">
+                        <h3><i class="fas fa-building-columns"></i> ¿Prefieres transferencia?</h3>
+                        <p>Transfiere <strong><span class="solo-fase-1">$200</span><span class="solo-fase-2">$300</span> MXN</strong> a esta cuenta y envía tu comprobante con tu nombre completo y correo por WhatsApp:</p>
+                        <p class="pago-alterno-clabe">CLABE: <strong>722969010532833772</strong><br>
+                        Beneficiaria: Teresa de Jesús Sánchez Leal · Mercado Pago W</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20acabo%20de%20transferir%20mi%20inscripcion%20al%20seminario.%20Aqui%20va%20mi%20comprobante." target="_blank" rel="noopener">Enviar comprobante por WhatsApp</a>
+                    </div>
+                    <div class="pago-alterno-col">
+                        <h3><i class="fab fa-whatsapp"></i> ¿Tienes dudas?</h3>
+                        <p>Escríbenos y una persona del instituto te ayuda a completar tu inscripción.</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20tengo%20una%20duda%20sobre%20el%20seminario%20del%206%20de%20agosto" target="_blank" rel="noopener">Chatear por WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= SECTION 9: PREGUNTAS FRECUENTES ======= -->
-        <section class="section bg-light">
+        <!-- ======= 8. FAQ ======= -->
+        <section class="section">
             <div class="container">
                 <span class="overline">Preguntas frecuentes</span>
                 <h2>Lo esencial antes de inscribirte.</h2>
                 <div class="faq-grid">
+                    <div class="faq-card">
+                        <h3>¿Y si no puedo conectarme en vivo?</h3>
+                        <p>Recibes la grabación completa, disponible durante 48 horas, junto con el material de trabajo para hacerlo a tu ritmo.</p>
+                    </div>
                     <div class="faq-card">
                         <h3>¿Necesito saber filosofía?</h3>
                         <p>No. El seminario usa lenguaje claro, ejemplos cotidianos y ejercicios de reflexión personal.</p>
@@ -349,30 +316,29 @@
                     </div>
                     <div class="faq-card">
                         <h3>¿Cómo recibo el acceso?</h3>
-                        <p>Después de completar tu inscripción recibirás las indicaciones para entrar a Zoom y al grupo de WhatsApp.</p>
+                        <p>Al completar tu pago recibes un correo de confirmación con las indicaciones para entrar a Zoom y al grupo de WhatsApp.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= SECTION 10: CIERRE / CTA FINAL ======= -->
+        <!-- ======= 9. CIERRE ======= -->
         <section class="cierre section">
             <div class="container">
                 <span class="overline">No lo dejes para después</span>
-                <h2>No esperes a que una crisis te obligue a reaccionar.</h2>
+                <h2>No esperes a que una crisis te obligue a hacer una pausa.</h2>
                 <p>Da un primer paso para comprenderte mejor, recuperar dirección y comenzar a construir una vida con sentido.</p>
-                <p class="cierre-oferta">Precio de lanzamiento: $200 MXN · Cupo limitado</p>
-                <a href="#inscripcion" class="btn btn-primary">Inscríbete ahora</a>
-                <p class="cierre-whatsapp">WhatsApp de informes: <a href="https://wa.me/5218442911338" target="_blank" rel="noopener">844 291 1338</a></p>
+                <p class="cierre-oferta solo-fase-1">Hoy: $200 MXN · después del 20 de julio: $300 · Cupo limitado</p>
+                <p class="cierre-oferta solo-fase-2">$300 MXN · Cupo limitado</p>
+                <a href="#inscripcion" class="btn btn-primary solo-compra"><span class="solo-fase-1">Quiero mi lugar por $200</span><span class="solo-fase-2">Quiero mi lugar por $300</span></a>
+                <a class="btn btn-primary js-whatsapp solo-fase-3" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20el%20seminario%20%22Estas%20viviendo%20o%20solo%20sobreviviendo%22" target="_blank" rel="noopener">El seminario ya comenzó — escríbenos por WhatsApp</a>
             </div>
         </section>
 
-        <!-- ======= FOOTER ======= -->
-        <footer class="footer">
+        <!-- ======= FOOTER MÍNIMO ======= -->
+        <footer class="footer landing-footer">
             <div class="container">
-                <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="footer-logo">
-                <p>Formar · Acompañar · Servir&ensp;·&ensp;Informes: <a href="https://wa.me/5218442911338" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7);">844 291 1338</a></p>
-                <p>&copy; 2026 Instituto Persona y Familia. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Instituto Persona y Familia · Formar · Acompañar · Servir</p>
                 <div class="footer-legal">
                     <a href="aviso-privacidad.html">Aviso de Privacidad</a>
                     <span aria-hidden="true">·</span>
@@ -381,8 +347,23 @@
             </div>
         </footer>
 
+        <!-- ======= BARRA FLOTANTE DE COMPRA ======= -->
+        <div id="barra-flotante" class="barra-flotante solo-compra" aria-hidden="true">
+            <p class="barra-texto">
+                <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> Sube a $300 en <strong data-countdown-corto>—</strong></span>
+                <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> Comienza en <strong data-countdown-corto>—</strong></span>
+            </p>
+            <a href="#inscripcion" class="btn btn-primary barra-btn"><span class="solo-fase-1">Inscribirme por $200</span><span class="solo-fase-2">Inscribirme por $300</span></a>
+        </div>
+
+        <!-- ======= BURBUJA DE WHATSAPP ======= -->
+        <a class="whatsapp-burbuja js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20tengo%20una%20duda%20sobre%20el%20seminario%20del%206%20de%20agosto" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
         <!-- JS -->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="JS/prog.js"></script>
+        <script src="JS/seminario.js"></script>
     </body>
 </html>
