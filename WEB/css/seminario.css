@@ -357,11 +357,23 @@ body.fase-3 .solo-compra { display: none !important; }
 }
 .compra-monto .hero-card-mxn { color: rgba(250,246,241,0.7); }
 .compra-contador {
-  font-size: 0.95rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 1.15rem;
   color: var(--color-arena);
   margin-bottom: 20px;
 }
-.compra-contador strong { color: #fff; font-variant-numeric: tabular-nums; }
+.compra-contador i { align-self: center; }
+.compra-contador strong {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
 .compra-precio .hero-card-lista li { color: rgba(250,246,241,0.9); }
 .compra-precio .hero-card-lista i { color: var(--color-arena); }
 .compra-card .form-inscripcion { padding: 34px 32px; }
@@ -634,26 +646,14 @@ body.fase-3 .solo-compra { display: none !important; }
   color: var(--text-mid);
 }
 .mp-badge-lead i { color: var(--color-terracota); margin-right: 4px; }
-.mp-wordmark {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #009EE3;
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
-  padding: 5px 12px 5px 10px;
+.mp-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  background: #fff;
+  padding: 4px 9px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,158,227,0.35);
-}
-.mp-dot {
-  width: 15px; height: 15px;
-  border-radius: 50%;
-  background: #FFE600;
-  box-shadow: inset 0 0 0 3px #009EE3, inset 0 0 0 4px #FFE600;
-  flex: 0 0 auto;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.10);
 }
 .form-inscripcion .form-seguridad { margin-top: 8px; }
 
