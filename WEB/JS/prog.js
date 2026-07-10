@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Disable button and show loading state
+            if (!btnSubmit.dataset.originalText) {
+                btnSubmit.dataset.originalText = btnSubmit.textContent.trim();
+            }
             btnSubmit.disabled = true;
             btnSubmit.textContent = 'Procesando…';
 
@@ -180,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 errorDiv.textContent = msg;
                 errorDiv.style.display = 'block';
                 btnSubmit.disabled = false;
-                btnSubmit.textContent = 'Continuar al pago';
+                btnSubmit.textContent = btnSubmit.dataset.originalText || 'Continuar al pago';
             }
         });
 
