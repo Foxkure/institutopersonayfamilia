@@ -81,11 +81,16 @@ Body carries a phase class; JS swaps it by the CDMX clock (UTC-6 fixed, no DST).
   closes on-page at start; late incorporation, if any, is handled manually via
   WhatsApp.)*
 
-**Dates (CDMX = UTC-6):**
-- Pareja: `PRICE_DEADLINE = Date.UTC(2026, 7, 1, 5, 59, 59)` (2026-07-31 23:59:59 CDMX);
-  `EVENT_START = Date.UTC(2026, 7, 12, 2, 0, 0)` (2026-08-12 20:00 CDMX).
-- Desarrollo (clone): same deadline; `EVENT_START` = 2026-08-11 20:00 CDMX
-  (`Date.UTC(2026, 7, 11, 2, 0, 0)`).
+**Dates (CDMX = UTC-6; 20:00 CDMX rolls to 02:00 the *next* UTC day, so the UTC day
+number is one ahead of the CDMX date):**
+- Deadline (both): `2026-08-01T05:59:59Z` = `Date.UTC(2026, 7, 1, 5, 59, 59)` =
+  2026-07-31 23:59:59 CDMX.
+- Pareja start: `2026-08-13T02:00:00Z` = `Date.UTC(2026, 7, 13, 2, 0, 0)` =
+  2026-08-12 20:00 CDMX.
+- Desarrollo start: `2026-08-12T02:00:00Z` = `Date.UTC(2026, 7, 12, 2, 0, 0)` =
+  2026-08-11 20:00 CDMX.
+- The engine reads these as ISO strings from `data-*` on `<body>`; verify any value with
+  `node -e "console.log(new Date('<iso>').toLocaleString('en-US',{timeZone:'America/Mexico_City'}))"`.
 
 **Test override:** `?fase=2` / `?fase=3` shifts the clock (visual only; charge is always
 whatever Railway is set to), same as the seminario engine.
