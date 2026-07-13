@@ -760,3 +760,23 @@ h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 10
   opacity: 0.4;
   color: rgba(255,255,255,0.6);
 }
+
+/* ===== Otros (curso secundario, presentación discreta) ===== */
+.otros .overline { margin-bottom: 20px; }
+.otros-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 820px;
+    padding: 24px 28px;
+    background: var(--crema, #faf6f1);
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 14px;
+}
+.otros-card-texto h3 { margin: 0 0 6px; }
+.otros-card-texto p { margin: 0; color: var(--barro, #7a5c4a); }
+@media (max-width: 560px) {
+    .otros-card { flex-direction: column; align-items: flex-start; }
+}
