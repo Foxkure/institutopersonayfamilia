@@ -8,29 +8,17 @@
         <link rel="icon" type="image/png" href="img/logo.png">
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="css/cursos.css">
+        <link rel="stylesheet" href="css/seminario.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <script src="https://unpkg.com/lucide@latest"></script>
+        <!-- PIXEL PLACEHOLDER: campaign pixel for Diplomado Pareja goes here
+             (base + PageView + ViewContent value=4500 currency=MXN). Owner supplies ID. -->
     </head>
 
-    <body>
-
-        <!-- ======= BLOQUEO DE LANZAMIENTO — visible hasta las 20:00 (CDMX) de hoy ======= -->
-        <div class="lanzamiento-lock" id="lanzamientoLock" data-unlock="2026-06-20T02:00:00Z">
-            <div class="lanzamiento-lock-card">
-                <div class="bloqueo-icon"><i class="fas fa-lock"></i></div>
-                <span class="overline">Muy pronto</span>
-                <h1>Disponible hoy a las 8:00 p.m.</h1>
-                <p>Estamos afinando los últimos detalles. Hoy a las <strong>8:00 p.m. (hora del centro de México)</strong> abriremos la inscripción a nuestros diplomados 2026.</p>
-                <p class="bloqueo-fecha"><i class="fas fa-clock"></i> Disponible hoy · 8:00 p.m. (CDMX)</p>
-                <div class="bloqueo-cta">
-                    <a href="https://wa.me/5218442911338?text=Hola%20quiero%20que%20me%20avisen%20cuando%20abran%20los%20diplomados" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Avísenme cuando esté disponible</a>
-                    <a href="index.html#inicio" class="btn-outline">Volver al inicio</a>
-                </div>
-            </div>
-        </div>
+    <body class="fase-1" data-price-deadline="2026-08-01T05:59:59Z" data-event-start="2026-08-13T02:00:00Z">
 
         <!-- ======= HEADER ======= -->
         <header class="header">
@@ -54,18 +42,65 @@
             </div>
         </header>
 
-        <!-- ======= HERO ======= -->
-        <section class="curso-hero">
-            <div class="curso-hero-content">
-                <span class="curso-badge"><i class="fas fa-heart"></i> Diplomado para Matrimonios</span>
-                <h1>Diplomado en Desarrollo de Habilidades en Pareja</h1>
-                <p>Aprende a transformar los principios del amor humano en herramientas concretas para fortalecer la comunicación, resolver conflictos, cultivar la intimidad y construir un proyecto de vida en común.</p>
-                <div class="curso-stats">
-                    <div class="curso-stat"><span class="num">18</span><span class="lbl">Sesiones</span></div>
-                    <div class="curso-stat"><span class="num">5</span><span class="lbl">Módulos</span></div>
-                    <div class="curso-stat"><span class="num">$6,000</span><span class="lbl">Inversión</span></div>
+        <!-- ======= HERO TIPO EVENTO ======= -->
+        <section id="inicio" class="landing-hero">
+            <div class="container landing-hero-grid">
+                <div class="landing-hero-copy">
+                    <span class="landing-eyebrow"><i class="fas fa-heart"></i>&nbsp; Diplomado online en vivo · Inicia el 12 de agosto de 2026</span>
+                    <h1>Diplomado en Desarrollo de<br><em>Habilidades en Pareja</em></h1>
+                    <p class="landing-hero-sub">18 sesiones en vivo para fortalecer la comunicación, resolver conflictos y construir un proyecto de vida en común.</p>
+                    <div class="landing-datos">
+                        <div class="landing-dato"><i class="fas fa-list-ol"></i><span>18 sesiones<strong>5 módulos</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-calendar-week"></i><span>Miércoles<strong>8–10 p.m. CDMX</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-video"></i><span>En vivo<strong>por Zoom</strong></span></div>
+                        <div class="landing-dato landing-dato-precio">
+                            <i class="fas fa-tag"></i>
+                            <span class="solo-fase-1">Lanzamiento<strong><s class="precio-antes">$6,000</s> $4,500 MXN</strong></span>
+                            <span class="solo-fase-2">Inversión<strong>$6,000 MXN</strong></span>
+                        </div>
+                    </div>
+                    <div class="cd-timer solo-compra">
+                        <span class="cd-label">
+                            <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en:</span>
+                            <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en:</span>
+                        </span>
+                        <div class="cd-boxes">
+                            <div class="cd-box"><span class="cd-num" data-cd="days">—</span><span class="cd-unit">días</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="hours">—</span><span class="cd-unit">hrs</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="mins">—</span><span class="cd-unit">min</span></div>
+                            <div class="cd-box cd-box-secs"><span class="cd-num" data-cd="secs">—</span><span class="cd-unit">seg</span></div>
+                        </div>
+                    </div>
+                    <div class="landing-hero-cta solo-compra">
+                        <a href="#inscripcion" id="hero-cta" class="btn btn-primary btn-grande">
+                            <span class="solo-fase-1">Quiero inscribirme al precio de lanzamiento</span>
+                            <span class="solo-fase-2">Quiero inscribirme</span>
+                        </a>
+                        <p class="landing-microcopy solo-fase-1">Precio de lanzamiento $4,500 · aprovéchalo antes del 31 de julio.</p>
+                        <p class="landing-microcopy solo-fase-2">Últimos días para inscribirte antes del inicio.</p>
+                    </div>
+                    <div class="landing-fase3-aviso solo-fase-3">
+                        <p><strong>El diplomado ya comenzó.</strong> ¿Te interesa la próxima edición?</p>
+                        <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Habilidades%20en%20Pareja" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                    </div>
+                    <p class="landing-prueba"><i class="fas fa-star"></i> Más de <strong>700 personas</strong> se han formado con nosotros</p>
                 </div>
-                <a href="#inscripcion" class="btn">Quiero inscribirme</a>
+                <aside class="landing-hero-card solo-compra" aria-label="Resumen de inscripción">
+                    <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                    <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                    <p class="hero-card-precio solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                    <p class="hero-card-precio solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                    <p class="hero-card-ancla solo-fase-1">Aprovéchalo antes del 31 de julio.</p>
+                    <p class="hero-card-ancla solo-fase-2">Precio de lanzamiento finalizado · inscríbete al precio vigente.</p>
+                    <a href="#inscripcion" class="btn btn-primary hero-card-btn">Asegurar mi lugar</a>
+                    <ul class="hero-card-lista">
+                        <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom</li>
+                        <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                        <li><i class="fas fa-check"></i> Diploma de participación</li>
+                        <li><i class="fas fa-check"></i> Garantía: devolución hasta la 2ª sesión</li>
+                    </ul>
+                    <p class="hero-card-nota"><i class="fas fa-lock"></i> Pago seguro con Mercado Pago</p>
+                </aside>
             </div>
         </section>
 
@@ -297,54 +332,48 @@
             </div>
         </section>
 
-        <!-- ======= INVERSIÓN ======= -->
-        <section id="inscripcion" class="curso-inversion section bg-light">
+        <!-- ======= INSCRIPCIÓN (LA COMPRA) ======= -->
+        <section id="inscripcion" class="section bg-light landing-inscripcion">
             <div class="container">
                 <span class="overline">Inscripción</span>
-                <h2>Inversión</h2>
-                <p>Tu próxima sesión comienza pronto. Asegura tu lugar hoy mismo.</p>
+                <h2 class="solo-fase-1">Asegura tu lugar al precio de lanzamiento.</h2>
+                <h2 class="solo-fase-2">Asegura tu lugar antes de que comience.</h2>
+                <h2 class="solo-fase-3">El diplomado ya comenzó.</h2>
 
-                <div class="precio-card">
-                    <span class="overline">Precio</span>
-                    <ul class="precio-incluye">
-                        <li><i class="fas fa-check"></i> 18 sesiones de formación en vivo con herramientas prácticas</li>
-                        <li><i class="fas fa-check"></i> Grabaciones disponibles y material complementario</li>
-                        <li><i class="fas fa-check"></i> Acompañamiento a lo largo de las cinco dimensiones</li>
-                        <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
-                    </ul>
-                    <div class="precio-divider"></div>
-                    <p class="precio-monto">$6,000</p>
-                    <p class="precio-periodo">MXN</p>
-                    <a href="#form-inscripcion" class="btn">Inscríbete ahora</a>
-                </div>
+                <div class="compra-card solo-compra">
+                    <div class="compra-precio">
+                        <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                        <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                        <p class="compra-monto solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                        <p class="compra-monto solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                        <p class="compra-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en <strong data-countdown>—</strong></p>
+                        <p class="compra-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en <strong data-countdown>—</strong></p>
+                        <ul class="hero-card-lista">
+                            <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom · miércoles 8–10 p.m. CDMX</li>
+                            <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                            <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
+                            <li><i class="fas fa-shield-heart"></i> Garantía: devolución hasta la 2ª sesión</li>
+                        </ul>
+                    </div>
 
-                <div class="promocion">
                     <form id="form-inscripcion" class="form-inscripcion" data-curso="pareja" novalidate>
-                        <h3>Completa tu inscripción</h3>
+                        <p class="form-intro">Completa tus datos y pasa directo al pago seguro. Tu lugar queda confirmado al pagar.</p>
 
                         <div class="form-grupo">
                             <label for="ins-nombre">Nombre completo *</label>
-                            <input type="text" id="ins-nombre" name="nombre"
-                                   placeholder="Tu nombre completo" autocomplete="name" required>
+                            <input type="text" id="ins-nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required>
                         </div>
-
                         <div class="form-grupo">
                             <label for="ins-email">Correo electrónico *</label>
-                            <input type="email" id="ins-email" name="email"
-                                   placeholder="tu@correo.com" autocomplete="email" required>
+                            <input type="email" id="ins-email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
                         </div>
-
                         <div class="form-grupo">
                             <label for="ins-email-confirm">Confirma tu correo electrónico *</label>
-                            <input type="email" id="ins-email-confirm" name="email_confirm"
-                                   placeholder="Repite tu correo" autocomplete="email" required
-                                   onpaste="return false;">
+                            <input type="email" id="ins-email-confirm" name="email_confirm" placeholder="Repite tu correo" autocomplete="email" required onpaste="return false;">
                         </div>
-
                         <div class="form-grupo">
-                            <label for="ins-telefono">Teléfono *</label>
-                            <input type="tel" id="ins-telefono" name="telefono"
-                                   placeholder="55 1234 5678" autocomplete="tel" required>
+                            <label for="ins-telefono">Teléfono (WhatsApp) *</label>
+                            <input type="tel" id="ins-telefono" name="telefono" placeholder="55 1234 5678" autocomplete="tel" required>
                         </div>
 
                         <input type="hidden" name="curso" value="pareja">
@@ -352,13 +381,15 @@
                         <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
 
                         <button type="submit" class="btn btn-pago" id="btn-submit-inscripcion">
-                            Continuar al pago
+                            Continuar al pago seguro →
                         </button>
-
-                        <p class="form-seguridad">
-                            <i class="fas fa-lock"></i> Pago seguro con Mercado Pago
-                        </p>
+                        <p class="form-seguridad"><i class="fas fa-lock"></i> Pago seguro con Mercado Pago · Confirmación inmediata por correo</p>
                     </form>
+                </div>
+
+                <div class="landing-fase3-aviso solo-fase-3">
+                    <p>¿Te interesa la próxima edición del diplomado?</p>
+                    <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Habilidades%20en%20Pareja" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -471,23 +502,22 @@
             </div>
         </footer>
 
-        <!-- Bloqueo de lanzamiento: retira el overlay al llegar las 20:00 (CDMX) de hoy -->
-        <script>
-            (function () {
-                var lock = document.getElementById('lanzamientoLock');
-                if (!lock) return;
-                var unlock = new Date(lock.getAttribute('data-unlock')); // 2026-06-20T02:00:00Z = 20:00 CDMX (UTC-6)
-                if (isNaN(unlock.getTime()) || new Date() >= unlock) {
-                    if (lock.parentNode) lock.parentNode.removeChild(lock);
-                } else {
-                    document.body.classList.add('lock-activo');
-                }
-            })();
-        </script>
+        <!-- ======= BARRA FLOTANTE DE COMPRA ======= -->
+        <div id="barra-flotante" class="barra-flotante solo-compra" aria-hidden="true">
+            <p class="barra-texto">
+                <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> Lanzamiento termina en <strong data-countdown-corto>—</strong></span>
+                <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> Comienza en <strong data-countdown-corto>—</strong></span>
+            </p>
+            <a href="#inscripcion" class="btn btn-primary barra-btn">
+                <span class="solo-fase-1">Inscribirme por $4,500</span>
+                <span class="solo-fase-2">Inscribirme</span>
+            </a>
+        </div>
 
         <!-- JS -->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="JS/prog.js"></script>
+        <script src="JS/lanzamiento.js"></script>
         <script>lucide.createIcons();</script>
     </body>
 </html>

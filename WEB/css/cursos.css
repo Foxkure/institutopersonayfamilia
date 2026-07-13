@@ -1120,3 +1120,13 @@
   margin-top: 2rem;
 }
 body.lock-activo { overflow: hidden; }
+
+/* ===== Precio de lanzamiento (tachado + vigente) ===== */
+.precio-antes {
+    text-decoration: line-through;
+    opacity: .55;
+    font-weight: 500;
+    margin-right: .35em;
+}
+.hero-card-precio .precio-antes,
+.compra-monto .precio-antes { font-size: .62em; }
