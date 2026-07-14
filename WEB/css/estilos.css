@@ -111,7 +111,7 @@ h1, h2, h3, h4 {
   gap: 16px;
 }
 
-.logo { height: 52px; width: auto; object-fit: contain; flex-shrink: 0; }
+.logo { height: 72px; width: auto; object-fit: contain; flex-shrink: 0; }
 
 .nav {
   display: flex;
@@ -650,7 +650,7 @@ h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 10
   /* Mobile nav */
   .nav-toggle { display: flex; }
   .header .container { flex-wrap: wrap; height: auto; min-height: 64px; padding-top: 8px; padding-bottom: 8px; }
-  .logo { height: 44px; }
+  .logo { height: 58px; }
   .nav {
     flex: 0 0 100%;
     order: 3;
