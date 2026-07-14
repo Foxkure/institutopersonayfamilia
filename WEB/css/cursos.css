@@ -1162,13 +1162,13 @@ body.lock-activo { overflow: hidden; }
     color: var(--text-mid, #6b5b4f);
 }
 
-/* Presentation video block */
+/* Presentation video block (vertical / YouTube Shorts) */
 .video-presentacion {
-    max-width: 720px;
+    max-width: 340px;
     margin: 8px auto 0;
 }
 .video-presentacion .testimonio-video {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
 }
 .video-presentacion-cta {
     text-align: center;
