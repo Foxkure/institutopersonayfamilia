@@ -1120,3 +1120,57 @@
   margin-top: 2rem;
 }
 body.lock-activo { overflow: hidden; }
+
+/* ===== Precio de lanzamiento (tachado + vigente) ===== */
+.precio-antes {
+    text-decoration: line-through;
+    opacity: .55;
+    font-weight: 500;
+    margin-right: .35em;
+}
+.hero-card-precio .precio-antes,
+.compra-monto .precio-antes { font-size: .62em; }
+
+/* ===== Doc-alignment additions (2026-07-13) ===== */
+
+/* Promo bar above header (fase-1 only) */
+.promo-bar {
+    background: var(--color-terracota, #b85c2c);
+    color: #fff;
+    text-align: center;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 9px 16px;
+    line-height: 1.35;
+}
+
+/* Installments line under the price (fase-1) */
+.precio-mensual {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-barro, #7a5c4a);
+    margin-top: 4px;
+}
+
+/* Per-dimension description in plan de estudios */
+.temario-desc {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--text-mid, #6b5b4f);
+}
+
+/* Presentation video block (vertical / YouTube Shorts) */
+.video-presentacion {
+    max-width: 340px;
+    margin: 8px auto 0;
+}
+.video-presentacion .testimonio-video {
+    aspect-ratio: 9 / 16;
+}
+.video-presentacion-cta {
+    text-align: center;
+    margin-top: 24px;
+}

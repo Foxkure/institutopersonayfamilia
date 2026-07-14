@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Values are display/pixel approximations of the server-side price.
                 var PIXEL_INFO = {
                     seminario:  { value: 200,  name: 'Seminario: ¿Estás viviendo o solo estás sobreviviendo?' },
-                    pareja:     { value: 6000, name: 'Diplomado en Desarrollo de Habilidades en Pareja' },
-                    desarrollo: { value: 6000, name: 'Diplomado en Desarrollo Humano' },
+                    pareja:     { value: 4500, name: 'Diplomado en Desarrollo de Habilidades en Pareja' },
+                    desarrollo: { value: 4500, name: 'Diplomado en Desarrollo Humano' },
                 };
                 var pinfo = PIXEL_INFO[curso];
                 if (pinfo) {

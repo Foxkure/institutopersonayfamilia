@@ -8,29 +8,34 @@
         <link rel="icon" type="image/png" href="img/logo.png">
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="css/cursos.css">
+        <link rel="stylesheet" href="css/seminario.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <script src="https://unpkg.com/lucide@latest"></script>
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1656378778788188');
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', {content_name: 'Diplomado en Desarrollo de Habilidades en Pareja', content_category: 'Diplomado', value: 4500, currency: 'MXN'});
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1656378778788188&ev=PageView&noscript=1"/></noscript>
+        <!-- End Meta Pixel Code -->
     </head>
 
-    <body>
+    <body class="fase-1" data-price-deadline="2026-08-01T05:59:59Z" data-event-start="2026-08-13T02:00:00Z">
 
-        <!-- ======= BLOQUEO DE LANZAMIENTO — visible hasta las 20:00 (CDMX) de hoy ======= -->
-        <div class="lanzamiento-lock" id="lanzamientoLock" data-unlock="2026-06-20T02:00:00Z">
-            <div class="lanzamiento-lock-card">
-                <div class="bloqueo-icon"><i class="fas fa-lock"></i></div>
-                <span class="overline">Muy pronto</span>
-                <h1>Disponible hoy a las 8:00 p.m.</h1>
-                <p>Estamos afinando los últimos detalles. Hoy a las <strong>8:00 p.m. (hora del centro de México)</strong> abriremos la inscripción a nuestros diplomados 2026.</p>
-                <p class="bloqueo-fecha"><i class="fas fa-clock"></i> Disponible hoy · 8:00 p.m. (CDMX)</p>
-                <div class="bloqueo-cta">
-                    <a href="https://wa.me/5218442911338?text=Hola%20quiero%20que%20me%20avisen%20cuando%20abran%20los%20diplomados" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Avísenme cuando esté disponible</a>
-                    <a href="index.html#inicio" class="btn-outline">Volver al inicio</a>
-                </div>
-            </div>
-        </div>
+        <!-- ======= BARRA PROMOCIONAL (solo lanzamiento) ======= -->
+        <div class="promo-bar solo-fase-1">25% de descuento · Promoción válida hasta el 31 de julio · Asegura tu lugar</div>
 
         <!-- ======= HEADER ======= -->
         <header class="header">
@@ -54,18 +59,66 @@
             </div>
         </header>
 
-        <!-- ======= HERO ======= -->
-        <section class="curso-hero">
-            <div class="curso-hero-content">
-                <span class="curso-badge"><i class="fas fa-heart"></i> Diplomado para Matrimonios</span>
-                <h1>Diplomado en Desarrollo de Habilidades en Pareja</h1>
-                <p>Aprende a transformar los principios del amor humano en herramientas concretas para fortalecer la comunicación, resolver conflictos, cultivar la intimidad y construir un proyecto de vida en común.</p>
-                <div class="curso-stats">
-                    <div class="curso-stat"><span class="num">18</span><span class="lbl">Sesiones</span></div>
-                    <div class="curso-stat"><span class="num">5</span><span class="lbl">Módulos</span></div>
-                    <div class="curso-stat"><span class="num">$6,000</span><span class="lbl">Inversión</span></div>
+        <!-- ======= HERO TIPO EVENTO ======= -->
+        <section id="inicio" class="landing-hero">
+            <div class="container landing-hero-grid">
+                <div class="landing-hero-copy">
+                    <span class="landing-eyebrow"><i class="fas fa-heart"></i>&nbsp; Diplomado online en vivo para matrimonios y parejas comprometidas</span>
+                    <h1>Aprende a comunicarte sin lastimar, a resolver los conflictos como equipo y a <em>crecer en pareja</em>.</h1>
+                    <p class="landing-hero-sub">Un proceso de 18 sesiones online en vivo para comprenderte mejor con tu pareja, fortalecer la confianza, cultivar la intimidad y construir un proyecto de vida en común.</p>
+                    <div class="landing-datos">
+                        <div class="landing-dato"><i class="fas fa-list-ol"></i><span>18 sesiones<strong>5 módulos</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-calendar-week"></i><span>Miércoles<strong>8–10 p.m. CDMX</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-video"></i><span>En vivo<strong>por Zoom</strong></span></div>
+                        <div class="landing-dato landing-dato-precio solo-compra">
+                            <i class="fas fa-tag"></i>
+                            <span class="solo-fase-1">Lanzamiento<strong><s class="precio-antes">$6,000</s> $4,500 MXN</strong></span>
+                            <span class="solo-fase-2">Inversión<strong>$6,000 MXN</strong></span>
+                        </div>
+                    </div>
+                    <div class="cd-timer solo-compra">
+                        <span class="cd-label">
+                            <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en:</span>
+                            <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en:</span>
+                        </span>
+                        <div class="cd-boxes">
+                            <div class="cd-box"><span class="cd-num" data-cd="days">—</span><span class="cd-unit">días</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="hours">—</span><span class="cd-unit">hrs</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="mins">—</span><span class="cd-unit">min</span></div>
+                            <div class="cd-box cd-box-secs"><span class="cd-num" data-cd="secs">—</span><span class="cd-unit">seg</span></div>
+                        </div>
+                    </div>
+                    <div class="landing-hero-cta solo-compra">
+                        <a href="#inscripcion" id="hero-cta" class="btn btn-primary btn-grande">
+                            <span class="solo-fase-1">Quiero inscribirme al precio de lanzamiento</span>
+                            <span class="solo-fase-2">Quiero inscribirme</span>
+                        </a>
+                        <p class="landing-microcopy solo-fase-1">Precio de lanzamiento $4,500 · aprovéchalo antes del 31 de julio.</p>
+                        <p class="landing-microcopy solo-fase-2">Últimos días para inscribirte antes del inicio.</p>
+                    </div>
+                    <div class="landing-fase3-aviso solo-fase-3">
+                        <p><strong>El diplomado ya comenzó.</strong> ¿Te interesa la próxima edición?</p>
+                        <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Habilidades%20en%20Pareja" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                    </div>
+                    <p class="landing-prueba"><i class="fas fa-star"></i> Más de <strong>700 personas</strong> se han formado con nosotros</p>
                 </div>
-                <a href="#inscripcion" class="btn">Quiero inscribirme</a>
+                <aside class="landing-hero-card solo-compra" aria-label="Resumen de inscripción">
+                    <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                    <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                    <p class="hero-card-precio solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                    <span class="precio-mensual solo-fase-1">o 3 pagos mensuales de $1,500</span>
+                    <p class="hero-card-precio solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                    <p class="hero-card-ancla solo-fase-1">Aprovéchalo antes del 31 de julio.</p>
+                    <p class="hero-card-ancla solo-fase-2">Precio de lanzamiento finalizado · inscríbete al precio vigente.</p>
+                    <a href="#inscripcion" class="btn btn-primary hero-card-btn">Asegurar mi lugar</a>
+                    <ul class="hero-card-lista">
+                        <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom</li>
+                        <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                        <li><i class="fas fa-check"></i> Diploma de participación</li>
+                        <li><i class="fas fa-check"></i> Garantía: devolución hasta la 3ª sesión</li>
+                    </ul>
+                    <p class="hero-card-nota"><i class="fas fa-lock"></i> Pago seguro con Mercado Pago</p>
+                </aside>
             </div>
         </section>
 
@@ -93,29 +146,21 @@
             </div>
         </section>
 
-        <!-- ======= ¿POR QUÉ ESTE DIPLOMADO? ======= -->
-        <section class="curso-obstaculos section bg-light">
+        <!-- ======= VIDEO DE PRESENTACIÓN ======= -->
+        <section class="section bg-light">
             <div class="container">
-                <span class="overline">¿Te identificas?</span>
-                <h2>¿Por qué este diplomado?</h2>
-                <p class="intro-text">Muchos matrimonios viven situaciones como estas. Reconocerlas es el primer paso para transformarlas.</p>
-                <div class="obstaculos-grid">
-                    <div class="obstaculo-item">
-                        <i class="fa-solid fa-comments icon"></i>
-                        <p>Se aman, pero no saben cómo comunicarse.</p>
+                <span class="overline">Video de presentación</span>
+                <h2>El amor también se aprende a construir</h2>
+                <p>No necesitas esperar una crisis. En 90 segundos, Jorge presenta la transformación, la metodología, el acompañamiento y la garantía del diplomado.</p>
+                <!-- Para activar: sube el video a YouTube como "Oculto" y pega su ID en data-youtube="". Vacío = "Próximamente". -->
+                <div class="video-presentacion">
+                    <div class="testimonio-video" data-youtube="gQqun_5gDvo">
+                        <span class="play"><i class="fas fa-play"></i></span>
+                        <span class="badge-proximamente">Próximamente</span>
                     </div>
-                    <div class="obstaculo-item">
-                        <i class="fa-solid fa-handshake-angle icon"></i>
-                        <p>Tienen buenas intenciones, pero no saben resolver conflictos.</p>
-                    </div>
-                    <div class="obstaculo-item">
-                        <i class="fa-solid fa-house-chimney-crack icon"></i>
-                        <p>Comparten la misma casa, pero han dejado de compartir el corazón.</p>
-                    </div>
-                    <div class="obstaculo-item">
-                        <i class="fa-solid fa-toolbox icon"></i>
-                        <p>Desean crecer juntos, pero no cuentan con herramientas concretas.</p>
-                    </div>
+                </div>
+                <div class="video-presentacion-cta">
+                    <a href="#inscripcion" class="btn btn-primary">Quiero conocer el programa</a>
                 </div>
             </div>
         </section>
@@ -124,16 +169,15 @@
         <section class="curso-beneficios section">
             <div class="container">
                 <span class="overline">Resultados</span>
-                <h2>Lo que podrás lograr</h2>
+                <h2>Herramientas para comprenderse, comunicarse y crecer juntos</h2>
                 <p>Al finalizar el diplomado serás capaz de:</p>
                 <ul class="lista-beneficios">
-                    <li><i data-lucide="message-circle"></i> Comunicarte con mayor profundidad.</li>
-                    <li><i data-lucide="heart-handshake"></i> Conocer y comprender mejor a tu cónyuge.</li>
+                    <li><i data-lucide="message-circle"></i> Comunicar lo que necesitas y escuchar sin ponerte a la defensiva.</li>
                     <li><i data-lucide="scale"></i> Resolver desacuerdos sin lastimar la relación.</li>
-                    <li><i data-lucide="shield-check"></i> Fortalecer la confianza mutua.</li>
+                    <li><i data-lucide="heart-handshake"></i> Comprender mejor a tu cónyuge y fortalecer la confianza.</li>
+                    <li><i data-lucide="sparkles"></i> Cultivar la intimidad emocional, espiritual y afectivo-sexual.</li>
                     <li><i data-lucide="handshake"></i> Construir acuerdos duraderos.</li>
-                    <li><i data-lucide="sparkles"></i> Crecer en intimidad emocional y espiritual.</li>
-                    <li><i data-lucide="map"></i> Elaborar un proyecto de vida matrimonial compartido.</li>
+                    <li><i data-lucide="map"></i> Elaborar un proyecto matrimonial y familiar compartido.</li>
                 </ul>
             </div>
         </section>
@@ -142,8 +186,8 @@
         <section class="section bg-light">
             <div class="container">
                 <span class="overline">Historias reales</span>
-                <h2>Testimonios</h2>
-                <p>Pronto compartiremos aquí las historias de matrimonios que ya recorren este camino.</p>
+                <h2>Matrimonios que aprendieron a caminar como equipo</h2>
+                <p>Historias reales de parejas que ya recorrieron este camino.</p>
                 <!-- Para activar un testimonio: sube el video a YouTube como "Oculto" (Unlisted)
                      y pega su ID en data-youtube="" (la parte después de v= o de youtu.be/).
                      Ejemplo: data-youtube="dQw4w9WgXcQ". Vacío = se queda en "Próximamente". -->
@@ -151,7 +195,6 @@
                     <div class="testimonio-card">
                         <div class="testimonio-video" data-youtube="c6YtUYiMmqw">
                             <span class="play"><i class="fas fa-play"></i></span>
-                            <span class="badge-proximamente">Próximamente</span>
                         </div>
                         <div class="testimonio-cuerpo">
                             <p>"Aprendimos a comunicarnos sin lastimarnos y a resolver los conflictos como equipo. Nuestro matrimonio se siente renovado."</p>
@@ -161,7 +204,6 @@
                     <div class="testimonio-card">
                         <div class="testimonio-video" data-youtube="1LOFOXlFJuQ">
                             <span class="play"><i class="fas fa-play"></i></span>
-                            <span class="badge-proximamente">Próximamente</span>
                         </div>
                         <div class="testimonio-cuerpo">
                             <p>"Este diplomado nos dio herramientas que no sabíamos que necesitábamos. Hoy nos escuchamos de verdad y caminamos hacia un proyecto en común."</p>
@@ -171,7 +213,6 @@
                     <div class="testimonio-card">
                         <div class="testimonio-video" data-youtube="7CoKxyOgjUs">
                             <span class="play"><i class="fas fa-play"></i></span>
-                            <span class="badge-proximamente">Próximamente</span>
                         </div>
                         <div class="testimonio-cuerpo">
                             <p>"Redescubrimos por qué nos elegimos. Salimos con una relación más fuerte, más cercana y con un lenguaje nuevo para amarnos."</p>
@@ -182,54 +223,39 @@
             </div>
         </section>
 
-        <!-- ======= DIRIGIDO A ======= -->
+        <!-- ======= ¿QUÉ APRENDERÁS? ======= -->
         <section class="section">
             <div class="container">
-                <span class="overline">¿Es para ti?</span>
-                <h2>Dirigido a</h2>
-                <div class="dirigido-grid">
-                    <span class="dirigido-chip"><i class="fas fa-ring"></i> Matrimonios jóvenes</span>
-                    <span class="dirigido-chip"><i class="fas fa-heart"></i> Matrimonios con años de casados</span>
-                    <span class="dirigido-chip"><i class="fas fa-user-group"></i> Novios con compromiso serio</span>
-                    <span class="dirigido-chip"><i class="fas fa-hands-praying"></i> Agentes de pastoral familiar</span>
-                    <span class="dirigido-chip"><i class="fas fa-comments"></i> Consejeros y acompañantes matrimoniales</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======= ¿QUÉ APRENDERÁS? ======= -->
-        <section class="section bg-light">
-            <div class="container">
                 <span class="overline">Plan de estudios</span>
-                <h2>¿Qué aprenderás?</h2>
+                <h2>Cinco dimensiones para fortalecer integralmente su relación</h2>
                 <p>Un recorrido por las cinco dimensiones de la vida en pareja:</p>
                 <div class="temario-grid">
                     <div class="temario-card">
                         <span class="temario-num">1</span>
-                        <div><span class="temario-sub">Módulo 1</span><h3>Dimensión humana</h3></div>
+                        <div><span class="temario-sub">Módulo 1</span><h3>Dimensión humana</h3><p class="temario-desc">Conocimiento mutuo, comunicación, diferencias y acuerdos.</p></div>
                     </div>
                     <div class="temario-card">
                         <span class="temario-num">2</span>
-                        <div><span class="temario-sub">Módulo 2</span><h3>Dimensión espiritual</h3></div>
+                        <div><span class="temario-sub">Módulo 2</span><h3>Dimensión espiritual</h3><p class="temario-desc">Sentido, vocación, valores y camino compartido.</p></div>
                     </div>
                     <div class="temario-card">
                         <span class="temario-num">3</span>
-                        <div><span class="temario-sub">Módulo 3</span><h3>Dimensión afectivo–sexual</h3></div>
+                        <div><span class="temario-sub">Módulo 3</span><h3>Dimensión afectivo–sexual</h3><p class="temario-desc">Afectividad, intimidad, sexualidad y lenguaje del amor.</p></div>
                     </div>
                     <div class="temario-card">
                         <span class="temario-num">4</span>
-                        <div><span class="temario-sub">Módulo 4</span><h3>Dimensión económica–laboral</h3></div>
+                        <div><span class="temario-sub">Módulo 4</span><h3>Dimensión económica–laboral</h3><p class="temario-desc">Trabajo, dinero, prioridades y decisiones familiares.</p></div>
                     </div>
                     <div class="temario-card">
                         <span class="temario-num">5</span>
-                        <div><span class="temario-sub">Módulo 5</span><h3>Dimensión educativa</h3></div>
+                        <div><span class="temario-sub">Módulo 5</span><h3>Dimensión educativa</h3><p class="temario-desc">Crianza, autoridad, valores y proyecto familiar.</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ======= MODALIDAD Y CALENDARIO ======= -->
-        <section class="section">
+        <section class="section bg-light">
             <div class="container">
                 <span class="overline">Cómo se vive</span>
                 <h2>Modalidad y calendario</h2>
@@ -239,6 +265,7 @@
                     <li><i class="fas fa-video"></i> Online en vivo vía Zoom</li>
                     <li><i class="fas fa-photo-film"></i> Grabaciones disponibles</li>
                     <li><i class="fas fa-folder-open"></i> Material complementario</li>
+                    <li><i class="fas fa-hands-helping"></i> Acompañamiento humano</li>
                 </ul>
                 <div class="calendario-banner">
                     <div class="cal-item">
@@ -261,90 +288,70 @@
             </div>
         </section>
 
-        <!-- ======= QUIÉN IMPARTIRÁ ======= -->
-        <section class="curso-instructores section bg-light">
-            <div class="container">
-                <span class="overline">Acompañamiento</span>
-                <h2>Quién impartirá el diplomado</h2>
-                <div class="grid-instructores">
-                    <div class="instructor-card">
-                        <div class="instructor-avatar">J</div>
-                        <h3>Jorge</h3>
-                        <p>Diácono, filósofo personalista especializado en antropología y doctorando en filosofía. Amplia experiencia en acompañamiento pastoral de matrimonios y familias.</p>
-                    </div>
-                    <div class="instructor-card">
-                        <div class="instructor-avatar">T</div>
-                        <h3>Teresa</h3>
-                        <p>Maestra en desarrollo humano con diplomados en espiritualidad, inteligencia emocional y comunicación. Esposa, madre y acompañante en procesos familiares.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======= CERTIFICACIÓN ======= -->
+        <!-- ======= TU FORMADOR ======= -->
         <section class="section">
             <div class="container">
-                <span class="overline">Al concluir</span>
-                <h2>Certificación</h2>
-                <div class="certificacion-card">
-                    <div class="cert-icon"><i class="fas fa-award"></i></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Diploma de participación</li>
-                        <li><i class="fas fa-check"></i> Horas de formación</li>
-                        <li><i class="fas fa-check"></i> Avalado por el Instituto Persona y Familia</li>
-                    </ul>
+                <span class="overline">Tu formador</span>
+                <div class="instructor-card seminario-formador-card">
+                    <img src="img/jorge-anaya.jpg" alt="Jorge Anaya Gómez" class="formador-foto">
+                    <div class="seminario-formador-bio">
+                        <h3>Jorge Anaya Gómez</h3>
+                        <p>Diácono y filósofo personalista, especializado en antropología y doctorando en filosofía, con amplia experiencia en el acompañamiento pastoral de matrimonios y familias.</p>
+                        <p>Traduce preguntas profundas a un lenguaje cercano y aplicable, para que salgan comprendiéndose mejor como pareja — no con más teoría.</p>
+                        <div class="seminario-chips-formador">
+                            <span class="dirigido-chip"><i class="fas fa-book-open"></i> Filosofía personalista</span>
+                            <span class="dirigido-chip"><i class="fas fa-user"></i> Antropología filosófica</span>
+                            <span class="dirigido-chip"><i class="fas fa-heart"></i> Acompañamiento a familias</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======= INVERSIÓN ======= -->
-        <section id="inscripcion" class="curso-inversion section bg-light">
+        <!-- ======= INSCRIPCIÓN (LA COMPRA) ======= -->
+        <section id="inscripcion" class="section bg-light landing-inscripcion">
             <div class="container">
                 <span class="overline">Inscripción</span>
-                <h2>Inversión</h2>
-                <p>Tu próxima sesión comienza pronto. Asegura tu lugar hoy mismo.</p>
+                <h2 class="solo-fase-1">Asegura tu lugar al precio de lanzamiento.</h2>
+                <h2 class="solo-fase-2">Asegura tu lugar antes de que comience.</h2>
+                <h2 class="solo-fase-3">El diplomado ya comenzó.</h2>
 
-                <div class="precio-card">
-                    <span class="overline">Precio</span>
-                    <ul class="precio-incluye">
-                        <li><i class="fas fa-check"></i> 18 sesiones de formación en vivo con herramientas prácticas</li>
-                        <li><i class="fas fa-check"></i> Grabaciones disponibles y material complementario</li>
-                        <li><i class="fas fa-check"></i> Acompañamiento a lo largo de las cinco dimensiones</li>
-                        <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
-                    </ul>
-                    <div class="precio-divider"></div>
-                    <p class="precio-monto">$6,000</p>
-                    <p class="precio-periodo">MXN</p>
-                    <a href="#form-inscripcion" class="btn">Inscríbete ahora</a>
-                </div>
+                <div class="compra-card solo-compra">
+                    <div class="compra-precio">
+                        <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                        <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                        <p class="compra-monto solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                        <span class="precio-mensual solo-fase-1">o 3 pagos mensuales de $1,500</span>
+                        <p class="compra-monto solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                        <p class="compra-contador solo-fase-1" style="font-weight:600;">Promoción válida del 13 al 31 de julio de 2026.</p>
+                        <p class="compra-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en <strong data-countdown>—</strong></p>
+                        <p class="compra-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en <strong data-countdown>—</strong></p>
+                        <ul class="hero-card-lista">
+                            <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom · miércoles 8–10 p.m. CDMX</li>
+                            <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                            <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
+                            <li><i class="fas fa-shield-heart"></i> Garantía: devolución hasta la 3ª sesión</li>
+                        </ul>
+                    </div>
 
-                <div class="promocion">
                     <form id="form-inscripcion" class="form-inscripcion" data-curso="pareja" novalidate>
-                        <h3>Completa tu inscripción</h3>
+                        <p class="form-intro">Completa tus datos y pasa directo al pago seguro. Tu lugar queda confirmado al pagar.</p>
 
                         <div class="form-grupo">
                             <label for="ins-nombre">Nombre completo *</label>
-                            <input type="text" id="ins-nombre" name="nombre"
-                                   placeholder="Tu nombre completo" autocomplete="name" required>
+                            <input type="text" id="ins-nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required>
                         </div>
-
                         <div class="form-grupo">
                             <label for="ins-email">Correo electrónico *</label>
-                            <input type="email" id="ins-email" name="email"
-                                   placeholder="tu@correo.com" autocomplete="email" required>
+                            <input type="email" id="ins-email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
                         </div>
-
                         <div class="form-grupo">
                             <label for="ins-email-confirm">Confirma tu correo electrónico *</label>
-                            <input type="email" id="ins-email-confirm" name="email_confirm"
-                                   placeholder="Repite tu correo" autocomplete="email" required
-                                   onpaste="return false;">
+                            <input type="email" id="ins-email-confirm" name="email_confirm" placeholder="Repite tu correo" autocomplete="email" required onpaste="return false;">
                         </div>
-
                         <div class="form-grupo">
-                            <label for="ins-telefono">Teléfono *</label>
-                            <input type="tel" id="ins-telefono" name="telefono"
-                                   placeholder="55 1234 5678" autocomplete="tel" required>
+                            <label for="ins-telefono">Teléfono (WhatsApp) *</label>
+                            <input type="tel" id="ins-telefono" name="telefono" placeholder="55 1234 5678" autocomplete="tel" required>
                         </div>
 
                         <input type="hidden" name="curso" value="pareja">
@@ -352,13 +359,34 @@
                         <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
 
                         <button type="submit" class="btn btn-pago" id="btn-submit-inscripcion">
-                            Continuar al pago
+                            Continuar al pago seguro →
                         </button>
-
-                        <p class="form-seguridad">
-                            <i class="fas fa-lock"></i> Pago seguro con Mercado Pago
-                        </p>
+                        <div class="mp-badge">
+                            <span class="mp-badge-lead"><i class="fas fa-lock"></i> Pago 100% seguro con</span>
+                            <img class="mp-logo" src="img/mercado-pago.jpg" alt="Mercado Pago" width="110" height="45" loading="lazy">
+                        </div>
+                        <p class="form-seguridad">Aceptamos tarjetas de crédito y débito · Confirmación inmediata por correo</p>
                     </form>
+                </div>
+
+                <div class="pago-alterno solo-compra">
+                    <div class="pago-alterno-col">
+                        <h3><i class="fas fa-building-columns"></i> ¿Prefieres transferencia o pagar en parcialidades?</h3>
+                        <p>Puedes pagar <strong>$4,500 MXN</strong> por transferencia, o consultar los <strong>3 pagos mensuales de $1,500</strong>. Envía tu comprobante con tu nombre y correo, o escríbenos y te ayudamos:</p>
+                        <p class="pago-alterno-clabe">CLABE: <strong>722969010532833772</strong><br>
+                        Beneficiaria: Teresa de Jesús Sánchez Leal · Mercado Pago W</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20quiero%20inscribirme%20al%20Diplomado%20en%20Habilidades%20en%20Pareja%20por%20transferencia%20o%20en%20parcialidades." target="_blank" rel="noopener">Transferencia / parcialidades por WhatsApp</a>
+                    </div>
+                    <div class="pago-alterno-col">
+                        <h3><i class="fab fa-whatsapp"></i> ¿Tienes dudas?</h3>
+                        <p>Escríbenos y una persona del instituto te ayuda a completar tu inscripción.</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Diplomado%20en%20Habilidades%20en%20Pareja" target="_blank" rel="noopener">Chatear por WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="landing-fase3-aviso solo-fase-3">
+                    <p>¿Te interesa la próxima edición del diplomado?</p>
+                    <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Habilidades%20en%20Pareja" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -372,7 +400,7 @@
                     <span class="garantia-icon"><i class="fas fa-shield-heart"></i></span>
                     <div>
                         <h3>Tu confianza es lo primero</h3>
-                        <p>Si después de las dos primeras sesiones consideras que el diplomado no es para ti, te devolvemos tu inversión.</p>
+                        <p>Si el diplomado no es para ti, puedes solicitar la devolución de tu pago en cualquier momento antes del inicio de la tercera sesión. Escríbenos por WhatsApp indicando tu nombre y el diplomado; la devolución se procesa por el mismo medio de pago.</p>
                     </div>
                 </div>
             </div>
@@ -387,41 +415,111 @@
                     <div class="acordeon-item">
                         <button class="acordeon-trigger" aria-expanded="false">
                             <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Tenemos que participar los dos?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Lo ideal es participar en pareja, porque muchos ejercicios están pensados para hacerse juntos. Aun así, puedes inscribirte y cursarlo por tu cuenta si tu pareja no puede acompañarte por ahora.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Puedo cursarlo si mi pareja no desea participar?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Obtendrás herramientas valiosas para tu relación aunque asistas solo. Muchas personas empiezan así y su pareja se suma más adelante.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Es terapia de pareja?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">No. Es un diplomado formativo: te da herramientas y acompañamiento para crecer como pareja, pero no sustituye una terapia psicológica cuando esta sea necesaria.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Es únicamente para matrimonios en crisis?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">No. Está pensado para cualquier pareja que quiera crecer: novios con compromiso serio, recién casados o matrimonios con años juntos. No necesitas estar en crisis para aprovecharlo.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Tendremos que compartir asuntos privados?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">No. Nunca se te pedirá exponer tu intimidad frente al grupo. Los ejercicios personales los trabajas en privado, a tu ritmo y con la confidencialidad que decidas.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Qué sucede si faltamos?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Cada sesión queda grabada y recibes el material complementario, así que pueden ponerse al día sin perder continuidad.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Cómo funcionan los tres pagos?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Puedes pagar $4,500 de contado o en 3 pagos mensuales de $1,500. Para activar el pago en parcialidades, escríbenos por WhatsApp y te indicamos el proceso.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿La garantía aplica en mensualidades?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. La garantía es la misma: puedes solicitar la devolución de lo que hayas pagado antes del inicio de la tercera sesión, sin importar si pagaste de contado o en parcialidades.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Tiene orientación católica?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. El diplomado parte de una visión personalista y cristiana del amor y la familia, con un lenguaje respetuoso y abierto.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Puedo participar desde otro país?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Es 100% online en vivo por Zoom; puedes participar desde cualquier lugar con conexión a internet. El horario corresponde al Tiempo del Centro de México.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
                             <span class="acordeon-titulo">¿Las sesiones quedan grabadas?</span>
                             <span class="acordeon-mas" aria-hidden="true">+</span>
                         </button>
                         <div class="acordeon-panel">
                             <p class="faq-respuesta">Sí. Todas las sesiones se graban y quedan disponibles para que puedas verlas cuando lo necesites, incluso si no pudiste conectarte en vivo.</p>
-                        </div>
-                    </div>
-                    <div class="acordeon-item">
-                        <button class="acordeon-trigger" aria-expanded="false">
-                            <span class="faq-icon"><i class="fas fa-question"></i></span>
-                            <span class="acordeon-titulo">¿Puedo participar desde cualquier país?</span>
-                            <span class="acordeon-mas" aria-hidden="true">+</span>
-                        </button>
-                        <div class="acordeon-panel">
-                            <p class="faq-respuesta">Sí. El diplomado es 100% online en vivo vía Zoom, así que puedes participar desde cualquier lugar del mundo con conexión a internet. El horario corresponde al Tiempo del Centro de México.</p>
-                        </div>
-                    </div>
-                    <div class="acordeon-item">
-                        <button class="acordeon-trigger" aria-expanded="false">
-                            <span class="faq-icon"><i class="fas fa-question"></i></span>
-                            <span class="acordeon-titulo">¿Qué sucede si falto?</span>
-                            <span class="acordeon-mas" aria-hidden="true">+</span>
-                        </button>
-                        <div class="acordeon-panel">
-                            <p class="faq-respuesta">No te preocupes: cada sesión queda grabada y recibes el material complementario, de modo que puedes ponerte al día sin perder continuidad.</p>
-                        </div>
-                    </div>
-                    <div class="acordeon-item">
-                        <button class="acordeon-trigger" aria-expanded="false">
-                            <span class="faq-icon"><i class="fas fa-question"></i></span>
-                            <span class="acordeon-titulo">¿Necesito estar casado?</span>
-                            <span class="acordeon-mas" aria-hidden="true">+</span>
-                        </button>
-                        <div class="acordeon-panel">
-                            <p class="faq-respuesta">Está dirigido principalmente a matrimonios y a novios con un compromiso serio. No es indispensable estar casado, pero sí vivir o proyectar una relación de pareja estable.</p>
                         </div>
                     </div>
                     <div class="acordeon-item">
@@ -434,16 +532,6 @@
                             <p class="faq-respuesta">Sí. Al concluir recibes un diploma de participación con las horas de formación, avalado por el Instituto Persona y Familia.</p>
                         </div>
                     </div>
-                    <div class="acordeon-item">
-                        <button class="acordeon-trigger" aria-expanded="false">
-                            <span class="faq-icon"><i class="fas fa-question"></i></span>
-                            <span class="acordeon-titulo">¿Cómo realizo el pago?</span>
-                            <span class="acordeon-mas" aria-hidden="true">+</span>
-                        </button>
-                        <div class="acordeon-panel">
-                            <p class="faq-respuesta">Puedes inscribirte en línea desde esta misma página. El pago se procesa de forma segura con Mercado Pago (tarjeta de crédito o débito y otros métodos). Si prefieres otra forma de pago, escríbenos por WhatsApp y con gusto te ayudamos.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -452,7 +540,7 @@
         <section class="cierre section">
             <div class="container">
                 <span class="overline">Te esperamos</span>
-                <h2>Tu matrimonio está llamado a la plenitud</h2>
+                <h2>Su matrimonio está llamado a crecer en plenitud</h2>
                 <p>Aquí te brindamos la formación, las herramientas y el acompañamiento que necesitas. Te esperamos para continuar este camino.</p>
                 <a href="#inscripcion" class="btn">Quiero inscribirme al diplomado</a>
             </div>
@@ -471,23 +559,22 @@
             </div>
         </footer>
 
-        <!-- Bloqueo de lanzamiento: retira el overlay al llegar las 20:00 (CDMX) de hoy -->
-        <script>
-            (function () {
-                var lock = document.getElementById('lanzamientoLock');
-                if (!lock) return;
-                var unlock = new Date(lock.getAttribute('data-unlock')); // 2026-06-20T02:00:00Z = 20:00 CDMX (UTC-6)
-                if (isNaN(unlock.getTime()) || new Date() >= unlock) {
-                    if (lock.parentNode) lock.parentNode.removeChild(lock);
-                } else {
-                    document.body.classList.add('lock-activo');
-                }
-            })();
-        </script>
+        <!-- ======= BARRA FLOTANTE DE COMPRA ======= -->
+        <div id="barra-flotante" class="barra-flotante solo-compra" aria-hidden="true">
+            <p class="barra-texto">
+                <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> Lanzamiento termina en <strong data-countdown-corto>—</strong></span>
+                <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> Comienza en <strong data-countdown-corto>—</strong></span>
+            </p>
+            <a href="#inscripcion" class="btn btn-primary barra-btn">
+                <span class="solo-fase-1">Inscribirme por $4,500</span>
+                <span class="solo-fase-2">Inscribirme</span>
+            </a>
+        </div>
 
         <!-- JS -->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="JS/prog.js"></script>
+        <script src="JS/lanzamiento.js"></script>
         <script>lucide.createIcons();</script>
     </body>
 </html>
