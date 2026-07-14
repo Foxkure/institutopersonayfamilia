@@ -1,524 +1,565 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diplomado en Desarrollo Humano - Instituto Persona y Familia</title>
-    <meta name="description" content="Diplomado en Desarrollo Humano: 18 sesiones online en vivo para desarrollar tus capacidades humanas, afectivas y espirituales, y construir tu proyecto de vida. Inicia el 11 de agosto de 2026.">
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/cursos.css">
-    <link rel="stylesheet" href="css/cursos2.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diplomado en Desarrollo Humano | Instituto Persona y Familia</title>
+        <meta name="description" content="Diplomado en Desarrollo Humano: 18 sesiones online en vivo para conocerte, ordenar tu mundo interior y construir un proyecto de vida con dirección. Inicia el 11 de agosto de 2026.">
+        <link rel="icon" type="image/png" href="img/logo.png">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/cursos.css">
+        <link rel="stylesheet" href="css/seminario.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1656378778788188');
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', {content_name: 'Diplomado en Desarrollo Humano', content_category: 'Diplomado', value: 4500, currency: 'MXN'});
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1656378778788188&ev=PageView&noscript=1"/></noscript>
+        <!-- End Meta Pixel Code -->
+    </head>
 
-    <!-- ======= BLOQUEO DE LANZAMIENTO — visible hasta las 20:00 (CDMX) de hoy ======= -->
-    <div class="lanzamiento-lock" id="lanzamientoLock" data-unlock="2026-06-20T02:00:00Z">
-        <div class="lanzamiento-lock-card">
-            <div class="bloqueo-icon"><i class="fas fa-lock"></i></div>
-            <span class="overline">Muy pronto</span>
-            <h1>Disponible hoy a las 8:00 p.m.</h1>
-            <p>Estamos afinando los últimos detalles. Hoy a las <strong>8:00 p.m. (hora del centro de México)</strong> abriremos la inscripción a nuestros diplomados 2026.</p>
-            <p class="bloqueo-fecha"><i class="fas fa-clock"></i> Disponible hoy · 8:00 p.m. (CDMX)</p>
-            <div class="bloqueo-cta">
-                <a href="https://wa.me/5218442911338?text=Hola%20quiero%20que%20me%20avisen%20cuando%20abran%20los%20diplomados" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Avísenme cuando esté disponible</a>
-                <a href="index.html#inicio" class="btn-outline">Volver al inicio</a>
+    <body class="fase-1" data-price-deadline="2026-08-01T05:59:59Z" data-event-start="2026-08-12T02:00:00Z">
+
+        <!-- ======= BARRA PROMOCIONAL (solo lanzamiento) ======= -->
+        <div class="promo-bar solo-fase-1">25% de descuento · Promoción válida hasta el 31 de julio · Asegura tu lugar</div>
+
+        <!-- ======= HEADER ======= -->
+        <header class="header">
+            <div class="container">
+                <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="logo">
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html#inicio">Inicio</a></li>
+                        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+                        <li><a href="index.html#que-hacemos">Qué hacemos</a></li>
+                        <li><a href="diplomados.html">Diplomados</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                    <a href="#inscripcion" class="btn-nav-cta">Inscríbete</a>
+                </nav>
+                <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </div>
-    </div>
+        </header>
 
-    <!-- ======= HEADER ======= -->
-    <header class="header">
-        <div class="container">
-            <img src="img/logo.png" alt="Logo Instituto Persona y Familia" class="logo">
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html#inicio">Inicio</a></li>
-                    <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
-                    <li><a href="index.html#que-hacemos">Qué hacemos</a></li>
-                    <li><a href="diplomados.html">Diplomados</a></li>
-                    <li><a href="index.html#contacto">Contacto</a></li>
-                </ul>
-                <a href="#inscripcion" class="btn-nav-cta">Inscríbete</a>
-            </nav>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- ======= HERO ======= -->
-    <section class="curso-hero">
-        <div class="curso-hero-content">
-            <span class="curso-badge"><i class="fas fa-seedling"></i> Diplomado en Desarrollo Personal</span>
-            <h1>Diplomado en Desarrollo Humano</h1>
-            <p>Desarrolla las habilidades humanas, afectivas, espirituales y relacionales necesarias para vivir con plenitud tu vocación personal, familiar y profesional.</p>
-            <p class="lema">"Conocerte a ti mismo es el primer paso para transformar tu vida."</p>
-            <div class="curso-stats">
-                <div class="curso-stat"><span class="num">18</span><span class="lbl">Sesiones</span></div>
-                <div class="curso-stat"><span class="num">18</span><span class="lbl">Temas</span></div>
-                <div class="curso-stat"><span class="num">$6,000</span><span class="lbl">Inversión</span></div>
+        <!-- ======= HERO TIPO EVENTO ======= -->
+        <section id="inicio" class="landing-hero">
+            <div class="container landing-hero-grid">
+                <div class="landing-hero-copy">
+                    <span class="landing-eyebrow"><i class="fas fa-seedling"></i>&nbsp; Diplomado online en vivo · 36 horas</span>
+                    <h1>Deja de vivir reaccionando. Conócete, ordena tu mundo interior y <em>construye una vida con dirección</em>.</h1>
+                    <p class="landing-hero-sub">Un proceso de 18 sesiones online en vivo para comprender mejor tu historia, crecer en libertad interior, madurez afectiva, relaciones sanas y proyecto de vida.</p>
+                    <div class="landing-datos">
+                        <div class="landing-dato"><i class="fas fa-list-ol"></i><span>18 sesiones<strong>9 módulos</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-calendar-week"></i><span>Martes<strong>8–10 p.m. CDMX</strong></span></div>
+                        <div class="landing-dato"><i class="fas fa-video"></i><span>En vivo<strong>por Zoom</strong></span></div>
+                        <div class="landing-dato landing-dato-precio solo-compra">
+                            <i class="fas fa-tag"></i>
+                            <span class="solo-fase-1">Lanzamiento<strong><s class="precio-antes">$6,000</s> $4,500 MXN</strong></span>
+                            <span class="solo-fase-2">Inversión<strong>$6,000 MXN</strong></span>
+                        </div>
+                    </div>
+                    <div class="cd-timer solo-compra">
+                        <span class="cd-label">
+                            <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en:</span>
+                            <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en:</span>
+                        </span>
+                        <div class="cd-boxes">
+                            <div class="cd-box"><span class="cd-num" data-cd="days">—</span><span class="cd-unit">días</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="hours">—</span><span class="cd-unit">hrs</span></div>
+                            <div class="cd-box"><span class="cd-num" data-cd="mins">—</span><span class="cd-unit">min</span></div>
+                            <div class="cd-box cd-box-secs"><span class="cd-num" data-cd="secs">—</span><span class="cd-unit">seg</span></div>
+                        </div>
+                    </div>
+                    <div class="landing-hero-cta solo-compra">
+                        <a href="#inscripcion" id="hero-cta" class="btn btn-primary btn-grande">
+                            <span class="solo-fase-1">Quiero inscribirme al precio de lanzamiento</span>
+                            <span class="solo-fase-2">Quiero inscribirme</span>
+                        </a>
+                        <p class="landing-microcopy solo-fase-1">Precio de lanzamiento $4,500 · aprovéchalo antes del 31 de julio.</p>
+                        <p class="landing-microcopy solo-fase-2">Últimos días para inscribirte antes del inicio.</p>
+                    </div>
+                    <div class="landing-fase3-aviso solo-fase-3">
+                        <p><strong>El diplomado ya comenzó.</strong> ¿Te interesa la próxima edición?</p>
+                        <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Desarrollo%20Humano" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                    </div>
+                    <p class="landing-prueba"><i class="fas fa-star"></i> Más de <strong>700 personas</strong> se han formado con nosotros</p>
+                </div>
+                <aside class="landing-hero-card solo-compra" aria-label="Resumen de inscripción">
+                    <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                    <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                    <p class="hero-card-precio solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                    <span class="precio-mensual solo-fase-1">o 3 pagos mensuales de $1,500</span>
+                    <p class="hero-card-precio solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                    <p class="hero-card-ancla solo-fase-1">Aprovéchalo antes del 31 de julio.</p>
+                    <p class="hero-card-ancla solo-fase-2">Precio de lanzamiento finalizado · inscríbete al precio vigente.</p>
+                    <a href="#inscripcion" class="btn btn-primary hero-card-btn">Asegurar mi lugar</a>
+                    <ul class="hero-card-lista">
+                        <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom</li>
+                        <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                        <li><i class="fas fa-check"></i> Diploma de participación</li>
+                        <li><i class="fas fa-check"></i> Garantía: devolución hasta la 3ª sesión</li>
+                    </ul>
+                    <p class="hero-card-nota"><i class="fas fa-lock"></i> Pago seguro con Mercado Pago</p>
+                </aside>
             </div>
-            <a href="#inscripcion" class="btn">Quiero inscribirme</a>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= CALENDARIO BANNER ======= -->
-    <section class="section" style="padding-top: 56px; padding-bottom: 0;">
-        <div class="container">
-            <div class="calendario-banner">
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-calendar-day"></i></span>
-                    <span><span class="cal-label">Inicio</span><span class="cal-value">11 de agosto de 2026</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-calendar-week"></i></span>
-                    <span><span class="cal-label">Sesiones</span><span class="cal-value">Todos los martes</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-clock"></i></span>
-                    <span><span class="cal-label">Horario</span><span class="cal-value">8:00 – 10:00 p.m. (CDMX)</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-video"></i></span>
-                    <span><span class="cal-label">Modalidad</span><span class="cal-value">Online en vivo · Zoom</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= ¿POR QUÉ ESTE DIPLOMADO? ======= -->
-    <section class="section curso-obstaculos bg-light">
-        <div class="container">
-            <span class="overline">¿Te identificas?</span>
-            <h2>¿Por qué este diplomado?</h2>
-            <p class="intro-text">Muchas personas viven situaciones como estas. Reconocerlas es el primer paso hacia el cambio.</p>
-
-            <div class="obstaculos-grid">
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-compass icon"></i>
-                    <p>Desean crecer, pero no saben por dónde comenzar.</p>
-                </div>
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-heart-pulse icon"></i>
-                    <p>Experimentan dificultades para gestionar sus emociones.</p>
-                </div>
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-people-arrows icon"></i>
-                    <p>Les cuesta construir relaciones sanas y profundas.</p>
-                </div>
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-bolt icon"></i>
-                    <p>Sienten que viven reaccionando más que eligiendo.</p>
-                </div>
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-signs-post icon"></i>
-                    <p>Quieren encontrar mayor sentido y dirección en su vida.</p>
-                </div>
-                <div class="obstaculo-item">
-                    <i class="fa-solid fa-dove icon"></i>
-                    <p>Buscan integrar fe, afectividad y vida cotidiana.</p>
+        <!-- ======= CALENDARIO BANNER ======= -->
+        <section class="section" style="padding-top: 56px; padding-bottom: 0;">
+            <div class="container">
+                <div class="calendario-banner">
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-calendar-day"></i></span>
+                        <span><span class="cal-label">Inicio</span><span class="cal-value">11 de agosto de 2026</span></span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-calendar-week"></i></span>
+                        <span><span class="cal-label">Sesiones</span><span class="cal-value">Todos los martes</span></span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-clock"></i></span>
+                        <span><span class="cal-label">Horario</span><span class="cal-value">8:00 – 10:00 p.m. (CDMX)</span></span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-video"></i></span>
+                        <span><span class="cal-label">Modalidad</span><span class="cal-value">Online en vivo · Zoom</span></span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= LO QUE PODRÁS LOGRAR ======= -->
-    <section class="section beneficios" data-sr>
-        <div class="container">
-            <span class="overline">Resultados</span>
-            <h2>Lo que podrás lograr</h2>
-            <p>Al finalizar el diplomado serás capaz de:</p>
-            <ul class="lista-beneficios">
-                <li><i data-lucide="user-check"></i> Conocerte mejor.</li>
-                <li><i data-lucide="compass"></i> Comprender tus fortalezas y áreas de crecimiento.</li>
-                <li><i data-lucide="heart"></i> Gestionar tus emociones de manera más sana.</li>
-                <li><i data-lucide="users"></i> Mejorar tus relaciones personales.</li>
-                <li><i data-lucide="key"></i> Tomar decisiones con mayor libertad interior.</li>
-                <li><i data-lucide="repeat"></i> Desarrollar hábitos que favorezcan tu crecimiento.</li>
-                <li><i data-lucide="map"></i> Construir un proyecto personal de vida.</li>
-                <li><i data-lucide="sun"></i> Integrar tu dimensión humana y espiritual.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ======= TESTIMONIOS ======= -->
-    <section class="section bg-light">
-        <div class="container">
-            <span class="overline">Historias reales</span>
-            <h2>Testimonios</h2>
-            <p>Pronto compartiremos aquí las historias de quienes ya recorren este camino de crecimiento.</p>
-            <!-- Para activar un testimonio: sube el video a YouTube como "Oculto" (Unlisted)
-                 y pega su ID en data-youtube="" (la parte después de v= o de youtu.be/).
-                 Ejemplo: data-youtube="dQw4w9WgXcQ". Vacío = se queda en "Próximamente". -->
-            <div class="testimonios-grid">
-                <div class="testimonio-card">
-                    <div class="testimonio-video" data-youtube="_9NETtGY6_4">
+        <!-- ======= VIDEO DE PRESENTACIÓN ======= -->
+        <section class="section bg-light">
+            <div class="container">
+                <span class="overline">Video de presentación</span>
+                <h2>Conócete para vivir con dirección</h2>
+                <p>No necesitas tenerlo todo claro para empezar. En 90 segundos, Jorge presenta la transformación, la metodología, el acompañamiento y la garantía del diplomado.</p>
+                <!-- Para activar: sube el video a YouTube como "Oculto" y pega su ID en data-youtube="". Vacío = "Próximamente". -->
+                <div class="video-presentacion">
+                    <div class="testimonio-video" data-youtube="">
                         <span class="play"><i class="fas fa-play"></i></span>
                         <span class="badge-proximamente">Próximamente</span>
                     </div>
-                    <div class="testimonio-cuerpo">
-                        <p>"Este diplomado me ayudó a conocerme de verdad y a sanar heridas que cargaba desde hacía años. Hoy me relaciono conmigo y con los demás desde un lugar mucho más sano."</p>
-                        <span class="testimonio-autor">Eva Martínez</span>
-                    </div>
                 </div>
-                <div class="testimonio-card">
-                    <div class="testimonio-video" data-youtube="aLIg0tG54oQ">
-                        <span class="play"><i class="fas fa-play"></i></span>
-                        <span class="badge-proximamente">Próximamente</span>
-                    </div>
-                    <div class="testimonio-cuerpo">
-                        <p>"Aprendí a poner en orden mi historia y a mirarme con compasión. Salí con herramientas concretas para seguir creciendo cada día."</p>
-                        <span class="testimonio-autor">Norma Irene Macías Escobedo</span>
-                    </div>
-                </div>
-                <div class="testimonio-card">
-                    <div class="testimonio-video" data-youtube="IuAUOPWbUVs">
-                        <span class="play"><i class="fas fa-play"></i></span>
-                        <span class="badge-proximamente">Próximamente</span>
-                    </div>
-                    <div class="testimonio-cuerpo">
-                        <p>"Encontré un espacio seguro para crecer. Entendí mis emociones y descubrí una versión más libre y plena de mí misma."</p>
-                        <span class="testimonio-autor">Alba Inés Ollervides Navarro</span>
-                    </div>
+                <div class="video-presentacion-cta">
+                    <a href="#inscripcion" class="btn btn-primary">Quiero conocer el programa</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= DIRIGIDO A ======= -->
-    <section class="section">
-        <div class="container">
-            <span class="overline">¿Es para ti?</span>
-            <h2>Dirigido a</h2>
-            <div class="dirigido-grid">
-                <span class="dirigido-chip"><i class="fas fa-user"></i> Solteros</span>
-                <span class="dirigido-chip"><i class="fas fa-user-group"></i> Novios</span>
-                <span class="dirigido-chip"><i class="fas fa-ring"></i> Matrimonios</span>
-                <span class="dirigido-chip"><i class="fas fa-children"></i> Padres de familia</span>
-                <span class="dirigido-chip"><i class="fas fa-book-bible"></i> Catequistas</span>
-                <span class="dirigido-chip"><i class="fas fa-chalkboard-user"></i> Maestros</span>
-                <span class="dirigido-chip"><i class="fas fa-hands-praying"></i> Agentes de pastoral</span>
-                <span class="dirigido-chip"><i class="fas fa-briefcase"></i> Profesionistas</span>
-                <span class="dirigido-chip"><i class="fas fa-seedling"></i> Interesados en su crecimiento personal</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= ¿QUÉ APRENDERÁS? ======= -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2>¿Qué aprenderás?</h2>
-            <p>Un recorrido por la persona en toda su profundidad:</p>
-            <div class="temario-grid">
-                <div class="temario-card">
-                    <span class="temario-num">1</span>
-                    <div><h3>¿Quién es la persona?</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">2</span>
-                    <div><h3>Las estructuras de la persona</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">3</span>
-                    <div><h3>La persona como realidad abierta</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">4</span>
-                    <div><h3>La persona: dignidad y misterio</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">5</span>
-                    <div><h3>La afectividad</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">6</span>
-                    <div><h3>La libertad</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">7</span>
-                    <div><h3>El yo personal</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">8</span>
-                    <div><h3>Las relaciones interpersonales</h3></div>
-                </div>
-                <div class="temario-card">
-                    <span class="temario-num">9</span>
-                    <div><h3>El destino de la persona</h3></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= MODALIDAD Y CALENDARIO ======= -->
-    <section class="section">
-        <div class="container">
-            <span class="overline">Cómo se vive</span>
-            <h2>Modalidad y calendario</h2>
-            <ul class="calendario-detalle">
-                <li><i class="fas fa-list-ol"></i> 18 sesiones</li>
-                <li><i class="fas fa-hourglass-half"></i> 2 horas por sesión</li>
-                <li><i class="fas fa-video"></i> Online en vivo vía Zoom</li>
-                <li><i class="fas fa-photo-film"></i> Grabaciones disponibles</li>
-                <li><i class="fas fa-folder-open"></i> Material complementario</li>
-            </ul>
-            <div class="calendario-banner">
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-calendar-day"></i></span>
-                    <span><span class="cal-label">Inicio</span><span class="cal-value">11 de agosto de 2026</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-calendar-week"></i></span>
-                    <span><span class="cal-label">Sesiones</span><span class="cal-value">Todos los martes</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-clock"></i></span>
-                    <span><span class="cal-label">Horario</span><span class="cal-value">8:00 – 10:00 p.m. (CDMX)</span></span>
-                </div>
-                <div class="cal-item">
-                    <span class="cal-icon"><i class="fas fa-video"></i></span>
-                    <span><span class="cal-label">Modalidad</span><span class="cal-value">Online en vivo · Zoom</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= QUIÉN IMPARTIRÁ ======= -->
-    <section class="section quienes-acompanan bg-light" data-sr>
-        <div class="container">
-            <span class="overline">Acompañamiento</span>
-            <h2>Quién impartirá el diplomado</h2>
-            <div class="grid-instructores">
-                <div class="instructor-card">
-                    <div class="instructor-avatar">J</div>
-                    <h3>Jorge</h3>
-                    <p>Diácono, filósofo personalista especializado en antropología y doctorando en filosofía. Amplia experiencia en acompañamiento pastoral.</p>
-                </div>
-                <div class="instructor-card">
-                    <div class="instructor-avatar">T</div>
-                    <h3>Teresa</h3>
-                    <p>Maestra en desarrollo humano con diplomados en espiritualidad, inteligencia emocional y comunicación. Esposa, madre y acompañante en procesos familiares.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= CERTIFICACIÓN ======= -->
-    <section class="section">
-        <div class="container">
-            <span class="overline">Al concluir</span>
-            <h2>Certificación</h2>
-            <div class="certificacion-card">
-                <div class="cert-icon"><i class="fas fa-award"></i></div>
-                <ul>
-                    <li><i class="fas fa-check"></i> Diploma de participación</li>
-                    <li><i class="fas fa-check"></i> Horas de formación</li>
-                    <li><i class="fas fa-check"></i> Avalado por el Instituto Persona y Familia</li>
+        <!-- ======= LO QUE PODRÁS LOGRAR ======= -->
+        <section class="curso-beneficios section">
+            <div class="container">
+                <span class="overline">Resultados</span>
+                <h2>Al concluir este recorrido podrás…</h2>
+                <p>Al finalizar el diplomado serás capaz de:</p>
+                <ul class="lista-beneficios">
+                    <li><i data-lucide="book-open"></i> Comprender cómo tu historia influye en lo que piensas, sientes y eliges.</li>
+                    <li><i data-lucide="heart"></i> Relacionarte con tus emociones con mayor conciencia, madurez y serenidad.</li>
+                    <li><i data-lucide="key"></i> Dejar de responder únicamente por impulso, miedo o hábitos aprendidos.</li>
+                    <li><i data-lucide="users"></i> Construir relaciones más auténticas, sanas y conscientes.</li>
+                    <li><i data-lucide="map"></i> Traducir tus valores, vocación y circunstancias en un proyecto de vida.</li>
+                    <li><i data-lucide="repeat"></i> Desarrollar hábitos para continuar creciendo después del diplomado.</li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= INVERSIÓN ======= -->
-    <section id="inscripcion" class="curso-inversion section bg-light" data-sr>
-        <div class="container">
-            <span class="overline">Inscripción</span>
-            <h2>Inversión</h2>
-            <p>Tu próxima sesión comienza pronto. Asegura tu lugar hoy mismo.</p>
+        <!-- ======= TESTIMONIOS ======= -->
+        <section class="section bg-light">
+            <div class="container">
+                <span class="overline">Historias reales</span>
+                <h2>Personas que aprendieron a conocerse</h2>
+                <p>Historias reales de quienes ya recorrieron este camino de crecimiento.</p>
+                <!-- Para activar un testimonio: sube el video a YouTube como "Oculto" (Unlisted)
+                     y pega su ID en data-youtube="" (la parte después de v= o de youtu.be/). -->
+                <div class="testimonios-grid">
+                    <div class="testimonio-card">
+                        <div class="testimonio-video" data-youtube="_9NETtGY6_4">
+                            <span class="play"><i class="fas fa-play"></i></span>
+                        </div>
+                        <div class="testimonio-cuerpo">
+                            <p>"Este diplomado me ayudó a conocerme de verdad y a sanar heridas que cargaba desde hacía años. Hoy me relaciono conmigo y con los demás desde un lugar mucho más sano."</p>
+                            <span class="testimonio-autor">Eva Martínez</span>
+                        </div>
+                    </div>
+                    <div class="testimonio-card">
+                        <div class="testimonio-video" data-youtube="aLIg0tG54oQ">
+                            <span class="play"><i class="fas fa-play"></i></span>
+                        </div>
+                        <div class="testimonio-cuerpo">
+                            <p>"Aprendí a poner en orden mi historia y a mirarme con compasión. Salí con herramientas concretas para seguir creciendo cada día."</p>
+                            <span class="testimonio-autor">Norma Irene Macías Escobedo</span>
+                        </div>
+                    </div>
+                    <div class="testimonio-card">
+                        <div class="testimonio-video" data-youtube="IuAUOPWbUVs">
+                            <span class="play"><i class="fas fa-play"></i></span>
+                        </div>
+                        <div class="testimonio-cuerpo">
+                            <p>"Encontré un espacio seguro para crecer. Entendí mis emociones y descubrí una versión más libre y plena de mí misma."</p>
+                            <span class="testimonio-autor">Alba Inés Ollervides Navarro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="precio-card">
-                <span class="overline">Precio</span>
-                <ul class="precio-incluye">
-                    <li><i class="fas fa-check"></i> 18 sesiones de formación en vivo con herramientas prácticas</li>
-                    <li><i class="fas fa-check"></i> Grabaciones disponibles y material complementario</li>
-                    <li><i class="fas fa-check"></i> Acompañamiento para construir tu proyecto de vida</li>
-                    <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
+        <!-- ======= ¿QUÉ APRENDERÁS? ======= -->
+        <section class="section">
+            <div class="container">
+                <span class="overline">Plan de estudios</span>
+                <h2>Del autoconocimiento a un proyecto de vida</h2>
+                <p>Cada módulo se desarrolla en dos sesiones para profundizar y llevarlo a la práctica:</p>
+                <div class="temario-grid">
+                    <div class="temario-card">
+                        <span class="temario-num">1</span>
+                        <div><span class="temario-sub">Módulo 1</span><h3>¿Quién soy?</h3><p class="temario-desc">Reconocer tu historia, dignidad, heridas, capacidades y anhelos.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">2</span>
+                        <div><span class="temario-sub">Módulo 2</span><h3>Dignidad y misterio</h3><p class="temario-desc">El valor inviolable de la persona y su hondura.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">3</span>
+                        <div><span class="temario-sub">Módulo 3</span><h3>Afectividad</h3><p class="temario-desc">Comprender y ordenar tus emociones y afectos.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">4</span>
+                        <div><span class="temario-sub">Módulo 4</span><h3>Libertad interior</h3><p class="temario-desc">Elegir con conciencia, más allá del impulso o el miedo.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">5</span>
+                        <div><span class="temario-sub">Módulo 5</span><h3>Yo personal</h3><p class="temario-desc">Integrar quién eres y cómo te relacionas contigo.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">6</span>
+                        <div><span class="temario-sub">Módulo 6</span><h3>Relaciones sanas</h3><p class="temario-desc">Vínculos auténticos, sanos y conscientes.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">7</span>
+                        <div><span class="temario-sub">Módulo 7</span><h3>Destino y sentido</h3><p class="temario-desc">La dirección y el para qué de tu vida.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">8</span>
+                        <div><span class="temario-sub">Módulo 8</span><h3>Proyecto de vida</h3><p class="temario-desc">Traducir valores y vocación en un plan concreto.</p></div>
+                    </div>
+                    <div class="temario-card">
+                        <span class="temario-num">9</span>
+                        <div><span class="temario-sub">Módulo 9</span><h3>Hábitos de crecimiento</h3><p class="temario-desc">Sostener el cambio después del diplomado.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= MODALIDAD Y CALENDARIO ======= -->
+        <section class="section bg-light">
+            <div class="container">
+                <span class="overline">Cómo se vive</span>
+                <h2>Modalidad y calendario</h2>
+                <ul class="calendario-detalle">
+                    <li><i class="fas fa-list-ol"></i> 18 sesiones</li>
+                    <li><i class="fas fa-hourglass-half"></i> 2 horas por sesión</li>
+                    <li><i class="fas fa-video"></i> Online en vivo vía Zoom</li>
+                    <li><i class="fas fa-photo-film"></i> Grabaciones disponibles</li>
+                    <li><i class="fas fa-folder-open"></i> Material complementario</li>
+                    <li><i class="fas fa-hands-helping"></i> Acompañamiento humano</li>
                 </ul>
-                <div class="precio-divider"></div>
-                <p class="precio-monto">$6,000</p>
-                <p class="precio-periodo">MXN</p>
-                <a href="#form-inscripcion" class="btn">Inscríbete ahora</a>
-            </div>
-
-            <div class="promocion">
-                <form id="form-inscripcion" class="form-inscripcion" data-curso="desarrollo" novalidate>
-                    <h3>Completa tu inscripción</h3>
-
-                    <div class="form-grupo">
-                        <label for="ins-nombre">Nombre completo *</label>
-                        <input type="text" id="ins-nombre" name="nombre"
-                               placeholder="Tu nombre completo" autocomplete="name" required>
+                <div class="calendario-banner">
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-calendar-day"></i></span>
+                        <span><span class="cal-label">Inicio</span><span class="cal-value">11 de agosto de 2026</span></span>
                     </div>
-
-                    <div class="form-grupo">
-                        <label for="ins-email">Correo electrónico *</label>
-                        <input type="email" id="ins-email" name="email"
-                               placeholder="tu@correo.com" autocomplete="email" required>
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-calendar-week"></i></span>
+                        <span><span class="cal-label">Sesiones</span><span class="cal-value">Todos los martes</span></span>
                     </div>
-
-                    <div class="form-grupo">
-                        <label for="ins-email-confirm">Confirma tu correo electrónico *</label>
-                        <input type="email" id="ins-email-confirm" name="email_confirm"
-                               placeholder="Repite tu correo" autocomplete="email" required
-                               onpaste="return false;">
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-clock"></i></span>
+                        <span><span class="cal-label">Horario</span><span class="cal-value">8:00 – 10:00 p.m. (CDMX)</span></span>
                     </div>
-
-                    <div class="form-grupo">
-                        <label for="ins-telefono">Teléfono *</label>
-                        <input type="tel" id="ins-telefono" name="telefono"
-                               placeholder="55 1234 5678" autocomplete="tel" required>
-                    </div>
-
-                    <input type="hidden" name="curso" value="desarrollo">
-
-                    <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
-
-                    <button type="submit" class="btn btn-pago" id="btn-submit-inscripcion">
-                        Continuar al pago
-                    </button>
-
-                    <p class="form-seguridad">
-                        <i class="fas fa-lock"></i> Pago seguro con Mercado Pago
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= GARANTÍA ======= -->
-    <section class="section">
-        <div class="container">
-            <span class="overline">Sin riesgo</span>
-            <h2>Garantía</h2>
-            <div class="garantia-callout">
-                <span class="garantia-icon"><i class="fas fa-shield-heart"></i></span>
-                <div>
-                    <h3>Tu confianza es lo primero</h3>
-                    <p>Si después de las dos primeras sesiones consideras que el diplomado no es para ti, te devolvemos tu inversión.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= PREGUNTAS FRECUENTES ======= -->
-    <section class="section bg-light">
-        <div class="container">
-            <span class="overline">Resolvemos tus dudas</span>
-            <h2>Preguntas frecuentes</h2>
-            <div class="faq-lista">
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Las sesiones quedan grabadas?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">Sí. Todas las sesiones se graban y quedan disponibles para que puedas verlas cuando lo necesites, incluso si no pudiste conectarte en vivo.</p>
-                    </div>
-                </div>
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Puedo participar desde cualquier país?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">Sí. El diplomado es 100% online en vivo vía Zoom, así que puedes participar desde cualquier lugar del mundo con conexión a internet. El horario corresponde al Tiempo del Centro de México.</p>
-                    </div>
-                </div>
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Qué sucede si falto?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">No te preocupes: cada sesión queda grabada y recibes el material complementario, de modo que puedes ponerte al día sin perder continuidad.</p>
-                    </div>
-                </div>
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Necesito estar casado?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">No es necesario. El Diplomado en Desarrollo Humano está abierto a solteros, novios, casados y a cualquier persona que desee crecer; no se requiere formación previa.</p>
-                    </div>
-                </div>
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Se entrega constancia?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">Sí. Al concluir recibes un diploma de participación con las horas de formación, avalado por el Instituto Persona y Familia.</p>
-                    </div>
-                </div>
-                <div class="acordeon-item">
-                    <button class="acordeon-trigger" aria-expanded="false">
-                        <span class="faq-icon"><i class="fas fa-question"></i></span>
-                        <span class="acordeon-titulo">¿Cómo realizo el pago?</span>
-                        <span class="acordeon-mas" aria-hidden="true">+</span>
-                    </button>
-                    <div class="acordeon-panel">
-                        <p class="faq-respuesta">Puedes inscribirte en línea desde esta misma página. El pago se procesa de forma segura con Mercado Pago (tarjeta de crédito o débito y otros métodos). Si prefieres otra forma de pago, escríbenos por WhatsApp y con gusto te ayudamos.</p>
+                    <div class="cal-item">
+                        <span class="cal-icon"><i class="fas fa-video"></i></span>
+                        <span><span class="cal-label">Modalidad</span><span class="cal-value">Online en vivo · Zoom</span></span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= CIERRE / CTA ======= -->
-    <section class="cierre section">
-        <div class="container">
-            <span class="overline">Te esperamos</span>
-            <h2>Tu crecimiento personal merece una inversión</h2>
-            <p>La persona más importante que puedes aprender a conocer, comprender y desarrollar eres tú mismo. Te invitamos a emprender un camino de formación integral que te ayude a vivir con mayor libertad, madurez, plenitud y sentido.</p>
-            <a href="#inscripcion" class="btn">Quiero inscribirme al diplomado</a>
-        </div>
-    </section>
-
-    <!-- ======= FOOTER ======= -->
-    <footer class="footer">
-        <div class="container">
-            <img src="img/logo.png" alt="Logo" class="footer-logo">
-            <p>&copy; 2025 Instituto Persona y Familia. Todos los derechos reservados.</p>
-            <div class="footer-links"></div>
-            <div class="footer-legal">
-                <a href="aviso-privacidad.html">Aviso de Privacidad</a>
-                <span aria-hidden="true">·</span>
-                <a href="terminos.html">Términos y Condiciones</a>
+        <!-- ======= TU FORMADOR ======= -->
+        <section class="section">
+            <div class="container">
+                <span class="overline">Tu formador</span>
+                <div class="instructor-card seminario-formador-card">
+                    <img src="img/jorge-anaya.jpg" alt="Jorge Anaya Gómez" class="formador-foto">
+                    <div class="seminario-formador-bio">
+                        <h3>Jorge Anaya Gómez</h3>
+                        <p>Diácono y filósofo personalista, especializado en antropología y doctorando en filosofía, con amplia experiencia en formación humana y acompañamiento de personas y familias.</p>
+                        <p>Traduce preguntas profundas a un lenguaje cercano y aplicable, para que salgas comprendiéndote mejor — no con más teoría.</p>
+                        <div class="seminario-chips-formador">
+                            <span class="dirigido-chip"><i class="fas fa-book-open"></i> Filosofía personalista</span>
+                            <span class="dirigido-chip"><i class="fas fa-user"></i> Antropología filosófica</span>
+                            <span class="dirigido-chip"><i class="fas fa-seedling"></i> Formación humana</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- ======= INSCRIPCIÓN (LA COMPRA) ======= -->
+        <section id="inscripcion" class="section bg-light landing-inscripcion">
+            <div class="container">
+                <span class="overline">Inscripción</span>
+                <h2 class="solo-fase-1">Asegura tu lugar al precio de lanzamiento.</h2>
+                <h2 class="solo-fase-2">Asegura tu lugar antes de que comience.</h2>
+                <h2 class="solo-fase-3">El diplomado ya comenzó.</h2>
+
+                <div class="compra-card solo-compra">
+                    <div class="compra-precio">
+                        <span class="hero-card-etiqueta solo-fase-1">Precio de lanzamiento</span>
+                        <span class="hero-card-etiqueta solo-fase-2">Inversión</span>
+                        <p class="compra-monto solo-fase-1"><s class="precio-antes">$6,000</s> $4,500 <span class="hero-card-mxn">MXN</span></p>
+                        <span class="precio-mensual solo-fase-1">o 3 pagos mensuales de $1,500</span>
+                        <p class="compra-monto solo-fase-2">$6,000 <span class="hero-card-mxn">MXN</span></p>
+                        <p class="compra-contador solo-fase-1" style="font-weight:600;">Promoción válida del 13 al 31 de julio de 2026.</p>
+                        <p class="compra-contador solo-fase-1"><i class="fas fa-hourglass-half"></i> El precio de lanzamiento termina en <strong data-countdown>—</strong></p>
+                        <p class="compra-contador solo-fase-2"><i class="fas fa-hourglass-half"></i> El diplomado comienza en <strong data-countdown>—</strong></p>
+                        <ul class="hero-card-lista">
+                            <li><i class="fas fa-check"></i> 18 sesiones en vivo por Zoom · martes 8–10 p.m. CDMX</li>
+                            <li><i class="fas fa-check"></i> Grabaciones + material complementario</li>
+                            <li><i class="fas fa-check"></i> Diploma de participación del Instituto Persona y Familia</li>
+                            <li><i class="fas fa-shield-heart"></i> Garantía: devolución hasta la 3ª sesión</li>
+                        </ul>
+                    </div>
+
+                    <form id="form-inscripcion" class="form-inscripcion" data-curso="desarrollo" novalidate>
+                        <p class="form-intro">Completa tus datos y pasa directo al pago seguro. Tu lugar queda confirmado al pagar.</p>
+
+                        <div class="form-grupo">
+                            <label for="ins-nombre">Nombre completo *</label>
+                            <input type="text" id="ins-nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="ins-email">Correo electrónico *</label>
+                            <input type="email" id="ins-email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="ins-email-confirm">Confirma tu correo electrónico *</label>
+                            <input type="email" id="ins-email-confirm" name="email_confirm" placeholder="Repite tu correo" autocomplete="email" required onpaste="return false;">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="ins-telefono">Teléfono (WhatsApp) *</label>
+                            <input type="tel" id="ins-telefono" name="telefono" placeholder="55 1234 5678" autocomplete="tel" required>
+                        </div>
+
+                        <input type="hidden" name="curso" value="desarrollo">
+
+                        <div id="form-error" class="form-error" role="alert" aria-live="assertive"></div>
+
+                        <button type="submit" class="btn btn-pago" id="btn-submit-inscripcion">
+                            Continuar al pago seguro →
+                        </button>
+                        <div class="mp-badge">
+                            <span class="mp-badge-lead"><i class="fas fa-lock"></i> Pago 100% seguro con</span>
+                            <img class="mp-logo" src="img/mercado-pago.jpg" alt="Mercado Pago" width="110" height="45" loading="lazy">
+                        </div>
+                        <p class="form-seguridad">Aceptamos tarjetas de crédito y débito · Confirmación inmediata por correo</p>
+                    </form>
+                </div>
+
+                <div class="pago-alterno solo-compra">
+                    <div class="pago-alterno-col">
+                        <h3><i class="fas fa-building-columns"></i> ¿Prefieres transferencia o pagar en parcialidades?</h3>
+                        <p>Puedes pagar <strong>$4,500 MXN</strong> por transferencia, o consultar los <strong>3 pagos mensuales de $1,500</strong>. Envía tu comprobante con tu nombre y correo, o escríbenos y te ayudamos:</p>
+                        <p class="pago-alterno-clabe">CLABE: <strong>722969010532833772</strong><br>
+                        Beneficiaria: Teresa de Jesús Sánchez Leal · Mercado Pago W</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20quiero%20inscribirme%20al%20Diplomado%20en%20Desarrollo%20Humano%20por%20transferencia%20o%20en%20parcialidades." target="_blank" rel="noopener">Transferencia / parcialidades por WhatsApp</a>
+                    </div>
+                    <div class="pago-alterno-col">
+                        <h3><i class="fab fa-whatsapp"></i> ¿Tienes dudas?</h3>
+                        <p>Escríbenos y una persona del instituto te ayuda a completar tu inscripción.</p>
+                        <a class="btn btn-outline js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Diplomado%20en%20Desarrollo%20Humano" target="_blank" rel="noopener">Chatear por WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="landing-fase3-aviso solo-fase-3">
+                    <p>¿Te interesa la próxima edición del diplomado?</p>
+                    <a class="btn btn-primary js-whatsapp" href="https://wa.me/5218442911338?text=Hola,%20me%20interesa%20la%20proxima%20edicion%20del%20Diplomado%20en%20Desarrollo%20Humano" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= GARANTÍA ======= -->
+        <section class="section">
+            <div class="container">
+                <span class="overline">Sin riesgo</span>
+                <h2>Garantía</h2>
+                <div class="garantia-callout">
+                    <span class="garantia-icon"><i class="fas fa-shield-heart"></i></span>
+                    <div>
+                        <h3>Tu confianza es lo primero</h3>
+                        <p>Si el diplomado no es para ti, puedes solicitar la devolución de tu pago en cualquier momento antes del inicio de la tercera sesión. Escríbenos por WhatsApp indicando tu nombre y el diplomado; la devolución se procesa por el mismo medio de pago.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= PREGUNTAS FRECUENTES ======= -->
+        <section class="section bg-light">
+            <div class="container">
+                <span class="overline">Resolvemos tus dudas</span>
+                <h2>Preguntas frecuentes</h2>
+                <div class="faq-lista">
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Qué pasa si no puedo conectarme en vivo?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Cada sesión queda grabada. Podrás verla después y continuar el proceso sin perder la secuencia del diplomado.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Necesito conocimientos previos?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">No. El contenido usa un lenguaje claro y accesible. Solo necesitas disposición para reflexionar, participar y hacer los ejercicios.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿El diplomado integra la dimensión espiritual?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Parte de una visión integral y personalista del ser humano e incorpora la dimensión espiritual y la fe cristiana, con un lenguaje respetuoso y abierto.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Sustituye un proceso de terapia?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">No. Es un proceso formativo y no sustituye la atención psicológica, médica o terapéutica cuando esta sea necesaria.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Cómo funcionan los tres pagos?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Puedes pagar $4,500 de contado o en 3 pagos mensuales de $1,500. Para activar el pago en parcialidades, escríbenos por WhatsApp y te indicamos el proceso.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿La garantía aplica en mensualidades?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Puedes solicitar la devolución de lo que hayas pagado antes del inicio de la tercera sesión, sin importar si pagaste de contado o en parcialidades.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Puedo participar desde otro país?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Es 100% online en vivo por Zoom; puedes participar desde cualquier lugar con conexión a internet. El horario corresponde al Tiempo del Centro de México.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Las sesiones quedan grabadas?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Sí. Todas las sesiones se graban y quedan disponibles para que puedas verlas cuando lo necesites.</p>
+                        </div>
+                    </div>
+                    <div class="acordeon-item">
+                        <button class="acordeon-trigger" aria-expanded="false">
+                            <span class="faq-icon"><i class="fas fa-question"></i></span>
+                            <span class="acordeon-titulo">¿Qué recibiré al concluir?</span>
+                            <span class="acordeon-mas" aria-hidden="true">+</span>
+                        </button>
+                        <div class="acordeon-panel">
+                            <p class="faq-respuesta">Un diploma de participación del Instituto Persona y Familia al cumplir los requisitos de asistencia y actividades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CIERRE / CTA ======= -->
+        <section class="cierre section">
+            <div class="container">
+                <span class="overline">Te esperamos</span>
+                <h2>Tu vida no cambia por saber más, sino por empezar a elegir distinto</h2>
+                <p>Aquí encontrarás la formación, las herramientas y el acompañamiento para conocerte, ordenarte y vivir con mayor dirección.</p>
+                <a href="#inscripcion" class="btn">Quiero inscribirme al diplomado</a>
+            </div>
+        </section>
+
+        <!-- ======= FOOTER ======= -->
+        <footer class="footer">
+            <div class="container">
+                <img src="img/logo.png" alt="Logo" class="footer-logo">
+                <p>&copy; 2025 Instituto Persona y Familia. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="aviso-privacidad.html">Aviso de Privacidad</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="terminos.html">Términos y Condiciones</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ======= BARRA FLOTANTE DE COMPRA ======= -->
+        <div id="barra-flotante" class="barra-flotante solo-compra" aria-hidden="true">
+            <p class="barra-texto">
+                <span class="solo-fase-1"><i class="fas fa-hourglass-half"></i> Lanzamiento termina en <strong data-countdown-corto>—</strong></span>
+                <span class="solo-fase-2"><i class="fas fa-hourglass-half"></i> Comienza en <strong data-countdown-corto>—</strong></span>
+            </p>
+            <a href="#inscripcion" class="btn btn-primary barra-btn">
+                <span class="solo-fase-1">Inscribirme por $4,500</span>
+                <span class="solo-fase-2">Inscribirme</span>
+            </a>
         </div>
-    </footer>
 
-    <!-- Bloqueo de lanzamiento: retira el overlay al llegar las 20:00 (CDMX) de hoy -->
-    <script>
-        (function () {
-            var lock = document.getElementById('lanzamientoLock');
-            if (!lock) return;
-            var unlock = new Date(lock.getAttribute('data-unlock')); // 2026-06-20T02:00:00Z = 20:00 CDMX (UTC-6)
-            if (isNaN(unlock.getTime()) || new Date() >= unlock) {
-                if (lock.parentNode) lock.parentNode.removeChild(lock);
-            } else {
-                document.body.classList.add('lock-activo');
-            }
-        })();
-    </script>
-
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="JS/prog.js"></script>
-    <script>lucide.createIcons();</script>
-
-</body>
+        <!-- JS -->
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="JS/prog.js"></script>
+        <script src="JS/lanzamiento.js"></script>
+        <script>lucide.createIcons();</script>
+    </body>
 </html>

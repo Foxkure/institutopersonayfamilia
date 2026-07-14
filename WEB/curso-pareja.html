@@ -14,8 +14,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <script src="https://unpkg.com/lucide@latest"></script>
-        <!-- PIXEL PLACEHOLDER: campaign pixel for Diplomado Pareja goes here
-             (base + PageView + ViewContent value=4500 currency=MXN). Owner supplies ID. -->
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1656378778788188');
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', {content_name: 'Diplomado en Desarrollo de Habilidades en Pareja', content_category: 'Diplomado', value: 4500, currency: 'MXN'});
+        </script>
+        <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1656378778788188&ev=PageView&noscript=1"/></noscript>
+        <!-- End Meta Pixel Code -->
     </head>
 
     <body class="fase-1" data-price-deadline="2026-08-01T05:59:59Z" data-event-start="2026-08-13T02:00:00Z">
